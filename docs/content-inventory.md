@@ -21,6 +21,8 @@ This document is the source of truth for company website content readiness. It t
 - `CONFIRMED`: Company type — Manufacturing
 - `CONFIRMED`: Business area — 금형 설계
 - `CONFIRMED`: Business area — 우레탄 성형·발포
+- `CONFIRMED`: Product design, mold design and production, and urethane molding and foaming may be linked
+- `CONFIRMED`: Current custom-shape and OEM production
 - `CONFIRMED`: The company uses urethane as one material in manufacturing.
 - `CONFIRMED`: Representative product/current display description — 퍼즐형 층간소음매트
 - `CONFIRMED`: Primary audience — 신규 거래처
@@ -43,11 +45,14 @@ This document is the source of truth for company website content readiness. It t
 | Vision | `NOT REQUIRED` | — | No approved vision; omit in v1. |
 | Mission | `NOT REQUIRED` | — | No approved mission; omit in v1. |
 | Core Values | `NOT REQUIRED` | — | No approved values; omit in v1. |
-| Manufacturing Description | `CONFIRMED` | 금형 설계 및 우레탄 성형·발포를 수행하는 제조업체 | Equipment, process detail, capability, scale, and quality remain TBD. |
+| Manufacturing Description | `CONFIRMED` | 제품 설계, 금형 설계·제작, 우레탄 성형·발포를 연계할 수 있는 제조업체 | Human-confirmed; equipment, facility ownership, scale, quality, and universal feasibility remain TBD. |
 | Urethane Material Description | `TBD` | — | Do not infer composition, properties, or benefits. |
-| Other Products | `TBD` | — | No additional product confirmed. |
-| Business Area: 금형 설계 | `CONFIRMED` | 금형 설계 | Detailed service description and scope remain TBD. |
-| Business Area: 우레탄 성형·발포 | `CONFIRMED` | 우레탄 성형·발포 | Detailed process, material, equipment, and capacity remain TBD. |
+| Other Products / Production Items | `CONFIRMED` | 스펀지, 베개, 자동차 부품 | Human-confirmed as items included in urethane molding/foaming production; no specifications or catalog status inferred. |
+| Business Area: 제품 및 금형 설계·제작 | `CONFIRMED` | 제품 설계; 고객 도면 기반 설계; 제품 아이디어의 설계 구체화; 금형 설계 및 제작 | Human-confirmed. Applies to urethane foam products and molds used for 자동차 부품 and 사무용 가구; do not infer finished office-furniture production. |
+| Business Area: 우레탄 성형·발포 | `CONFIRMED` | 스펀지, 베개, 층간소음매트, 자동차 부품의 성형·발포 | Human-confirmed. Detailed formulas, equipment, conditions, capacity, and performance remain TBD. |
+| Linked Design and Manufacturing | `CONFIRMED` | 제품 설계 → 금형 설계·제작 → 우레탄 성형·발포 | Human-confirmed available scope; not every order is required or guaranteed to use every stage. |
+| Custom-shape Production | `CONFIRMED` | 고객이 원하는 형상에 맞춘 주문 생산 | Human-confirmed; does not guarantee feasibility for every material, shape, or specification. |
+| Current OEM Production | `CONFIRMED` | 현재 OEM 생산 진행 | Human-confirmed and usable in Business copy. Does not verify volume, customers, sales results, terms, or ODM. |
 | Primary Audience | `CONFIRMED` | 신규 거래처 | Does not mean every company activity is exclusively B2B. |
 | Primary Website Goal | `CONFIRMED` | 회사 소개 | Primary product goal updated accordingly. |
 
@@ -78,20 +83,21 @@ This document is the source of truth for company website content readiness. It t
 | Purchase Method | `TBD` | — | No purchase process confirmed. |
 | Delivery Method | `TBD` | — | No delivery arrangement confirmed. |
 | MOQ | `TBD` | — | No minimum order quantity confirmed. |
-| OEM/ODM | `TBD` | — | Do not infer availability from the provided OEM sales claim. |
+| OEM | `CONFIRMED` | Current OEM production at company Business level | Human-confirmed; product-specific terms, volume, customers, and sales results remain unconfirmed. |
+| ODM | `TBD` | — | No ODM availability has been confirmed. |
 
 ## Claims Requiring Verification
 
 | Supplied information | Status | Required before publication | Publication rule |
 | --- | --- | --- | --- |
 | 층간소음매트 최초개발 | `PROVIDED` | Evidence supporting `최초`, comparison scope and date, exact approved wording | Never publish `최초` without verification. |
-| 대량 OEM 판매 업체 | `PROVIDED` | Evidence of the sales record, definition of `대량`, scope, and approved wording | Does not confirm current OEM/ODM availability or production capacity. |
+| 대량 OEM 판매 업체 | `PROVIDED` | Evidence of the historical sales record, definition of `대량`, scope, and approved wording | Separate from confirmed current OEM production; does not establish sales volume, customers, results, or production capacity. |
 | 상호 결속구조가 보강된 연결형 매트 | `PROVIDED` | Official source, exact registered/application title, number, status, ownership, approved wording | Do not state that a patent exists or is registered yet. Keep the supplied name unchanged. |
 | 워셔블 베게 특허 | `PROVIDED` | Official source, exact title, number, status, ownership, approved wording | Do not correct or reinterpret the supplied name. |
 | 기능성 바닥마감재를 구비한 퍼즐형 쿠션매트 | `PROVIDED` | Official source, exact registered/application title, number, status, ownership, approved wording | Do not connect it to the representative product without confirmation. |
 | 디자인특허증 | `PROVIDED` | Certificate/source document, official subject/title, number, status, ownership, approved wording | The supplied label alone is not a publishable patent claim. |
 
-No claim in this table is `CONFIRMED` for public UI. Do not generate patent numbers or assume registration/application status.
+No claim in this table is `CONFIRMED` for public UI. Do not generate patent numbers or assume registration/application status. The current OEM production fact is managed separately as `CONFIRMED`; it does not validate the `대량 OEM 판매 업체` claim.
 
 ## Image Assets
 
@@ -153,7 +159,7 @@ Available minimum content:
 Limitations:
 
 - No product or company images are available; use a typography-driven layout without a fake image.
-- Detailed product features, claims, certifications, patents, customers, and OEM results must be omitted.
+- Detailed product features, claims, certifications, patents, customers, and historical OEM results must be omitted.
 
 ### About
 
@@ -177,15 +183,17 @@ Available minimum content:
 - 금형 설계
 - 우레탄 성형·발포
 - Approved company one-line description
+- Human-confirmed product and mold design/production scope
+- Human-confirmed urethane molding/foaming items, custom-shape production, and current OEM production
+- Linked design-to-manufacturing capability
 
-**Readiness: `PARTIALLY READY`**
+**Readiness: `READY`**
 
-Blockers for a substantive Business page:
+Available implementation copy:
 
-- Approved description of each business area
-- Confirmed scope, process, or other publishable supporting information
+> (주)승종은 고객의 도면이나 제품 아이디어를 바탕으로 제품 설계와 금형 설계·제작을 진행하고, 우레탄 성형·발포를 통해 제품을 생산합니다.
 
-A minimal factual page can be implemented, but it must not pad the two names with invented detail.
+This is an implementation draft that summarizes human-confirmed facts, not final approved marketing copy. The page must still omit equipment, facility, capacity, performance, universal-feasibility, customer, and historical sales claims.
 
 ### Products
 
@@ -279,11 +287,10 @@ The repository now has enough confirmed information to begin a constrained, real
 #### Remaining Blockers by Feature
 
 - Image-led Home/Product presentation: representative product image and its publication approval
-- Detailed Business sections: approved area-specific descriptions
 - Detailed Products sections: specifications, features, material detail, and approved imagery
 - Careers page content: approved recruitment message and real applicant next step
 - Branded visual identity: official logo and brand colors
-- Patent/OEM/first-development sections: verification evidence and approved public wording
+- Patent, historical OEM sales, and first-development sections: verification evidence and approved public wording
 
 #### Can Be Added Later
 
@@ -291,7 +298,7 @@ The repository now has enough confirmed information to begin a constrained, real
 - Product and company image assets
 - Detailed company introduction and history
 - Vision, mission, and core values
-- Business-area descriptions and manufacturing details
+- Additional equipment, facility, capacity, and process details
 - Product specifications, features, installation, performance, and commercial details
 - Other products and broader business areas
 - Verified certifications, patents, first-development claim, and OEM sales information
@@ -301,4 +308,4 @@ Items added later must be omitted until confirmed; they must not appear as empty
 
 ## Document Alignment Note
 
-`docs/product.md` and this inventory reflect the new primary audience, phone CTA, Business page, and Careers page. `docs/design-system.md` still describes B2B/B2C priority and the final Contact CTA as TBD and does not yet account for Business or Careers in its navigation/component wording. That document requires a separate approved update before UI implementation; it was intentionally not changed in this task.
+`docs/product.md`, this inventory, and `docs/design-system.md` are aligned for TASK-005: confirmed current OEM production is permitted in factual Business content, while the historical large-volume OEM sales claim, first-development claim, and patent information remain verification-required.

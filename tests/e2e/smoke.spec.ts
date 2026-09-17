@@ -155,6 +155,54 @@ test("About presents confirmed company information and contact paths", async ({ 
   expect(pageErrors).toEqual([]);
 });
 
+test("Business presents confirmed design and manufacturing capabilities", async ({ page }) => {
+  const consoleErrors: string[] = [];
+  const pageErrors: string[] = [];
+
+  page.on("console", (message) => {
+    if (message.type() === "error") consoleErrors.push(message.text());
+  });
+  page.on("pageerror", (error) => pageErrors.push(error.message));
+
+  const response = await page.goto("/business");
+
+  expect(response?.ok()).toBe(true);
+  await expect(page.getByRole("heading", { level: 1, name: "사업 분야" })).toBeVisible();
+  await expect(
+    page.getByRole("navigation", { name: "주요 메뉴" }).getByRole("link", { name: "Business" }),
+  ).toHaveAttribute("aria-current", "page");
+
+  const main = page.getByRole("main");
+  await expect(main.getByRole("heading", { name: "제품 및 금형 설계·제작" })).toBeVisible();
+  await expect(main.getByText(/고객이 제공한 도면/)).toBeVisible();
+  await expect(main.getByText(/제품 아이디어를 설계로 구체화/)).toBeVisible();
+  await expect(main.getByRole("heading", { name: "우레탄 성형·발포" })).toBeVisible();
+  await expect(main.getByText(/원하는 형상에 맞춘 주문 생산과 OEM 생산/)).toBeVisible();
+
+  const process = main.getByRole("region", { name: "설계와 제조의 연계" });
+  await expect(process.getByText("제품 설계", { exact: true })).toBeVisible();
+  await expect(process.getByText("금형 설계·제작", { exact: true })).toBeVisible();
+  await expect(process.getByText("우레탄 성형·발포", { exact: true })).toBeVisible();
+
+  await expect(main.getByRole("link", { name: "전화 문의" })).toHaveAttribute(
+    "href",
+    "tel:031-674-3640",
+  );
+  await expect(
+    main.getByRole("link", { name: "이메일 문의 sjbjh3613@daum.net" }),
+  ).toHaveAttribute("href", "mailto:sjbjh3613@daum.net");
+  await expect(main.getByText(/최초개발|대량 OEM|특허|ODM/)).toHaveCount(0);
+  await expectNoHorizontalOverflow(page);
+
+  await main.getByRole("link", { name: "대표 제품 보기" }).click();
+  await expect(page).toHaveURL("/products");
+  await expect(page.getByRole("heading", { level: 1, name: "제품" })).toBeVisible();
+
+  await expectNoHorizontalOverflow(page);
+  expect(consoleErrors).toEqual([]);
+  expect(pageErrors).toEqual([]);
+});
+
 test("Contact prioritizes a real phone action and verified contact details", async ({ page }) => {
   const consoleErrors: string[] = [];
   const pageErrors: string[] = [];

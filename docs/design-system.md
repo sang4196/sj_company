@@ -15,6 +15,7 @@ Confirmed context is limited to the following:
 - The company operates in manufacturing.
 - The company name is `(주)승종`, founded in `2017`.
 - Its confirmed business areas are 금형 설계 and 우레탄 성형·발포.
+- Confirmed capability spans product design, mold design and production, and urethane molding and foaming; current custom-shape and OEM production may be described factually.
 - The company uses urethane as one of the materials from which it manufactures products.
 - The representative product is a puzzle-style floor noise mat (`퍼즐형 층간소음매트`).
 - The primary conversion is phone inquiry at `031-674-3640`; email is secondary.
@@ -118,7 +119,7 @@ These entries define design responsibilities only. They do not require that ever
 | Navigation | Provides access to Home, About, Business, Products, and Contact; Careers is conditional on content readiness | May change presentation on smaller screens while preserving every exposed page | Keyboard operable; visible focus; current page is conveyed accessibly; any menu control has name and state |
 | Hero / Company Statement | Communicates what kind of manufacturer the company is and establishes the page's highest information priority | Keeps the statement concise; avoids oversized text or images that push essential content too far down | Uses a logical primary heading; meaningful media has alternative text |
 | Section | Groups one coherent topic and establishes page rhythm | Changes column count according to content needs | Uses semantic regions and headings where they improve navigation and understanding |
-| Business Overview | Presents 금형 설계 and 우레탄 성형·발포 as two distinct, factual business areas | May use separate columns when content supports them and a clear sequence on smaller screens | Each area has a meaningful heading; presentation does not imply unsupported claims through icons or labels |
+| Business Overview | Presents 제품 및 금형 설계·제작 and 우레탄 성형·발포 as distinct, factual business capabilities | May use separate columns when content supports them and a clear sequence on smaller screens | Each area has a meaningful heading; presentation does not imply unsupported claims through icons or labels |
 | Product Highlight | Introduces the representative puzzle-style floor noise mat | Keeps the product identifiable and near its related action on all viewports | Product imagery uses accurate alternative text; no unsupported claim is presented visually or textually |
 | Product Information | Presents only verified product details | Converts grids or grouped details into a readable mobile sequence | Information relationships remain available without relying on position, color, or hover |
 | Company Information | Presents confirmed company details separately from product claims | Uses a readable list or definition structure when columns no longer fit | Labels and values have programmatic and visual relationships |
@@ -147,15 +148,17 @@ The puzzle-style floor noise mat is a major visual element, but its presentation
 
 ## Business Presentation
 
-The two confirmed business areas may be presented as separate information units:
+The confirmed business capabilities may be presented as two primary information units:
 
-1. 금형 설계
+1. 제품 및 금형 설계·제작
 2. 우레탄 성형·발포
 
-- Use concise typography-led presentation while area-specific descriptions are unavailable.
+- Use the human-confirmed descriptions recorded in `docs/product.md` and `docs/content-inventory.md`.
+- A concise sequence may show `제품 설계 → 금형 설계·제작 → 우레탄 성형·발포` as linked available scope, not a mandatory workflow for every order.
+- Current custom-shape and OEM production may be stated factually without implying volume, customers, results, or ODM.
 - Do not create empty feature cards to make the section appear more substantial.
 - Do not use arbitrary icons, diagrams, or badges that imply technical superiority or capability.
-- Do not write unverified advantages, service scope, process details, equipment, or production capacity.
+- Do not extend the confirmed scope into unverified advantages, equipment, facility ownership, universal feasibility, or production capacity.
 - Do not generate or source facility and process imagery as if it represents `(주)승종`.
 - Add richer presentation only after verified copy or approved real imagery is available.
 
@@ -180,7 +183,7 @@ The following provided information is verification-required and must not appear 
 - 대량 OEM 판매
 - Patent-related names or claims recorded in `docs/content-inventory.md`
 
-Do not represent these items through badges, trust indicators, statistics, certification cards, patent cards, icons, timelines, or indirect visual implications. They may enter the design system only after their evidence and exact public wording are approved.
+Do not represent these items through badges, trust indicators, statistics, certification cards, patent cards, icons, timelines, or indirect visual implications. They may enter the design system only after their evidence and exact public wording are approved. This restriction applies to the unverified large-volume sales claim, not to the separately human-confirmed fact that the company currently performs OEM production.
 
 ## Image Strategy
 
@@ -295,7 +298,7 @@ Careers belongs to the v1 product page list but its content readiness is `BLOCKE
 - Product image assets
 - Company image assets
 - Final UI wording for the phone CTA
-- Detailed copy for 금형 설계 and 우레탄 성형·발포
+- Final marketing-copy approval for the confirmed Business descriptions
 - Careers content and navigation activation
 - Detailed accessibility target
 - Supported browser range

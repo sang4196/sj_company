@@ -1,4 +1,4 @@
-# TASK-004: Contact Page Information Architecture
+# TASK-005: Business Page & Confirmed Manufacturing Capabilities
 
 ## Status
 
@@ -6,41 +6,39 @@ Complete
 
 ## Context
 
-Complete a factual Contact page so new business contacts can call or email `(주)승종` using verified contact information. Phone inquiry is the primary conversion.
+Synchronize newly human-confirmed manufacturing capabilities and implement a factual Business page for new business contacts. Current OEM production is publishable; historical large-volume OEM sales remain verification-required.
 
 ## Scope
 
-- Clear Contact page introduction
-- Primary phone contact with a real `tel:` action
-- Secondary email contact with a real `mailto:` action
-- Confirmed company address
-- Responsive, semantic, accessible information hierarchy
-- Focused page and E2E coverage
+- Update product, content inventory, and design-system constraints for confirmed business capabilities
+- Present product design, mold design and production, and urethane molding and foaming
+- Explain customer drawing and product-idea inputs
+- Present linked design-to-manufacturing capability without implying a mandatory process
+- Present custom-shape production and current OEM production
+- Connect the representative product and verified contact paths
+- Add focused page and Desktop/Mobile E2E coverage
 
 ## Out of Scope
 
-- Changes to Home, About, Business, Products, or Careers
-- Contact form, backend, database, or email sending
-- Map, iframe, external map service, SDK, or dependency
-- Business hours, visit guidance, representative, department, staff, fax, SNS, or chat channel
-- Logo, brand colors, animation, and new dependencies
-- Fabricated company or contact information
+- Detailed UI changes to Home, About, Products, Contact, or Careers
+- First-development, large-volume sales, customer, patent, certification, performance, quality, safety, environmental, capacity, or facility claims
+- ODM, price, MOQ, delivery, or unconditional manufacturing guarantees
+- Product catalog expansion, images, form, backend, database, map, or animation
+- Brand colors, fonts, logo, dependencies, or unnecessary client-side code
 
 ## Acceptance Criteria
 
-- [x] Contact uses only confirmed contact information.
-- [x] `(주)승종` and `031-674-3640` are visible.
-- [x] Phone is the primary contact and links to `tel:031-674-3640`.
-- [x] Email is visually secondary and links to `mailto:sjbjh3613@daum.net`.
-- [x] The confirmed address is visible.
-- [x] No contact form, map, iframe, or external map dependency is added.
-- [x] No unconfirmed hours, person, department, visit, fax, SNS, or chat information is shown.
-- [x] Phone contact is easy to use on mobile and clear on desktop.
-- [x] Long email and address content do not cause horizontal overflow.
-- [x] Phone and email links are keyboard accessible with visible focus.
-- [x] Relevant tests pass.
-- [x] Desktop Chromium E2E passes.
-- [x] Mobile Chromium E2E passes.
+- [x] Documentation matches the newly confirmed business information.
+- [x] Current OEM production is distinct from the unverified historical large-volume OEM sales claim.
+- [x] Visitors can understand the product and mold design and production scope.
+- [x] Visitors can understand urethane molding and foaming, custom-shape production, and current OEM production.
+- [x] The page communicates that design and manufacturing may be linked.
+- [x] The page does not guarantee that every specification or order can be produced.
+- [x] No unverified performance, patent, capacity, customer, or sales claim is introduced.
+- [x] Verified phone and email contact paths are provided.
+- [x] Other page content is not changed unintentionally.
+- [x] Desktop and mobile reading order and links are usable.
+- [x] Relevant tests and existing regression tests pass.
 - [x] `npm run verify` passes.
 
 ## Validation
@@ -53,7 +51,7 @@ Complete a factual Contact page so new business contacts can call or email `(주
 
 ## Notes
 
-- Keep Contact as a Server Component.
-- Reuse contact values from `src/lib/site.ts`.
-- Do not extract a generic contact component solely from similar page markup.
-- Desktop and mobile layouts were visually reviewed after the automated checks.
+- Keep Business as a Server Component.
+- Reuse contact values from `src/lib/site.ts` without changing shared company copy.
+- Treat the provided Business copy as an implementation draft based on confirmed facts, not final marketing-copy approval.
+- Business production screenshots and Home desktop/mobile regression screenshots were reviewed.

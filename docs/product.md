@@ -19,7 +19,7 @@ This document records confirmed information, provisional product decisions, and 
 
 The company as a whole must not be described as exclusively B2B. A finalized vision, mission, core values, and broader business information have not been provided.
 
-Claims about environmental benefits, premium positioning, quality or technical superiority, industry leadership, product performance or safety, certifications, patents, proprietary technology, production facilities or capacity, customers, deliveries, exports, and OEM results must not be published without verified source material and approved wording.
+Claims about environmental benefits, premium positioning, quality or technical superiority, industry leadership, product performance or safety, certifications, patents, proprietary technology, production facilities or capacity, customers, deliveries, exports, and historical OEM results must not be published without verified source material and approved wording. Current OEM production is human-confirmed and may be described within the Business scope below; it does not verify any sales volume or historical performance claim.
 
 ## Approved Copy
 
@@ -92,12 +92,29 @@ Potential sections such as history details, vision, mission, core values, facili
 
 ### Business
 
-The v1 Business page covers only:
+The v1 Business page covers these connected areas:
 
-1. 금형 설계
-2. 우레탄 성형·발포
+1. 제품 설계
+2. 금형 설계·제작
+3. 우레탄 성형·발포
 
-Detailed equipment, processes, technical capability, production capacity, material composition, and service range are TBD. Do not infer descriptions for either business area beyond the confirmed names and approved company sentence.
+**Human-confirmed capabilities:**
+
+- Mold design and production for urethane foam products including 인테그랄 스킨 폼 and 층간소음매트
+- Mold design for applications including 자동차 부품 and 사무용 가구
+- Design based on customer-provided drawings
+- Converting a customer's product idea into a product design
+- Work spanning product design, mold design and production, and urethane molding and foaming
+- Urethane molding and foaming of 스펀지, 베개, 층간소음매트, and 자동차 부품
+- Production shaped to customer requirements
+- Current OEM production
+- Production of the representative 퍼즐형 층간소음매트 through urethane molding and foaming
+
+The design and manufacturing stages may be linked, but this does not mean every order must follow every stage. 사무용 가구 is a confirmed mold-design application; do not describe the company as manufacturing or selling finished office furniture. Detailed equipment, formulas, working conditions, facility ownership, production capacity, price, MOQ, lead time, and universal feasibility remain TBD. ODM availability is not confirmed.
+
+The following implementation draft may be used for the Business page because it summarizes the confirmed facts. It is not recorded as final approved marketing copy:
+
+> (주)승종은 고객의 도면이나 제품 아이디어를 바탕으로 제품 설계와 금형 설계·제작을 진행하고, 우레탄 성형·발포를 통해 제품을 생산합니다.
 
 ### Products
 
@@ -127,7 +144,8 @@ Product information requiring verified material:
 - Intended users or environments: TBD
 - Price and purchase method: TBD
 - Delivery method and minimum order quantity: TBD
-- OEM/ODM availability: TBD
+- OEM production: Confirmed at company Business level; product-specific commercial conditions remain TBD
+- ODM availability: TBD
 
 Do not infer product advantages, effectiveness, safety, or specifications.
 
@@ -152,7 +170,7 @@ The following wording was provided by a human but is not approved for immediate 
 
 > 층간소음매트 최초개발 대량 OEM 판매 업체
 
-Verification and approved public wording are required because it contains a “first developed” claim and a large-volume OEM sales claim. In particular, `최초` must not be published without supporting evidence.
+Verification and approved public wording are required because it contains a “first developed” claim and a large-volume OEM sales claim. In particular, `최초` and `대량` must not be published without supporting evidence. This unverified historical sales claim is separate from the confirmed fact that the company currently performs OEM production.
 
 The following patent-related names were provided but remain unverified:
 
@@ -204,7 +222,7 @@ Do not state that a patent is registered or valid based on this list alone. Exac
    - Primary: 전화 문의 (`031-674-3640`)
    - Secondary: 이메일 (`sjbjh3613@daum.net`)
 
-Do not create sections for certifications, customers, production volume, technical performance figures, OEM results, first-development claims, or patents until verification and publication approval are complete.
+Do not create sections for certifications, customers, production volume, technical performance figures, historical OEM results, first-development claims, or patents until verification and publication approval are complete. Current OEM production may be stated without implying scale or results.
 
 ## In Scope
 
@@ -233,7 +251,7 @@ Do not create sections for certifications, customers, production volume, technic
 - Multiple languages
 - Recruitment system
 - Blog and news
-- Unverified certification, patent, performance, customer, production, OEM, or first-development claims
+- Unverified certification, patent, performance, customer, production-scale, historical OEM-result, or first-development claims
 
 ## Non-functional Requirements
 
@@ -289,7 +307,6 @@ Do not create sections for certifications, customers, production volume, technic
 - Detailed company history
 - Vision, mission, and core values
 - Company logo and brand colors
-- Detailed descriptions of each confirmed business area
 - Publishable manufacturing facility, process, capacity, and technology information
 - Detailed urethane material description
 - Other products and broader business areas
@@ -298,7 +315,7 @@ Do not create sections for certifications, customers, production volume, technic
 - Approved product features and performance information
 - Approved product and company images
 - Price, purchase method, delivery method, and minimum order quantity
-- OEM/ODM availability
+- Product-specific OEM terms and ODM availability
 - Verified evidence and approved wording for the first-development and large-volume OEM sales claims
 - Official patent titles, numbers, status, ownership, evidence, and approved public wording
 - Actual recruitment content for Careers
