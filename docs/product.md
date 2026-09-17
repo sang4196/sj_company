@@ -127,6 +127,11 @@ Confirmed facts:
 - It is a puzzle-style product.
 - Its product category and intended use are a floor noise mat.
 - It is the company's representative product.
+- It is produced through urethane molding and foaming.
+
+The following implementation draft may be used for the minimal Products page because it summarizes confirmed facts. It is not recorded as final approved marketing copy:
+
+> 퍼즐형 층간소음매트는 (주)승종의 대표 제품으로, 우레탄 성형·발포 공정으로 생산합니다.
 
 Product information requiring verified material:
 

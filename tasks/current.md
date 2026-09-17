@@ -1,4 +1,4 @@
-# TASK-005: Business Page & Confirmed Manufacturing Capabilities
+# TASK-006: Representative Product Page
 
 ## Status
 
@@ -6,38 +6,35 @@ Complete
 
 ## Context
 
-Synchronize newly human-confirmed manufacturing capabilities and implement a factual Business page for new business contacts. Current OEM production is publishable; historical large-volume OEM sales remain verification-required.
+Replace the Products skeleton with a minimal factual introduction to the representative puzzle-style floor noise mat and verified contact paths.
 
 ## Scope
 
-- Update product, content inventory, and design-system constraints for confirmed business capabilities
-- Present product design, mold design and production, and urethane molding and foaming
-- Explain customer drawing and product-idea inputs
-- Present linked design-to-manufacturing capability without implying a mandatory process
-- Present custom-shape production and current OEM production
-- Connect the representative product and verified contact paths
+- Present the representative product name and implementation copy based on confirmed facts
+- Present the confirmed puzzle form, product category, and urethane molding/foaming production method
+- Link to Business without duplicating its manufacturing explanation
+- Provide primary phone and secondary email contact paths
+- Update only product documentation readiness affected by this implementation
 - Add focused page and Desktop/Mobile E2E coverage
 
 ## Out of Scope
 
-- Detailed UI changes to Home, About, Products, Contact, or Careers
-- First-development, large-volume sales, customer, patent, certification, performance, quality, safety, environmental, capacity, or facility claims
-- ODM, price, MOQ, delivery, or unconditional manufacturing guarantees
-- Product catalog expansion, images, form, backend, database, map, or animation
-- Brand colors, fonts, logo, dependencies, or unnecessary client-side code
+- Product images, image placeholders, specifications, dimensions, thickness, colors, or material composition
+- Performance, safety, environmental, installation, cleaning, certification, patent, first-development, or sales claims
+- Price, MOQ, lead time, stock, ordering, purchasing, product-specific OEM terms, or ODM
+- Product detail routes, catalog expansion, form, backend, database, or new dependencies
+- Detailed UI changes to Home, About, Business, Contact, or Careers
 
 ## Acceptance Criteria
 
-- [x] Documentation matches the newly confirmed business information.
-- [x] Current OEM production is distinct from the unverified historical large-volume OEM sales claim.
-- [x] Visitors can understand the product and mold design and production scope.
-- [x] Visitors can understand urethane molding and foaming, custom-shape production, and current OEM production.
-- [x] The page communicates that design and manufacturing may be linked.
-- [x] The page does not guarantee that every specification or order can be produced.
-- [x] No unverified performance, patent, capacity, customer, or sales claim is introduced.
-- [x] Verified phone and email contact paths are provided.
-- [x] Other page content is not changed unintentionally.
-- [x] Desktop and mobile reading order and links are usable.
+- [x] Products has a clear page heading and representative product name.
+- [x] The confirmed product introduction and production method are visible.
+- [x] Puzzle form and floor-noise-mat category are presented without performance claims.
+- [x] Business responsibilities are not duplicated; the Business link uses `/business`.
+- [x] Phone and email links use the verified destinations.
+- [x] No fake image, form, purchase function, or unconfirmed product claim is introduced.
+- [x] Desktop and mobile information order, links, and overflow behavior are verified.
+- [x] Existing Business OEM content and regression tests remain valid.
 - [x] Relevant tests and existing regression tests pass.
 - [x] `npm run verify` passes.
 
@@ -51,7 +48,7 @@ Synchronize newly human-confirmed manufacturing capabilities and implement a fac
 
 ## Notes
 
-- Keep Business as a Server Component.
-- Reuse contact values from `src/lib/site.ts` without changing shared company copy.
-- Treat the provided Business copy as an implementation draft based on confirmed facts, not final marketing-copy approval.
-- Business production screenshots and Home desktop/mobile regression screenshots were reviewed.
+- Keep Products as a Server Component.
+- Reuse contact values from `src/lib/site.ts`.
+- Treat the product introduction as implementation copy based on confirmed facts, not final marketing-copy approval.
+- Production screenshots were reviewed at desktop and mobile sizes.

@@ -203,6 +203,54 @@ test("Business presents confirmed design and manufacturing capabilities", async 
   expect(pageErrors).toEqual([]);
 });
 
+test("Products presents the confirmed representative product and contact paths", async ({ page }) => {
+  const consoleErrors: string[] = [];
+  const pageErrors: string[] = [];
+
+  page.on("console", (message) => {
+    if (message.type() === "error") consoleErrors.push(message.text());
+  });
+  page.on("pageerror", (error) => pageErrors.push(error.message));
+
+  const response = await page.goto("/products");
+
+  expect(response?.ok()).toBe(true);
+  await expect(page.getByRole("heading", { level: 1, name: "제품" })).toBeVisible();
+  await expect(
+    page.getByRole("navigation", { name: "주요 메뉴" }).getByRole("link", { name: "Products" }),
+  ).toHaveAttribute("aria-current", "page");
+
+  const main = page.getByRole("main");
+  await expect(main.getByRole("heading", { name: "퍼즐형 층간소음매트" })).toBeVisible();
+  await expect(
+    main.getByText(/퍼즐형 층간소음매트는 \(주\)승종의 대표 제품으로/),
+  ).toBeVisible();
+
+  const information = main.getByRole("region", { name: "확인된 제품 정보" });
+  await expect(information.getByText("퍼즐 형태")).toBeVisible();
+  await expect(information.getByText("층간소음매트")).toBeVisible();
+  await expect(information.getByText("우레탄 성형·발포")).toBeVisible();
+
+  await expect(main.getByRole("link", { name: "전화 문의" })).toHaveAttribute(
+    "href",
+    "tel:031-674-3640",
+  );
+  await expect(
+    main.getByRole("link", { name: "이메일 문의 sjbjh3613@daum.net" }),
+  ).toHaveAttribute("href", "mailto:sjbjh3613@daum.net");
+  await expect(main.locator("img, form")).toHaveCount(0);
+  await expect(main.getByText(/소음 감소|안전성|친환경|최초개발|대량 OEM|특허/)).toHaveCount(0);
+  await expectNoHorizontalOverflow(page);
+
+  await main.getByRole("link", { name: "설계·제조 사업 보기" }).click();
+  await expect(page).toHaveURL("/business");
+  await expect(page.getByRole("heading", { level: 1, name: "사업 분야" })).toBeVisible();
+  await expectNoHorizontalOverflow(page);
+
+  expect(consoleErrors).toEqual([]);
+  expect(pageErrors).toEqual([]);
+});
+
 test("Contact prioritizes a real phone action and verified contact details", async ({ page }) => {
   const consoleErrors: string[] = [];
   const pageErrors: string[] = [];

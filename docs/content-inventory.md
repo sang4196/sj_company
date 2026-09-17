@@ -66,6 +66,7 @@ This document is the source of truth for company website content readiness. It t
 | Separate Official Product Name | `TBD` | — | Whether a distinct commercial name exists is unknown. |
 | Product Category | `CONFIRMED` | 층간소음매트 | Do not infer performance from the category name. |
 | Product Summary | `CONFIRMED` | 회사의 대표 제품인 퍼즐형 층간소음매트 | Limited factual description only; not marketing copy. |
+| Production Method | `CONFIRMED` | 우레탄 성형·발포 공정 | Human-confirmed for this representative product; do not infer formula, equipment, conditions, performance, or detailed material composition. |
 | Material | `TBD` | — | The company's urethane work does not establish this product's detailed composition. |
 | Dimensions | `TBD` | — | No specification provided. |
 | Thickness | `TBD` | — | No specification provided. |
@@ -201,8 +202,18 @@ Available minimum content:
 
 - Current display name/description: 퍼즐형 층간소음매트
 - Confirmed category, puzzle form, intended product category, and representative status
+- Confirmed production method: 우레탄 성형·발포 공정
+- Verified phone and email contact paths
 
-**Readiness: `PARTIALLY READY`**
+**Minimum factual v1 page readiness: `READY`**
+
+Implementation copy:
+
+> 퍼즐형 층간소음매트는 (주)승종의 대표 제품으로, 우레탄 성형·발포 공정으로 생산합니다.
+
+This is an implementation draft based on confirmed facts, not final approved marketing copy.
+
+**Image-led or detailed product-page readiness: `PARTIALLY READY`**
 
 Blockers for image-led or detailed product UI:
 
@@ -210,7 +221,7 @@ Blockers for image-led or detailed product UI:
 - Detailed product copy and specifications
 - Separate official product name decision, if one exists
 
-A minimal text-based page is possible. Empty feature, performance, certification, or patent sections are not.
+A minimal text-based page may be implemented. Empty feature, performance, certification, or patent sections are not permitted.
 
 ### Careers
 
@@ -308,4 +319,4 @@ Items added later must be omitted until confirmed; they must not appear as empty
 
 ## Document Alignment Note
 
-`docs/product.md`, this inventory, and `docs/design-system.md` are aligned for TASK-005: confirmed current OEM production is permitted in factual Business content, while the historical large-volume OEM sales claim, first-development claim, and patent information remain verification-required.
+`docs/product.md`, this inventory, and `docs/design-system.md` are aligned for the implemented Business and minimum factual Products pages. Confirmed current OEM production remains Business-level content; product-specific OEM terms, the historical large-volume OEM sales claim, first-development claim, and patent information remain unconfirmed or verification-required.
