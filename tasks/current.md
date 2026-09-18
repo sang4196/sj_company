@@ -1,3 +1,34 @@
+# TASK-020: Production Site Audit and Minimal Corrections
+
+## Authorization and plan
+
+User confirms Vercel deployment and domain connection already complete; supplied public URL http://www.seungjong.co.kr. Presented TASK-018 screen remains approved; actual company exterior photo is deferred. Initial tree clean at e79c7ac (TASK-019); do not repeat that implementation. Read-only production inspection and necessary repository fixes/local verification authorized. No DNS, domain, Vercel setting, deployment, Git or other external writes.
+
+- [x] Observe HTTP/HTTPS and www/apex redirect chains, final host and TLS responses with timestamps.
+- [x] Inspect five public routes,404,assets/logo,links/contact, metadata/canonical/robots/sitemap/indexing responses. Separate observations from unknown policy.
+- [x] Check320/390/768/1280 views, keyboard/skip-link/mobile menus and responsive focus; preserve approval/data/branding.
+- [x] Compare public deployment with current main using available build/source/provider evidence and report limitations/automatic-deployment implications.
+- [x] Apply only proven repository defects if found; no speculative canonical host, search policy, images or numeric facts. Run meaningful affected checks and complete npm run verify.
+- [x] Update confirmed hosting/domain records; write /tmp/sj-company-task020-dev-report.txt with evidence, decisions, screenshots, validation/status. Preserve servers and await Git handoff.
+
+## Status
+
+Read-only production audit and full local verification complete. No proven implementation defect found; documentation-only update. Await Git handoff without further edits.
+
+
+## Results and validation
+
+- Live final URL: https://www.seungjong.co.kr/. HTTP→HTTPS and apex→www308 redirects observed. Five active routes200, expected404 recovery, referenced assets/logo200. Full timestamped evidence and policy separation: [production audit](../docs/production-audit.md).
+- GitHub Vercel Production success for exact current-main e79c7acc5098860fe32a645e9b00933dbab8da50, five pages' Header/main/Footer HTML identical to local current build, and matching navigation JS bytes establish current-main content/behavior evidence. Public custom-domain responses do not expose authoritative commit attestation. Integration is confirmed; exact private automatic-trigger settings uninspected. Future main pushes may deploy production, even for docs-only changes.
+- All24 live views (five routes+404 at320/390/768/1280) directly inspected. No text/table/document overflow or unexpected browser/resource errors. Skip-link/main/next Tab, phone/email hrefs, mobile flow expansion/Escape/focus restoration/route-close, and live800→767→768 focus transition pass.
+- Canonical and active-page robots tags absent; robots.txt/sitemap.xml404; no X-Robots-Tag observed. Search policy/indexing state and sitemap/canonical additions remain decisions, not guessed changes. favicon.ico404 is unreferenced; optional approved favicon remains separate. No source/test/dependency/asset/SEO-policy changes.
+- Fresh npm run verify passed lint, strict typecheck,9 unit/component tests, build and56 E2E. No pipeline failures or skipped/deleted tests. Existing non-failing jsdom/NO_COLOR warnings retained. Initial live probe checked a lazy Footer image too early; waiting for its viewport-triggered load resolved the probe issue without product changes.
+- Evidence/screenshots/logs: `/home/shlee/Workspace/ai/01.codex/task-020-review/`; exact paths and provenance in `/tmp/sj-company-task020-dev-report.txt`. Screenshots `live-{home,about,business,products,contact,task-020-missing}-{320,390,768,1280}.png`; final log `verify.log`.
+- Presented TASK-018 screen approval and deferred real exterior photo preserved; no inferred blanket internal-page approval, new facts or resolved evidence gaps. Existing servers preserved; Playwright owns3100 with reuse disabled and cleaned up. No new preview needed; use actual public URL. No external writes, staging, commit, push, redeployment or provider/DNS changes.
+- Diff: README, architecture/product hosting records, new production-audit document and task/backlog only. Suggested commit: `docs: record production deployment audit and hosting status`.
+
+---
+
 # TASK-019: Responsive Navigation Focus Reliability
 
 ## Authorization and plan

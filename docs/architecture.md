@@ -42,3 +42,7 @@ Backend, database, API, and state-management architecture are TBD and must not b
 ## Responsive navigation focus — TASK-019
 
 The existing navigation Client Component handles both breakpoint change and focusout from a newly hidden navigation control. Chromium can clear activeElement before dispatching matchMedia change; the focusout target preserves the identity of that disappearing control. Restoration is limited to a hidden navigation control, a null relatedTarget, an active document and the corresponding opposite breakpoint. It does not retain the last focused link or override an explicit focus destination. Both event listeners are removed on cleanup. Server Component boundaries and rendered markup are unchanged.
+
+## Confirmed production hosting — TASK-020
+
+Vercel serves the connected domain; HTTP upgrades to HTTPS and apex redirects to the observed final host https://www.seungjong.co.kr/. GitHub records Vercel Production success for current main e79c7ac. Future main pushes may trigger production deployment, including documentation-only changes; exact private trigger/ignore settings were not inspected. See [production audit](production-audit.md) for public evidence and remaining policy decisions.

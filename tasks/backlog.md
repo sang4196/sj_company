@@ -1,5 +1,7 @@
 # Backlog
 
+- TASK-020 Production audit: complete; observed final URL https://www.seungjong.co.kr/ on Vercel, current-main deployment evidence and24 live views verified; full unit9/E2E56 passed. Documentation-only changes. Explicit search/sitemap/canonical decisions remain open; main pushes may deploy production. See docs/production-audit.md.
+
 - TASK-019 Responsive Navigation Focus Reliability: confirmed CSS blur-before-media race corrected; bounded24-case probe passes and full verification unit9/E2E56 passed. Approved TASK-018 screen preserved.
 
 - TASK-018 Home density and Footer: implementation and local verification complete; P2 telephone accessible-name correction reverified (unit9/E2E54), explicitly authorized in the design review; user approved the presented TASK-018 Home/Footer screen on2026-09-19. This does not approve every historical internal view or deployment. See tasks/current.md.

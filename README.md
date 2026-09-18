@@ -27,3 +27,7 @@ Company website project prepared with a minimal Codex development harness.
 - Installed Next.js 16.3.4 isolates development output in `.next/dev` and production output in `.next` by default. No additional `isolatedDevBuild` setting is needed; do not delete the running development server's output.
 
 Confirmed product requirements and remaining decisions are recorded in `docs/product.md`.
+
+## Production
+
+The live site is [www.seungjong.co.kr](https://www.seungjong.co.kr/), hosted on Vercel. HTTP and apex addresses redirect there. See [production audit](docs/production-audit.md) for observed deployment/version evidence and remaining search-policy decisions. GitHub/Vercel Production integration is active; a main push may deploy the site, even when only documentation changes.
