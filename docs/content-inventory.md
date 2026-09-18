@@ -18,6 +18,14 @@ This document is the source of truth for company website content readiness. It t
 
 See [Brand and IP evidence](brand-ip-evidence.md) for the page-by-page certificate register, source hashes, duplicates, and missing holder evidence. Certificate facts are verified against supplied scans; current registry status and public UI wording are not approved by this intake. Two patents and six designs explicitly name 주식회사 승종; one patent and four designs need holder details.
 
+## TASK-016 About Implementation Scope
+
+The user-authorized next task permits a minimal factual About list for the two patents and six designs whose supplied certificates explicitly name 주식회사 승종. Exact names, numbers, dates, and related-design references are bounded to the evidence register. Implementation copy:
+
+> 제공된 등록증에 주식회사 승종이 권리자로 기재된 특허·디자인의 등록 정보입니다. 현재 권리의 유효 여부를 나타내지는 않습니다.
+
+User visual approval: **미확인**. This is not approval of current ownership/validity, product linkage, performance, safety, exclusivity, the entire site, or deployment. P3 and four missing-holder designs remain unresolved and excluded. Personal details and original PDFs are not published.
+
 ## Current Known Information
 
 - `CONFIRMED`: Official and website display name — `(주)승종`
@@ -83,7 +91,7 @@ See [Brand and IP evidence](brand-ip-evidence.md) for the page-by-page certifica
 | Noise Reduction Data | `NOT REQUIRED` | — | No verified data supplied. |
 | Test Results | `NOT REQUIRED` | — | No verified results supplied. |
 | Certifications | `NOT REQUIRED` | — | No certification evidence supplied. |
-| Patents | `PROVIDED` | See Claims Requiring Verification | Five supplied PDFs inspected; exact certificate fields are recorded in brand-ip-evidence.md. Holder evidence is incomplete for some records; public wording remains pending. |
+| Patents | `PROVIDED` | See Claims Requiring Verification | Five supplied PDFs inspected; exact certificate fields are recorded in brand-ip-evidence.md. Holder evidence is incomplete for some records; TASK-016 permits only the bounded company About list, not representative-product linkage. |
 | Price | `TBD` | — | No pricing information provided. |
 | Purchase Method | `TBD` | — | No purchase process confirmed. |
 | Delivery Method | `TBD` | — | No delivery arrangement confirmed. |
@@ -98,11 +106,11 @@ See [Brand and IP evidence](brand-ip-evidence.md) for the page-by-page certifica
 | 층간소음매트 최초개발 | `PROVIDED` | Evidence supporting `최초`, comparison scope and date, exact approved wording | Never publish `최초` without verification. |
 | 대량 OEM 판매 업체 | `PROVIDED` | Evidence of the historical sales record, definition of `대량`, scope, and approved wording | Separate from confirmed current OEM production; does not establish sales volume, customers, results, or production capacity. |
 | 상호 결속구조가 보강된 연결형 매트 | `PROVIDED` | Official source, exact registered/application title, number, status, ownership, approved wording | Do not state that a patent exists or is registered yet. Keep the supplied name unchanged. |
-| 워셔블 베개 (previous supplied wording: 워셔블 베게 특허) | `PROVIDED` — certificate verified | 제10-1992471호, 2019-06-18, certificate holder 주식회사 승종; see evidence register | Public wording pending; no current-validity or performance claim. |
-| 기능성 바닥마감재를 구비한 퍼즐형 쿠션매트 | `PROVIDED` — certificate verified | 제10-2436238호, 2022-08-22, certificate holder 주식회사 승종; see evidence register | Public wording and representative-product linkage pending. |
-| 디자인등록증 (previous supplied label: 디자인특허증) | `PROVIDED` — scans inspected | Ten distinct designs; six name the company, four omit holder details; see evidence register | Designs are distinct from patents; public wording pending. |
+| 워셔블 베개 (previous supplied wording: 워셔블 베게 특허) | `PROVIDED` — certificate verified | 제10-1992471호, 2019-06-18, certificate holder 주식회사 승종; see evidence register | TASK-016 About certificate fact permitted; no current-validity or performance claim. |
+| 기능성 바닥마감재를 구비한 퍼즐형 쿠션매트 | `PROVIDED` — certificate verified | 제10-2436238호, 2022-08-22, certificate holder 주식회사 승종; see evidence register | TASK-016 About certificate fact permitted; representative-product linkage remains pending. |
+| 디자인등록증 (previous supplied label: 디자인특허증) | `PROVIDED` — scans inspected | Ten distinct designs; six name the company, four omit holder details; see evidence register | TASK-016 About list permits only six with company-holder evidence. The other four remain excluded; designs are distinct from patents. |
 
-No claim in this table is `CONFIRMED` for public UI. Do not generate patent numbers or assume registration/application status. The current OEM production fact is managed separately as `CONFIRMED`; it does not validate the `대량 OEM 판매 업체` claim.
+Only the bounded certificate facts identified above are authorized for the TASK-016 About UI; expanded claims remain unconfirmed. Do not generate patent numbers or assume registration/application status. The current OEM production fact is managed separately as `CONFIRMED`; it does not validate the `대량 OEM 판매 업체` claim.
 
 ## Image Assets
 
@@ -174,6 +182,7 @@ Available minimum content:
 - Manufacturing company type
 - Founding year and address
 - Confirmed business area names
+- TASK-016 supplied-certificate list: two patents and six designs with explicit company holder; exact fields and relationships per evidence register
 
 **Readiness: `READY`**
 
@@ -305,7 +314,7 @@ The repository now has enough confirmed information to begin a constrained, real
 - Detailed Products sections: specifications, features, material detail, and approved imagery
 - Careers page content: approved recruitment message and real applicant next step
 - Branded visual identity: logo ready; Header layout approval and wider brand color decisions pending
-- Patent, historical OEM sales, and first-development sections: verification evidence and approved public wording
+- Broader IP claims or missing-holder records, historical OEM sales, and first-development sections: further evidence and approved wording; the bounded TASK-016 About certificate list is implemented
 
 #### Can Be Added Later
 
@@ -323,8 +332,12 @@ Items added later must be omitted until confirmed; they must not appear as empty
 
 ## Document Alignment Note
 
-`docs/product.md`, this inventory, and `docs/design-system.md` are aligned for the implemented Business and minimum factual Products pages. Confirmed current OEM production remains Business-level content; product-specific OEM terms, the historical large-volume OEM sales claim, and first-development claim remain unconfirmed or verification-required. Patent/design certificate fields are now recorded in `brand-ip-evidence.md`; incomplete holder evidence, current registry status, and public wording remain distinct pending items.
+`docs/product.md`, this inventory, and `docs/design-system.md` are aligned for the implemented Business and minimum factual Products pages. Confirmed current OEM production remains Business-level content; product-specific OEM terms, the historical large-volume OEM sales claim, and first-development claim remain unconfirmed or verification-required. Patent/design certificate fields are now recorded in `brand-ip-evidence.md`; TASK-016 implements only the authorized About certificate facts. Incomplete holder evidence, current registry status, product linkage, broader wording, and user visual approval remain distinct pending items.
 
 ## Product illustration permission — 2026-09-18
 
 The supplied handoff authorizes an independently made puzzle-mat example clearly labeled `제품 형태 예시 이미지`; it must not copy competitor assets or claim exact product appearance or performance. Confirm actual width, length, thickness, and size variants before dimension UI. Real company exterior photography is still required for the planned Home Hero.
+
+## Design refresh copy — 2026-09-18
+
+Home adds the editorial line `제품의 시작부터, 설계와 제조를 잇다.` with the factual scope 제품 설계 / 금형 설계·제작 / 우레탄 성형·발포. Business cards summarize the already confirmed design, custom-shape, and OEM production scope. No new performance, ownership, capacity, or product claims are added. Copy and visual treatment are implemented for review; final user approval remains unconfirmed.

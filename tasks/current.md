@@ -1,3 +1,101 @@
+# DESIGN-REFRESH: Company Website Visual Review
+
+## Status
+
+Implementation and local validation complete. User requested a design review and visual improvement. This new request authorizes Home and shared visual styling beyond the earlier TASK-016 scope; preserve its existing registration content and evidence. Final user visual approval remains unconfirmed.
+
+## Plan and Acceptance Criteria
+
+- [x] Replace the sparse Home introduction with a clear typographic company statement and factual business scope; retain the five-section information order.
+- [x] Establish coherent navy/ivory colors, heading weights, section spacing, product emphasis, and contact actions across all routes. Preserve the official logo and confirmed facts.
+- [x] Preserve navigation, keyboard focus, phone/email links and all certificate records; add no dependencies or unverified imagery/claims.
+- [x] Directly review desktop/mobile screenshots and check 320/390/768/1280px for overflow.
+- [x] Run full `npm run verify`, record results and Git diff. No commit/push/deployment.
+
+## Initial Findings
+
+Existing uncommitted TASK-016 files are preserved. Port 3000 serves stale build asset references (unstyled page); no user-owned server is restarted. A separate agent-owned preview is used on 3101. Port 3100 was initially occupied by another verification process and subsequently became free without intervention.
+
+
+## Validation and Review
+
+- Final `npm run verify` passed: lint, strict TypeScript checking, 8 unit/component tests, production build, 36 Desktop/Mobile Chromium E2E tests. All existing tests retained. Earlier full run also passed before the final Business wrapping and Contact spacing/button refinements.
+- Existing non-failing jsdom navigation and NO_COLOR/FORCE_COLOR warnings remain. No hidden failures or skipped checks.
+- Directly reviewed Home at 320/390/768/1280px and every internal page at 390/1280px. Browser measurements at all four widths on all five routes found no horizontal overflow or clipped headings/body/link/detail text. Rechecked Business/Contact after final CSS refinements.
+- Before screenshots: `/home/shlee/Workspace/ai/01.codex/design-review/styled-before-390.png` and `/home/shlee/Workspace/ai/01.codex/design-review/styled-before-1280.png`. The separate `before-*.png` files document the stale, unstyled port-3000 preview.
+- After screenshots: `/home/shlee/Workspace/ai/01.codex/design-review/after-{home,about,business,products,contact}-{320,390,768,1280}.png`. Final first-screen image: `/home/shlee/Workspace/ai/01.codex/design-review/home-preview.png`.
+- Verification log: `/home/shlee/Workspace/ai/01.codex/design-review/verify.log`.
+- Agent-owned final production preview remains on `http://127.0.0.1:3101`. Existing servers on 3000/3001 were not stopped/restarted; their running production instances may reference old build assets. Use 3101 for this review. Playwright manages its own 3100 server.
+- Changes for this request: Home JSX, shared CSS, design/product/content documentation and task records. Existing TASK-016 About implementation/tests/evidence preserved. No dependency, client-state, official-logo, Git staging/commit/push, or deployment changes. User visual approval remains unconfirmed.
+- Suggested commit message for this design work: `style: refresh company website visual hierarchy`.
+
+---
+
+# TASK-016: About Patent and Design Registration Records
+
+## Status
+
+Implementation and local validation complete. 사용자 화면 승인 상태: **미확인**.
+
+## Scope and Plan
+
+Initial working tree is clean at `758fec6` (TASK-015). User-authorized next-task implementation covers a minimal factual About section based on the supplied registration certificates. This authorization is not final visual approval, a live registry check, or authorization to deploy. Preserve earlier task records and the running port 3000 production server (PID 109386).
+
+1. Capture the existing About page using Playwright's separate production server on 3100.
+2. Add a Server Component list after company information, grouping two patents and six designs whose certificates explicitly name 주식회사 승종. Use exact titles, registration numbers and dates; label related designs with their recorded basic-design numbers.
+3. Keep the evidence scope explicit in the UI, adapt the existing About regression assertions to the newly authorized facts, and check 320/390/768/1280px.
+4. Run the full verification pipeline, inspect before/after screenshots, update related documentation, and hand off without commit/push or starting TASK-017.
+
+## Out of Scope
+
+The patent and four designs with missing holder details; current rights/validity claims; product linkage, performance, safety, exclusivity or first-development claims; certificate PDF/image publication; personal identifiers/addresses; shared Header/Footer or Home redesign; dependencies, deployment and Git writes.
+
+## Acceptance Criteria
+
+- [x] Exactly the two patents and six designs documented with the company as certificate holder appear, with correct names/numbers/dates and grouping.
+- [x] The three related designs identify the correct basic design; no unverified relationships are inferred.
+- [x] Copy clearly limits the list to supplied certificates and does not assert current validity, a current holdings total, product application, performance, safety or exclusivity.
+- [x] Missing-holder records remain excluded and internally unresolved; no original certificates or personal information enter public assets.
+- [x] 320/390/768/1280px layouts are readable without clipping/overflow; company information, navigation, skip-link and inquiry paths remain usable.
+- [x] Existing valid tests remain; necessary content/regression tests pass together with full `npm run verify`.
+- [x] Desktop/Mobile before/after screenshots are directly reviewed with absolute paths recorded.
+- [x] Related documents are current; user visual approval remains 미확인; no TASK-017, staging, commit or push.
+
+## Validation
+
+- Final `npm run verify` passed: ESLint, strict TypeScript, 8 unit/component tests, production build, and 36 Desktop/Mobile Chromium E2E tests. These include eight new responsive About cases (four widths × two projects) and all 28 existing cases. No tests deleted or skipped.
+- Initial verification stopped at typecheck because an RTL role query included a Playwright-only `exact` option. Removed the unsupported option; standalone typecheck then passed and the full pipeline passed. After visual review refined only the new section's word wrapping and the screenshot capture origin, the full pipeline passed again on the final code.
+- Existing no-patent About assertions conflicted with the newly authorized section; they now assert exact allowed facts, the two/six grouping, three related-design links, missing-holder exclusions, evidence qualification, and absence of unsupported claims. Existing company, contact, route, skip-link/next-Tab, Header, and no-body-image checks remain.
+- Non-failing existing output: jsdom “Not implemented: navigation to another Document” and NO_COLOR/FORCE_COLOR warning. No warnings suppressed; no hidden failures.
+- Names, numbers, dates and the three basic-design references match the supplied evidence register. P3 and four missing-holder designs remain excluded. No private PDF, image, personal identifier or historical personal address added to public assets. Contact address and phone/email are unchanged.
+- Directly reviewed all four before/after full-page screenshots and all four final registration-section screenshots. Mobile titles/details reflow without overlap; 768/1280 title and details share a row. All eight records fit, with no horizontal overflow or clipped text. The first 1,200px of each before/after screenshot is pixel-identical, confirming the existing upper About layout/Header are preserved. Source changes are scoped to About and its new selectors; Home, Footer, navigation, metadata, assets and dependencies are unchanged.
+- Early long-element screenshots showed an offscreen fixed skip-link in the captured image. Capturing from the document origin with an explicit full-page clip removes this capture artifact; skip-link code was not changed. Final screenshots contain no overlay.
+- E2E used only the Playwright-managed 127.0.0.1:3100 server with reuse disabled; it was cleaned up. No port conflicts occurred.
+- Port 3000 stays on original PID 109386, with About HTTP 200 before/during/after verification. It retains the previous TASK-015 page in memory and was not stopped/restarted.
+- Current TASK-016 review: `http://127.0.0.1:3001/about#about-registrations-heading`. Agent-started production preview PID 157777, exec session 44759; HTTP 200 with the new section and eight registration dates. This is a local review server, not deployment, and does not provide hot reload.
+- User visual approval remains **미확인**, including prior TASK-015 approval. No TASK-017, staging, commit, push, rebase, reset or clean.
+
+## Screenshots
+
+All paths are outside the repository to survive future Playwright cleanup. Full-page before/after captures use the same Desktop Chromium context at each requested viewport (844px viewport height); behavior also passed Mobile Chromium. Registration-only images are browser screenshots, not regenerated images.
+
+| Width | Before | After | Registration detail |
+| --- | --- | --- | --- |
+| 320 | `/home/shlee/Workspace/ai/01.codex/task-016-review/before-320.png` | `/home/shlee/Workspace/ai/01.codex/task-016-review/after-320.png` | `/home/shlee/Workspace/ai/01.codex/task-016-review/after-320-registrations.png` |
+| 390 | `/home/shlee/Workspace/ai/01.codex/task-016-review/before-390.png` | `/home/shlee/Workspace/ai/01.codex/task-016-review/after-390.png` | `/home/shlee/Workspace/ai/01.codex/task-016-review/after-390-registrations.png` |
+| 768 | `/home/shlee/Workspace/ai/01.codex/task-016-review/before-768.png` | `/home/shlee/Workspace/ai/01.codex/task-016-review/after-768.png` | `/home/shlee/Workspace/ai/01.codex/task-016-review/after-768-registrations.png` |
+| 1280 | `/home/shlee/Workspace/ai/01.codex/task-016-review/before-1280.png` | `/home/shlee/Workspace/ai/01.codex/task-016-review/after-1280.png` | `/home/shlee/Workspace/ai/01.codex/task-016-review/after-1280-registrations.png` |
+
+## Git Handoff and Next-task Prerequisites
+
+Initial tree was clean at `758fec6`. TASK-016 changes: About page/data, scoped CSS, About unit and smoke expectations, new responsive About E2E, four product/design/evidence/inventory documents, and current/backlog task records. Git status: 10 modified tracked files and one untracked E2E file; index unchanged. `git diff --check` passed.
+
+Suggested commit message: `feat: add evidence-based patent and design records to About`.
+
+Git review/commit/push are left to the separately authorized Git task. TASK-017 requires user-confirmed actual product width, length, thickness, and all available size variants before specification UI or dimensioned imagery. No sample dimensions are assumed. User visual approval is still **미확인**; the next-task authorization does not approve the whole site's design.
+
+---
+
 # TASK-015: Official Logo Header Integration
 
 ## Status

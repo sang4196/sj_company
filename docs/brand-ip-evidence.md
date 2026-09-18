@@ -60,12 +60,12 @@ All ten certificates show examined registration (심사등록), class 06. “No 
 
 ## Evidence and publication boundaries
 
-- Certificate registration facts and company holder fields are documented for two patents and six designs. These may support a future factual About section after public wording review; TASK-014 does not publish an IP section.
+- Certificate registration facts and company holder fields are documented for two patents and six designs. TASK-014 did not publish an IP section. TASK-016 now authorizes a minimal About list of these certificate facts with exact names/numbers/dates and related-design references, qualified as supplied-certificate information; it does not authorize broader rights claims or deployment.
 - One patent (P3) and four designs (1294832, 1294833, 1294844, 1294845) need registration-details evidence identifying the holder. Do not publish them as company-owned or include them in a company ownership total.
 - Current registry status, transfers, and ongoing validity were not checked. Do not describe all 13 as currently held rights.
 - No certificate establishes performance, safety, exclusivity, market leadership, or exact applicability to the marketed representative product. Product linkage still needs confirmation.
 - Keep the user-confirmed current contact address `경기도 안성시 서운면 사갑1길 296-49`; historical certificate addresses do not replace it.
-- Preferred next IP UI proposal: an About “특허·디자인 등록” section with exact titles/numbers/dates and bounded wording. No site structure change is made here.
+- TASK-016 implementation: About “특허·디자인 등록” after company information, with exact titles/numbers/dates and bounded wording. Included: P1/1, P2/1, D1/1,2,4,6,7 and D2/2. Excluded: P3/1 and D2/1,3,4,5,6,7,8,9 (the four unique missing-holder designs, including duplicate scans). The three related-design rows identify their basic-design numbers. No raw certificate or personal detail is published. User visual approval: **미확인**.
 
 ## Remaining product assets and approval records
 

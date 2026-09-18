@@ -4,6 +4,10 @@
 
 This document defines the design direction and constraints for the company website before UI implementation. Exact visual values remain TBD until approved brand assets, content, and product imagery are available.
 
+## Visual Refresh — 2026-09-18
+
+The user requested a broader design improvement after TASK-016. The current implementation uses ivory `#fafaf7`, navy `#142c45`, and a pale blue-gray product surface `#e9eef2` as a proposed interface palette, not an approved corporate identity. Explicit heading weights restore hierarchy after the Tailwind reset. Home uses a two-column typographic introduction on desktop and a stacked layout on mobile, with factual business-scope labels and a Business link. No simulated factory/product photography is used. Business summaries have light surfaces; product and contact sections have distinct emphasis. Internal-page intro minimum heights and redundant main padding are reduced. The official logo, header interaction, registration records, section order, and verified facts remain intact. This request supersedes earlier task-specific restrictions on Home spacing and shared visual styling. Final user visual approval remains unconfirmed.
+
 ## Adopted Direction
 
 **Balanced Company & Product with Moderate Corporate / B2B Emphasis**
@@ -181,9 +185,15 @@ The following provided information is verification-required and must not appear 
 
 - 층간소음매트 최초개발
 - 대량 OEM 판매
-- Patent-related names or claims recorded in `docs/content-inventory.md`
+- Unverified patent names, missing-holder registrations, and broader rights/product claims recorded in `docs/content-inventory.md`
 
 Do not represent these items through badges, trust indicators, statistics, certification cards, patent cards, icons, timelines, or indirect visual implications. They may enter the design system only after their evidence and exact public wording are approved. This restriction applies to the unverified large-volume sales claim, not to the separately human-confirmed fact that the company currently performs OEM production.
+
+## About Registration List — TASK-016
+
+The authorized About section follows company information and precedes the contact CTA. Use separate, semantically named lists for patents and designs, containing only the two patents and six designs with explicit company-holder evidence in `brand-ip-evidence.md`. Show exact title, registration number, date, and the basic-design number only for the three documented related designs. No badges, ownership totals, trust banners, certificate scans, or product-performance illustrations.
+
+Display the supplied-certificate scope and absence of current-validity verification near the heading. Use the existing neutral typography, section boundaries, and spacing. On mobile, each record's title precedes labeled number/date fields; at 768px and wider, titles and details share a row. Shared Header/Footer and Home spacing remain unchanged. User visual approval: **미확인**; implementation permission is not deployment permission.
 
 ## Image Strategy
 

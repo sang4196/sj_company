@@ -15,11 +15,29 @@ export default function Home() {
         aria-labelledby="home-heading"
         data-home-section="company-statement"
       >
-        <p className="eyebrow">제조업</p>
-        <h1 id="home-heading">{site.name}</h1>
-        <p className="home-statement__description">
-          (주)승종은 금형 설계 및 우레탄 성형·발포를 수행하는 제조업체입니다.
-        </p>
+        <div className="home-statement__content">
+          <p className="eyebrow">Seung Jong · Manufacturing</p>
+          <h1 id="home-heading">{site.name}</h1>
+          <p className="home-statement__message">
+            제품의 시작부터,<br />
+            <span>설계와 제조를 잇다.</span>
+          </p>
+          <p className="home-statement__description">
+            (주)승종은 금형 설계 및 우레탄 성형·발포를 수행하는 제조업체입니다.
+          </p>
+          <Link className="primary-action primary-action--inverse" href="/business">
+            사업 알아보기 <span aria-hidden="true">↗</span>
+          </Link>
+        </div>
+        <div className="home-statement__scope">
+          <p className="home-statement__scope-label">DESIGN & MANUFACTURING</p>
+          <ul aria-label="주요 업무 범위">
+            <li><span aria-hidden="true">01</span>제품 설계</li>
+            <li><span aria-hidden="true">02</span>금형 설계·제작</li>
+            <li><span aria-hidden="true">03</span>우레탄 성형·발포</li>
+          </ul>
+          <p className="home-statement__scope-note">아이디어를 구체화하는 설계,<br />형태를 완성하는 제조.</p>
+        </div>
       </section>
 
       <section
@@ -40,10 +58,12 @@ export default function Home() {
           <li>
             <span className="item-index" aria-hidden="true">01</span>
             <h3>금형 설계</h3>
+            <p>제품 아이디어와 도면을 바탕으로<br />제품 및 금형을 설계하고 제작합니다.</p>
           </li>
           <li>
             <span className="item-index" aria-hidden="true">02</span>
             <h3>우레탄 성형·발포</h3>
+            <p>원하는 형상에 맞춘 우레탄 제품의<br />주문 생산과 OEM 생산을 진행합니다.</p>
           </li>
         </ul>
       </section>

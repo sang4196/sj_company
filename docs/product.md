@@ -87,6 +87,7 @@ Available information:
 - Founded: `2017`
 - Address: `경기도 안성시 서운면 사갑1길 296-49`
 - Provisional approved company description
+- TASK-016: supplied-certificate registration facts for two patents and six designs explicitly naming 주식회사 승종, with exact titles/numbers/dates and related-design references. This is a bounded About list, not a statement of current ownership/validity or product performance.
 
 Potential sections such as history details, vision, mission, core values, facilities, production scale, and additional company information remain TBD and must be omitted until verified content is provided.
 
@@ -177,7 +178,7 @@ The following wording was provided by a human but is not approved for immediate 
 
 Verification and approved public wording are required because it contains a “first developed” claim and a large-volume OEM sales claim. In particular, `최초` and `대량` must not be published without supporting evidence. This unverified historical sales claim is separate from the confirmed fact that the company currently performs OEM production.
 
-The five supplied PDFs were visually inspected during TASK-014. See [Brand and IP evidence](brand-ip-evidence.md) for exact titles, numbers, dates, holder fields, and page references. Two patent certificates and six design certificates explicitly name 주식회사 승종. One patent and four designs require missing registration-details pages to establish the holder. Current registry status and public wording remain pending; no IP UI is published by intake.
+The five supplied PDFs were visually inspected during TASK-014. See [Brand and IP evidence](brand-ip-evidence.md) for exact titles, numbers, dates, holder fields, and page references. Two patent certificates and six design certificates explicitly name 주식회사 승종. One patent and four designs require missing registration-details pages to establish the holder. TASK-014 intake did not publish IP UI. TASK-016 authorizes a minimal About list of these two patents and six designs based on the supplied certificates; current registry status remains unchecked. User visual approval and deployment are not granted by this implementation authorization.
 
 The earlier supplied title `상호 결속구조가 보강된 연결형 매트` remains unmatched. The certificate spelling is `워셔블 베개`. Registration evidence must not be expanded into performance, safety, exclusivity, or product-linkage claims.
 
@@ -323,6 +324,10 @@ Do not create sections for certifications, customers, production volume, technic
 - Price, purchase method, delivery method, and minimum order quantity
 - Product-specific OEM terms and ODM availability
 - Verified evidence and approved wording for the first-development and large-volume OEM sales claims
-- Missing holder details for one patent/four designs, unmatched earlier patent name, current registry status, product linkage, and approved public IP wording (certificate titles/numbers/dates are recorded in brand-ip-evidence.md)
+- Missing holder details for one patent/four designs, unmatched earlier patent name, current registry status, product linkage, and any broader IP wording (TASK-016 permits only the bounded About certificate list; exact fields are recorded in brand-ip-evidence.md)
 - Actual recruitment content for Careers
 - Detailed accessibility target and supported browser range
+
+## Visual refresh — 2026-09-18
+
+User requested review and improvement of the site's design. Home now summarizes confirmed product design, mold design/production, and urethane molding/foaming in its introduction, with a link to Business. New business-summary copy derives from the confirmed Business scope above. Shared typography, spacing and surface colors are updated; no new product claims or assets are introduced. Final visual approval remains unconfirmed.

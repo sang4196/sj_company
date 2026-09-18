@@ -330,6 +330,7 @@ test("About presents confirmed company information and contact paths", async ({ 
     "company-overview",
     "business-areas",
     "company-information",
+    "registrations",
     "contact",
   ]);
 
@@ -353,7 +354,7 @@ test("About presents confirmed company information and contact paths", async ({ 
   );
 
   await expect(aboutMain.locator("img")).toHaveCount(0);
-  await expect(aboutMain.getByText(/비전|미션|최초개발|대량 OEM|특허/)).toHaveCount(0);
+  await expect(aboutMain.getByText(/비전|미션|최초개발|대량 OEM|현재 보유|독점|안전성|소음 감소/)).toHaveCount(0);
   await expectNoHorizontalOverflow(page);
   expect(consoleErrors).toEqual([]);
   expect(pageErrors).toEqual([]);
