@@ -74,6 +74,14 @@ Acceptance Criteria
 ```
 
 
+## Server Ownership
+
+- Never stop or restart a user-owned development server without explicit direction.
+- Never terminate a process based only on the port it occupies; first establish ownership and purpose.
+- Automated verification uses a separate production server managed by Playwright at `http://127.0.0.1:3100`; user development stays on port 3000.
+- Agents may clean up only processes they started. On a port conflict, report it instead of terminating or reusing another process.
+- Preserve Next.js-generated managed instruction blocks after checking their package source; do not repeatedly delete them to hide a diff. Keep user instructions outside those markers.
+
 ## Git Policy
 
 - Do not commit changes unless explicitly requested.

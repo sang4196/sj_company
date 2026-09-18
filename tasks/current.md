@@ -1,3 +1,40 @@
+# TASK-013: Development & E2E Server Separation
+
+## Status
+
+Complete
+
+## Context
+
+Keep the user's development server available while verifying a separate production server. Initial Git working tree and index are clean. Existing project dev server: PID 23424, parent 23832 (`next dev`), port 3000, HTTP 200; owned by the user and must remain running. Port 3100 is free.
+
+## Scope
+
+Playwright server address/lifecycle, README usage, and user-owned server safety rules. Preserve prior task records below.
+
+## Out of Scope
+
+App/UI/content, dependencies, deployment, Git writes, or stopping/restarting user processes.
+
+## Acceptance Criteria
+
+- [x] Production E2E uses 127.0.0.1:3100 without reusing existing servers.
+- [x] The same development process and page remain available before, during, and after full verification.
+- [x] Development and production outputs remain isolated using installed Next.js behavior.
+- [x] Playwright cleans up its production server after verification.
+- [x] Existing tests pass without weakened assertions; README and safety rules are updated.
+
+## Validation
+
+- `npm run verify` passed: lint, typecheck, 8 unit/component tests, fresh production build, and 20 Desktop/Mobile Chromium E2E tests. Existing jsdom navigation and NO_COLOR/FORCE_COLOR warnings remain non-failing.
+- Repeated HTTP requests during verification returned 200 from development PID 23424. At 2026-09-18 19:54:53 KST both development and production returned 200; production PID 22180 ran `next start --hostname 127.0.0.1 --port 3100` under Playwright.
+- After verification, port 3000 still belonged to PID 23424; browser navigation returned 200, Home h1 `(주)승종`, and visible main content. Port 3100 had no listener. No user process was stopped or restarted.
+- Installed Next.js 16.3.4 `server/config.js` appends `dev` to the output path for development; `build/index.js` preserves `dev` during production cleanup. Outputs are `.next/dev` and `.next`. No extra isolation setting or output deletion was needed; the installed configuration no longer exposes an `isolatedDevBuild` option.
+- Tests use relative paths and the configured 3100 baseURL, with no 3000 dependency. A separate run without the user's development server was not attempted, since it would require disrupting that server; Playwright starts its own production server independently.
+- Only configuration, README, user-owned server instructions, and this record changed. AGENTS.md's Next.js managed block was absent and no block was generated or removed during this task. Existing user instructions were preserved.
+
+---
+
 # TASK-012: Page Metadata & Not-found Experience
 
 ## Current Status
