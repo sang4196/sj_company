@@ -345,3 +345,7 @@ Home adds the editorial line `제품의 시작부터, 설계와 제조를 잇다
 ## TASK-018 Home and Footer — 2026-09-19
 
 The Home company-facts summary keeps name, founding year2017 and address; business scope is already stated above and its duplicate row is removed. The shared Footer contains `(주)승종`, `금형 설계·제작 · 우레탄 성형·발포`, 회사소개 / 사업분야 / 제품 / 문의 shortcuts, the existing address/telephone/email and exactly `© 2026 (주)승종. All rights reserved.`. No inferred2017 copyright start, placeholder policy links or new company claims. Official logo pixels are unchanged. Final user visual approval: **미확인**.
+
+## Review decision — 2026-09-19
+
+User approved the presented TASK-018 Home/Footer screen (“화면 괜찮음”). Company exterior photography is explicitly deferred until later. This approval does not resolve all historical internal-page reviews, incomplete product specifications, certificate-holder evidence, or domain/deployment decisions. TASK-019 preserves this visual treatment while investigating responsive keyboard focus.

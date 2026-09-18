@@ -38,3 +38,7 @@ Use existing platform and project tools before adding a dependency. Add a depend
 - Run the production build before Playwright in the full validation pipeline.
 
 Backend, database, API, and state-management architecture are TBD and must not be inferred until requirements exist.
+
+## Responsive navigation focus — TASK-019
+
+The existing navigation Client Component handles both breakpoint change and focusout from a newly hidden navigation control. Chromium can clear activeElement before dispatching matchMedia change; the focusout target preserves the identity of that disappearing control. Restoration is limited to a hidden navigation control, a null relatedTarget, an active document and the corresponding opposite breakpoint. It does not retain the last focused link or override an explicit focus destination. Both event listeners are removed on cleanup. Server Component boundaries and rendered markup are unchanged.

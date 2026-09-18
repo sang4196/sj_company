@@ -1,8 +1,63 @@
+# TASK-019: Responsive Navigation Focus Reliability
+
+## Authorization and plan
+
+User approved the presented TASK-018 screen: “화면 괜찮음. 회사전경 사진은 이후 넣는걸로 하고 진행가능하면 진행하도록”. Record that approval narrowly for TASK-018 Home/Footer; individual historical internal-page approvals, missing product evidence, holder evidence and deployment/domain decisions remain unchanged. Company exterior photograph explicitly deferred. Initial tree clean at2ac18df.
+
+- [x] Inspect preserved TASK-018 trace and bounded live event observations; separate product focus loss from test synchronization. Record counts, conditions and uncertainty; do not retry until passing.
+- [x] Apply only an evidence-supported navigation or test synchronization fix. Keep layout, logo, text, data, dependencies and component boundaries unchanged.
+- [x] Verify800→767,767→768, open-menu focus, unrelated main focus, Escape, route changes and skip-link without focus theft. Preserve valid assertions.
+- [x] Inspect Header at320/390/768/1280 and200% text. Run affected checks then full npm run verify; document failures/reruns.
+- [x] Update approval/deferred-photo records and final report. Preserve all existing servers; Playwright owns3100. No Git writes or next task.
+
+## Status
+
+Implementation and local verification complete. Existing approved screen remains unchanged. TASK-018 presented-screen approval is confirmed; TASK-019 focus correction passed full verification.
+
+
+## Diagnosis and evidence
+
+Preserved TASK-018 P2 trace confirms About focus then800→767px, followed by an inactive menu button for the5-second assertion; it contains no focus-event ordering instrumentation. TASK-011 also records an intermittent responsive-focus failure. Those earlier individual incidents cannot be reconstructed beyond their preserved data.
+
+A temporary browser event probe ran exactly12 shrink transitions per project (24 total), after Business→About navigation. Two animation frames bracketed settled rendering, without arbitrary sleeps, retry policies or enlarged assertion timeouts. It recorded focus/blur/focusout and application matchMedia callback entry/exit. Baseline failures: Desktop2/12, Mobile4/12. In all six, blur/focusout targeted the disappearing About link with relatedTarget null before the application media callback; activeElement was already BODY on callback entry/exit. Successful cases entered the callback while About was still active. This reproduces a product focus-loss race, not merely an assertion synchronization issue.
+
+Example baseline Mobile sample2: blur at1562ms, focusout1562.1ms, media-before1564.4ms, media-after1564.5ms; activeElement BODY throughout. Exact records: diagnostic-Desktop-Chromium.json and diagnostic-Mobile-Chromium.json. Baseline diagnostic tests deliberately recorded rather than failed on observations: their reported2 passed is harness completion, not product success.
+
+## Correction
+
+Only PrimaryNavigation's existing effect changes. A small shared restoration function handles the current focused element on media change and the actual focusout target when CSS already hid it. The latter requires no explicit destination (relatedTarget null), zero rendered rectangles and document.hasFocus(); the target must also belong to the navigation presentation that disappears at the current breakpoint. It retains no stale focus history. The document listener and media listener are both cleaned up. No CSS, JSX markup, ordering, labels, logo, dependencies or Server Component boundary changes.
+
+After the fix, the same bounded12-per-project probe recorded Desktop0/12 and Mobile0/12 failures. Nine of24 samples still exercised blur-before-media ordering (Desktop6, Mobile3), all recovering correctly. This is evidence of handling the observed sequence, not a claim to prove every browser/event order. Only configured Chromium desktop/mobile projects were tested.
+
+New user-observable E2E covers desktop About→767 menu button,767→768 first desktop link, open menu link→desktop, collapse when returning to mobile, main telephone focus preservation both directions with closed/open menus, and explicit blur of a visible navigation link without stale restoration. Existing Escape, route change, skip-link/next Tab, telephone, current-page and document-flow tests are retained unchanged. Diagnostic harness moved outside the repository to diagnostic-harness.js after use; no existing regression tests were deleted or skipped.
+
+## Validation and visual preservation
+
+Affected production build passed; new behavior tests2 and bounded probe runs2 completed successfully (affected.log). Final npm run verify passed lint, strict TypeScript,9 unit/component tests, production build and56 E2E tests (verify.log). No TASK-019 validation pipeline failure, retries/timeout increases or warnings suppressed. Existing non-failing jsdom navigation and NO_COLOR warnings remain.
+
+Additional real-browser review at320/390/768/1280 and100%/200% text (8 combinations) confirmed phone→menu/desktop Tab order, mobile Enter→first link→Escape→toggle, no clipped Header controls or horizontal overflow. All eight Header screenshots directly inspected. CSS and rendered JSX/brand assets are byte-unchanged from approved TASK-018, so visual behavior/spacing remains identical;200% wrapping is retained. Browser results: review.json. Products23 combinations and their partial-coverage qualifications, About8 certificate records, holder evidence exclusions and deployment/domain decisions are unchanged.
+
+## Approval, server ownership and handoff
+
+TASK-018 presented Home/Footer screen approved on2026-09-19 (“화면 괜찮음”). Company exterior photograph explicitly deferred. This is not blanket approval of every historical internal view, domain or deployment. TASK-019 changes only focus behavior and is locally validated; no additional visual design introduced.
+
+Final preview http://127.0.0.1:3107/ (PID257570) is running. All existing servers, including3106, preserved; no shutdown/restart. Playwright exclusively manages3100 with reuseExistingServer false and cleaned up its server. No port conflicts.
+
+Artifacts directory: /home/shlee/Workspace/ai/01.codex/task-019-review/
+- Header screenshots: header-320-100.png, header-320-200.png, header-390-100.png, header-390-200.png, header-768-100.png, header-768-200.png, header-1280-100.png, header-1280-200.png.
+- Baseline event data: diagnostic-Desktop-Chromium.json, diagnostic-Mobile-Chromium.json; diagnostic.log.
+- Fixed event data: diagnostic-after-Desktop-Chromium.json, diagnostic-after-Mobile-Chromium.json; affected.log.
+- Final verification: verify.log; additional browser evidence: review.json. Diagnostic helper retained as diagnostic-harness.js outside Git.
+
+No staging/commit/push or next task. Suggested commit: `fix: preserve navigation focus across responsive breakpoints`.
+
+---
+
 # TASK-018: Compact Home and Enriched Footer
 
 ## Status and authorization
 
-Implementation and local verification complete, authorized through the design review and orchestrator handoff. Final user visual approval: **미확인**. Initial tree clean at `f3d2711` (TASK-017 committed/pushed separately). Preserve23 verified product combinations, their partial-coverage qualifications, eight registration records, official logo, confirmed company facts and existing servers. No new specification research or next task.
+Implementation and local verification complete, authorized through the design review and orchestrator handoff. User approval of the presented TASK-018 Home/Footer screen: **확인 (2026-09-19)**. Earlier 미확인 entries below are historical validation records, superseded only for this presented screen. Initial tree clean at `f3d2711` (TASK-017 committed/pushed separately). Preserve23 verified product combinations, their partial-coverage qualifications, eight registration records, official logo, confirmed company facts and existing servers. No new specification research or next task.
 
 ## Plan and Acceptance Criteria
 

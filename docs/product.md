@@ -335,3 +335,7 @@ User requested review and improvement of the site's design. Home now summarizes 
 ## TASK-018 Home and Footer — 2026-09-19
 
 Home now presents a compact five-section flow: company statement, business summary, actual product name, company facts and telephone/email inquiry band. The shared Footer adds the official identity, approved manufacturing description, four real shortcuts, current contact details and exact 2026 copyright wording. All confirmed product data and certificate limits remain unchanged. Final user visual approval: **미확인**.
+
+## Review decision — 2026-09-19
+
+User approved the presented TASK-018 Home/Footer screen (“화면 괜찮음”). Company exterior photography is explicitly deferred until later. This approval does not resolve all historical internal-page reviews, incomplete product specifications, certificate-holder evidence, or domain/deployment decisions. TASK-019 preserves this visual treatment while investigating responsive keyboard focus.

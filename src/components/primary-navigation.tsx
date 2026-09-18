@@ -19,22 +19,40 @@ export function PrimaryNavigation() {
 
     const mediaQuery = window.matchMedia(desktopMediaQuery);
 
-    const handleBreakpointChange = (event: MediaQueryListEvent) => {
-      const activeElement = document.activeElement;
-
-      setIsOpen(false);
-
-      if (event.matches && activeElement === toggleRef.current) {
+    function restoreNavigationFocus(activeElement: Element | null, isDesktop: boolean) {
+      if (isDesktop && activeElement === toggleRef.current) {
         desktopNavigationRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
-      } else if (!event.matches && desktopNavigationRef.current?.contains(activeElement)) {
+      } else if (!isDesktop && desktopNavigationRef.current?.contains(activeElement)) {
         toggleRef.current?.focus();
-      } else if (event.matches && mobileNavigationRef.current?.contains(activeElement)) {
+      } else if (isDesktop && mobileNavigationRef.current?.contains(activeElement)) {
         desktopNavigationRef.current?.querySelector<HTMLAnchorElement>("a")?.focus();
+      }
+    }
+
+    const handleBreakpointChange = (event: MediaQueryListEvent) => {
+      restoreNavigationFocus(document.activeElement, event.matches);
+      setIsOpen(false);
+    };
+
+    const handleFocusOut = (event: FocusEvent) => {
+      // CSS can hide the focused control before matchMedia emits change.
+      // Use that blur's target, without retaining stale focus or stealing a new target.
+      if (
+        event.relatedTarget === null &&
+        event.target instanceof HTMLElement &&
+        event.target.getClientRects().length === 0 &&
+        document.hasFocus()
+      ) {
+        restoreNavigationFocus(event.target, mediaQuery.matches);
       }
     };
 
     mediaQuery.addEventListener("change", handleBreakpointChange);
-    return () => mediaQuery.removeEventListener("change", handleBreakpointChange);
+    document.addEventListener("focusout", handleFocusOut);
+    return () => {
+      mediaQuery.removeEventListener("change", handleBreakpointChange);
+      document.removeEventListener("focusout", handleFocusOut);
+    };
   }, []);
 
   function closeMobileNavigation() {

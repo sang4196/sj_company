@@ -325,3 +325,7 @@ Official logo PNG: `public/brand/seung-jong.png`, converted from the preserved J
 Home uses natural content height: mobile section padding32px and Hero36px, desktop48–64px, with a24px compact contact band. Business numbers/titles share a row; 대표 제품 is a small label above the actual product h2. Footer uses the unchanged32px-wide logo with automatic aspect ratio and empty alt, desktop three columns/mobile stacked content and44px minimum link targets. Header retains its normal mobile row/desktop navigation; enlarged text can wrap to additional rows. At200% text, sections grow without clipping. 390px Hero measures401px; user visual approval remains 미확인. Final user visual approval: **미확인**.
 
 Visible telephone numbers must remain part of their accessible names. The Home inquiry link uses `전화 문의 031-674-3640` so screen-reader and voice-control users receive the displayed destination number.
+
+## Review decision — 2026-09-19
+
+User approved the presented TASK-018 Home/Footer screen (“화면 괜찮음”). Company exterior photography is explicitly deferred until later. This approval does not resolve all historical internal-page reviews, incomplete product specifications, certificate-holder evidence, or domain/deployment decisions. TASK-019 preserves this visual treatment while investigating responsive keyboard focus.
