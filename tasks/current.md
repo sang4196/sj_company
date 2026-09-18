@@ -1,3 +1,8 @@
+# WSL migration — 2026-09-18
+
+Complete: user-authorized environment migration to WSL Ubuntu. Git history and working files preserved; missing cross-platform optional dependencies added to the lockfile without changing existing package versions. `npm run verify` passed (lint, typecheck, 8 unit/component tests, build, 20 E2E tests). See `docs/wsl-migration.md` for the new path and run instructions. No product code changes, commit, or push.
+
+---
 # TASK-013: Development & E2E Server Separation
 
 ## Status
