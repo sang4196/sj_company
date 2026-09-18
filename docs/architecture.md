@@ -46,3 +46,7 @@ The existing navigation Client Component handles both breakpoint change and focu
 ## Confirmed production hosting — TASK-020
 
 Vercel serves the connected domain; HTTP upgrades to HTTPS and apex redirects to the observed final host https://www.seungjong.co.kr/. GitHub records Vercel Production success for current main e79c7ac. Future main pushes may trigger production deployment, including documentation-only changes; exact private trigger/ignore settings were not inspected. See [production audit](production-audit.md) for public evidence and remaining policy decisions.
+
+## Search metadata — TASK-021
+
+Root metadataBase uses the fixed production origin; canonical alternates belong only to the five page modules, preventing Home canonical inheritance by404. Typed App Router robots/sitemap routes produce public discovery files; Vercel preview robots disallows crawling without modifying provider noindex headers. No client boundary or dependency changes. Policy, validation and account follow-up: [search discovery](search-discovery.md).

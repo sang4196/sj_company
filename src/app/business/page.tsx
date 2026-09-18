@@ -3,6 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/business" },
   title: "사업 분야",
   description: "(주)승종의 제품 및 금형 설계·제작과 우레탄 성형·발포 업무를 안내합니다.",
 };

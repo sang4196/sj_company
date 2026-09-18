@@ -2,9 +2,11 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { site } from "@/lib/site";
 import "@/styles/globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(site.url),
   title: {
     default: "(주)승종",
     template: "%s | (주)승종",

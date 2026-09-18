@@ -1,4 +1,5 @@
 export const site = {
+  url: "https://www.seungjong.co.kr",
   name: "(주)승종",
   founded: "2017",
   address: "경기도 안성시 서운면 사갑1길 296-49",

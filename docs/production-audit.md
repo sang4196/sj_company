@@ -51,3 +51,7 @@ Artifacts: `/home/shlee/Workspace/ai/01.codex/task-020-review/`.
 The web retrieval service could not open the domain; direct HTTPS/browser requests succeeded. gh CLI was unavailable; the installed GitHub read-only status tool and public GitHub GET endpoints supplied evidence. The initial browser probe checked a lazy Footer image before it entered the viewport; the probe was corrected to scroll it into view and wait for image load, then completed all24 views. This was a probe synchronization issue, not a site loading defect.
 
 No new preview server is needed: review the actual [production site](https://www.seungjong.co.kr/). Existing local servers remain untouched. Playwright owns only127.0.0.1:3100 for local verification with server reuse disabled.
+
+## Subsequent authorization — TASK-021
+
+The observations above remain the TASK-020 live baseline. The user subsequently approved representative-address/canonical, robots and sitemap search-discovery configuration. Implementation and deployment status are tracked in [search discovery](search-discovery.md) and tasks/current.md; this historical audit does not by itself establish that a later version is live.

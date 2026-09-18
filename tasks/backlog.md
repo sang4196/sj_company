@@ -1,5 +1,7 @@
 # Backlog
 
+- TASK-021 Search discovery basics: implemented/local verify passed (unit11/E2E58); fixed www HTTPS self-canonical, robots and five-URL sitemap; preview guard and404 noindex retained. Await Git/deployment verification; account ownership and submission remain separate.
+
 - TASK-020 Production audit: complete; observed final URL https://www.seungjong.co.kr/ on Vercel, current-main deployment evidence and24 live views verified; full unit9/E2E56 passed. Documentation-only changes. Explicit search/sitemap/canonical decisions remain open; main pushes may deploy production. See docs/production-audit.md.
 
 - TASK-019 Responsive Navigation Focus Reliability: confirmed CSS blur-before-media race corrected; bounded24-case probe passes and full verification unit9/E2E56 passed. Approved TASK-018 screen preserved.

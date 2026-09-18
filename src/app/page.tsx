@@ -3,6 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/" },
   title: { absolute: `${site.name} | 금형 설계·제작 및 우레탄 성형·발포` },
   description: `${site.name}은 금형 설계·제작 및 우레탄 성형·발포를 수행하는 제조업체입니다. 대표 제품인 퍼즐형 층간소음매트와 회사의 사업을 소개합니다.`,
 };

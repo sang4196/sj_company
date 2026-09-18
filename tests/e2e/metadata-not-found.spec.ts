@@ -15,7 +15,13 @@ test("production pages expose distinct factual metadata", async ({ page }) => {
     if (message.type() === "error") errors.push(message.text());
   });
   for (const entry of pages) {
-    expect((await page.goto(entry.path))?.status()).toBe(200);
+    const response = await page.goto(entry.path);
+    expect(response?.status()).toBe(200);
+    expect(response?.headers()["content-type"]).toContain("text/html");
+    const canonical = page.locator('link[rel="canonical"]');
+    await expect(canonical).toHaveCount(1);
+    await expect(canonical).toHaveAttribute("href", `https://www.seungjong.co.kr${entry.path === "/" ? "" : entry.path}`);
+    await expect(page.locator('meta[name="robots"][content*="noindex"]')).toHaveCount(0);
     await expect(page).toHaveTitle(entry.title);
     await expect(page.locator("title")).toHaveCount(1);
     await expect(page.locator('meta[name="description"]')).toHaveCount(1);
@@ -55,6 +61,7 @@ test("missing address provides keyboard recovery in the shared shell", async ({ 
   await expect(page.locator('nav [aria-current="page"]')).toHaveCount(0);
   const robots = await page.locator('meta[name="robots"]').evaluateAll((elements) => elements.map((element) => element.getAttribute("content")));
   expect(robots.join(",")).toContain("noindex");
+  await expect(page.locator('link[rel="canonical"]')).toHaveCount(0);
   expect(await page.evaluate(() => document.documentElement.scrollWidth > document.documentElement.clientWidth)).toBe(false);
   await page.screenshot({ path: testInfo.outputPath("not-found.png"), fullPage: true });
   await testInfo.attach("response", {
@@ -75,4 +82,37 @@ test("missing address provides keyboard recovery in the shared shell", async ({ 
   await page.getByRole("main").getByRole("link", { name: "문의", exact: true }).click();
   await expect(page).toHaveURL("/contact");
   expect(errors).toEqual([]);
+});
+
+
+test("robots and sitemap expose only the approved production discovery URLs", async ({ request, page }) => {
+  const robots = await request.get("/robots.txt");
+  expect(robots.status()).toBe(200);
+  expect(robots.headers()["content-type"]).toContain("text/plain");
+  expect((await robots.text()).trim()).toBe("User-Agent: *\nAllow: /\n\nSitemap: https://www.seungjong.co.kr/sitemap.xml");
+
+  const sitemap = await request.get("/sitemap.xml");
+  expect(sitemap.status()).toBe(200);
+  expect(sitemap.headers()["content-type"]).toContain("application/xml");
+  const xml = await sitemap.text();
+  const contents = await page.evaluate((source) => {
+    const document = new DOMParser().parseFromString(source, "application/xml");
+    return {
+      errors: document.querySelectorAll("parsererror").length,
+      namespace: document.documentElement.namespaceURI,
+      urls: [...document.querySelectorAll("url > loc")].map((entry) => entry.textContent),
+      unsupported: document.querySelectorAll("lastmod, changefreq, priority").length,
+    };
+  }, xml);
+  expect(contents).toEqual({
+    errors: 0,
+    namespace: "http://www.sitemaps.org/schemas/sitemap/0.9",
+    urls: ["https://www.seungjong.co.kr", "https://www.seungjong.co.kr/about", "https://www.seungjong.co.kr/business", "https://www.seungjong.co.kr/products", "https://www.seungjong.co.kr/contact"],
+    unsupported: 0,
+  });
+  for (const path of ["/careers", "/not-published"]) {
+    expect((await page.goto(path))?.status()).toBe(404);
+    await expect(page.locator('meta[name="robots"][content*="noindex"]')).toHaveCount(1);
+    await expect(page.locator('link[rel="canonical"]')).toHaveCount(0);
+  }
 });

@@ -280,7 +280,7 @@ Do not create sections for certifications, customers, production volume, technic
 
 - Provide page-specific titles and descriptions based only on confirmed content.
 - Use meaningful document structure.
-- Production hosting/domain are confirmed: Vercel, with the observed final address https://www.seungjong.co.kr/ (TASK-020). Explicit canonical metadata, sitemap/robots/search policy and structured company data remain undecided; see [production audit](production-audit.md).
+- Production hosting/domain are confirmed: Vercel, with the observed final address https://www.seungjong.co.kr/ (TASK-020). TASK-021 authorizes public search discovery and implements self-canonical metadata, public robots and a five-page sitemap; see [search discovery](search-discovery.md). Search-account verification/submission remains separate; structured company data remains undecided. The [production audit](production-audit.md) records the earlier live baseline.
 
 ### Performance
 

@@ -1,3 +1,39 @@
+# TASK-021: Search Discovery Basics
+
+## Authorization and plan
+
+User explicitly approved making the site discoverable through Naver/Google with the representative address, sitemap and robots configuration. Use the observed production origin https://www.seungjong.co.kr; preserve redirects. Initial tree clean at ca6d05f. No search-account verification/submission, DNS/Vercel settings, manual deployment or Git writes.
+
+- [x] Check current official Next.js App Router metadata/robots/sitemap guidance and existing environment/unpublished-route policies.
+- [x] Set root metadataBase and page-level self-canonical on exactly five public pages; keep404 noindex with no inherited Home canonical. Preserve titles/descriptions/body/style/data.
+- [x] Add typed metadata routes: production robots permits public crawling and links absolute sitemap; Vercel preview remains excluded and existing noindex headers are untouched. Sitemap lists only five actual public URLs, without fabricated modification/frequency/priority fields.
+- [x] Verify status/content-type/exact URLs/uniqueness, omitted unpublished routes,404 noindex/canonical absence and preview branch. Run affected tests then full npm run verify; inspect unchanged views as needed.
+- [x] Update approved search policy and account follow-up docs; provide sources/logs/status/report. No indexing/ranking promise, account actions, extra metadata/assets/dependencies, deployment or push.
+
+## Status
+
+Implementation and local validation complete; awaiting Git handoff. Five public routes and existing404 policy preserved; no production deployment performed by this task.
+
+
+## Implementation and validation
+
+- `site.url` fixes the confirmed origin. Root metadataBase plus five page-specific alternates produce exact self-canonical URLs (`https://www.seungjong.co.kr`, `/about`, `/business`, `/products`, `/contact`). Root layout contains no canonical. Missing and Careers routes remain404/noindex with zero canonical tags.
+- Typed robots route returns200 text/plain, universal public Allow:/ and absolute Sitemap URL. Preview branch (`VERCEL_ENV=preview`) returns Disallow:/ with no sitemap advertisement. Existing provider noindex headers are untouched; no global index:true, Vercel/DNS/header overrides or access-control claims. Private routes do not exist in this app; unpublished Careers is absent from the sitemap.
+- Typed sitemap route returns200 application/xml with exactly five unique absolute production URLs and no fabricated lastmod/changefreq/priority. Titles/descriptions/body/style/facts/23combinations/eight records preserved.
+- Affected tests passed:2 robots environment unit tests, fresh build and6 Desktop/Mobile metadata/robots/sitemap/404 E2E. Final npm run verify passed lint, strict typecheck,11 unit/component tests, production build and58 E2E. No validation pipeline failures, skips/deletions or retry/timeout changes. Existing non-failing jsdom navigation/NO_COLOR warnings retained.
+- Directly reviewed Home at320/390/768/1280. All four PNG files are byte-identical to TASK-020 live Home captures. Header/main/Footer HTML is exact-match on all five routes. Existing complete E2E includes keyboard/mobile menu/skip-link/focus/200% reflow and data regressions. An optional Python pixel helper lacked Pillow; direct PNG byte comparison succeeded without installing anything.
+- Sources, environment limits and account follow-up: [search discovery](../docs/search-discovery.md). Official Next docs checked2026-09-19 (current16.3.5 documentation, installed16.3.4 APIs verified locally). Naver/Google owner authentication, issued verification values and sitemap submission were not performed. Discovery settings do not guarantee indexing, timing or rank.
+
+## Review artifacts and handoff
+
+Local preview http://127.0.0.1:3108/ remains running (PID285455). `/robots.txt` and `/sitemap.xml` can be reviewed there. Existing servers preserved; Playwright exclusively managed3100 with reuse disabled and cleaned up. No external setting changes, manual deployment, staging/commit/push or next task. Git reviewer handles authorized push, which may trigger Vercel; public rollout must be checked afterward rather than assumed from this local run.
+
+Artifacts: `/home/shlee/Workspace/ai/01.codex/task-021-review/`. Logs: affected-unit.log, affected-build.log, affected-e2e.log, verify.log. Screenshots: home-320.png, home-390.png, home-768.png, home-1280.png. Endpoint evidence: responses.json; unchanged-region proof: markup-comparison.json; screenshot equality: visual-comparison.json.
+
+TASK-018 presented-screen approval preserved; actual exterior photo still deferred. Handoff report: `/tmp/sj-company-task021-dev-report.txt`. Suggested commit: `feat: add canonical URLs and search discovery routes`.
+
+---
+
 # TASK-020: Production Site Audit and Minimal Corrections
 
 ## Authorization and plan
