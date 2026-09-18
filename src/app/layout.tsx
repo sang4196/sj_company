@@ -21,7 +21,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         </a>
         <div className="site-shell">
           <SiteHeader />
-          <main className="site-main" id="main-content">
+          <main className="site-main" id="main-content" tabIndex={-1}>
             {children}
           </main>
           <SiteFooter />

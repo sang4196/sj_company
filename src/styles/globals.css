@@ -68,15 +68,11 @@ a:focus-visible {
 
 .site-header__inner {
   display: grid;
-  gap: 1rem;
-  padding-block: 1rem;
-}
-
-.site-header__topline {
-  display: flex;
+  min-height: 4.25rem;
+  grid-template-columns: minmax(0, 1fr) auto auto;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  gap: 0.5rem;
+  padding-block: 0.75rem;
 }
 
 .site-identity {
@@ -88,19 +84,118 @@ a:focus-visible {
 
 .phone-link {
   display: inline-flex;
+  min-width: 2.75rem;
   min-height: 2.75rem;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  border: 1px solid #202020;
-  padding: 0.5rem 0.75rem;
-  font-weight: 700;
+  border: 0;
+  padding: 0.5rem;
+  background: transparent;
+  box-shadow: none;
+  font-size: 0.875rem;
+  font-weight: 500;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .phone-link__number {
+  display: none;
   color: #5b5b57;
   font-size: 0.875rem;
   font-weight: 500;
+}
+
+.navigation-toggle {
+  display: inline-grid;
+  width: 2.75rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  place-items: center;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #202020;
+  cursor: pointer;
+}
+
+.navigation-toggle:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
+}
+
+.navigation-toggle__icon {
+  position: relative;
+  display: block;
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.navigation-toggle__line {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 1.5px;
+  background: currentColor;
+}
+
+.navigation-toggle__line:nth-child(1) {
+  top: 3px;
+}
+
+.navigation-toggle__line:nth-child(2) {
+  top: 8.25px;
+}
+
+.navigation-toggle__line:nth-child(3) {
+  top: 13.5px;
+}
+
+.navigation-toggle__icon[data-open="true"] .navigation-toggle__line:nth-child(1) {
+  top: 8.25px;
+  transform: rotate(45deg);
+}
+
+.navigation-toggle__icon[data-open="true"] .navigation-toggle__line:nth-child(2) {
+  opacity: 0;
+}
+
+.navigation-toggle__icon[data-open="true"] .navigation-toggle__line:nth-child(3) {
+  top: 8.25px;
+  transform: rotate(-45deg);
+}
+
+.mobile-navigation {
+  grid-column: 1 / -1;
+  border-top: 1px solid #d7d7d2;
+}
+
+.mobile-navigation__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mobile-navigation__link {
+  display: flex;
+  min-height: 3rem;
+  align-items: center;
+  border-bottom: 1px solid #d7d7d2;
+  padding-inline: 0.75rem;
+  color: #565652;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.mobile-navigation__link:hover,
+.mobile-navigation__link[aria-current="page"] {
+  background: #eeeeea;
+  color: #202020;
+}
+
+.desktop-navigation {
+  display: none;
 }
 
 .primary-navigation {
@@ -134,6 +229,11 @@ a:focus-visible {
   flex: 1;
   align-items: center;
   padding-block: clamp(3rem, 9vw, 7rem);
+}
+
+.site-main:focus {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
 }
 
 .page-intro {
@@ -753,15 +853,19 @@ h3 {
 
 @media (min-width: 48rem) {
   .site-header__inner {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
+    gap: 1rem;
+    padding-block: 1rem;
   }
 
-  .site-header__topline {
-    display: contents;
+  .site-identity {
+    grid-column: 1;
+    grid-row: 1;
   }
 
-  .site-header nav {
+  .desktop-navigation {
+    display: block;
     grid-column: 2;
     grid-row: 1;
     justify-self: end;
@@ -770,10 +874,18 @@ h3 {
   .phone-link {
     grid-column: 3;
     grid-row: 1;
+    padding: 0.5rem 0.75rem;
+    font-size: inherit;
+    font-weight: 700;
   }
 
-  .site-header__inner {
-    grid-template-columns: auto minmax(0, 1fr) auto;
+  .phone-link__number {
+    display: inline;
+  }
+
+  .navigation-toggle,
+  .mobile-navigation {
+    display: none;
   }
 
   .company-details {
@@ -801,27 +913,19 @@ h3 {
   }
 }
 
+@media (max-width: 47.999rem) {
+  .site-main:has(> .home-page) {
+    padding-block: 0;
+  }
+
+  .home-statement {
+    min-height: 0;
+    justify-content: flex-start;
+    padding-block: 3rem 3.5rem;
+  }
+}
+
 @media (max-width: 30rem) {
-  .site-header__topline {
-    align-items: flex-start;
-  }
-
-  .phone-link {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0;
-  }
-
-  .primary-navigation {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .navigation-link {
-    justify-content: center;
-    padding-inline: 0.25rem;
-  }
-
   .section-heading-row {
     align-items: flex-start;
     flex-direction: column;

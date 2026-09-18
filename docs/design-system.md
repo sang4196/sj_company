@@ -46,7 +46,7 @@ The design must not imply environmental benefits, premium positioning, safety, t
 - Content hierarchy takes priority over preserving a layout at a particular breakpoint.
 - Tablet layouts must respond to content width and information density rather than simply shrinking the desktop layout.
 - No layout may introduce unintended horizontal overflow.
-- Exact container widths and breakpoint values are TBD.
+- Exact container widths remain TBD. Primary navigation changes between mobile and desktop presentation at `48rem` (`768px` at the default root font size); other component breakpoints remain content-driven and TBD.
 
 ## Typography
 
@@ -218,7 +218,7 @@ Company Statement
 - Any future product imagery must fit the viewport without horizontal overflow or loss of essential product detail.
 - The Products route may receive slightly more visual prominence than About while the representative product remains the primary confirmed offering.
 - Careers must not appear in navigation until real recruitment content and a valid applicant next step are available.
-- Exact breakpoint values are TBD.
+- Primary navigation uses a `48rem` (`768px` at the default root font size) breakpoint. Other layout breakpoints remain TBD and must be chosen from content needs.
 
 ## Accessibility
 
@@ -284,6 +284,8 @@ The current navigation candidate is:
 - Business
 - Products
 - Contact
+
+Below `48rem`, the header keeps the company name, phone inquiry, and menu toggle in one compact row. The five navigation links are initially collapsed and open as a vertical list in normal document flow. The phone action remains visible while the menu is closed. At `48rem` and wider, the toggle is hidden and all five links remain visible in a horizontal navigation. The collapsible control must expose its name and expanded state, support Escape dismissal with focus restoration, and never leave collapsed links in the keyboard order or accessibility tree.
 
 Careers belongs to the v1 product page list but its content readiness is `BLOCKED`. Do not expose Careers in navigation or create an empty Careers UI until approved recruitment content and a real next step exist. Add Careers to navigation only after it becomes ready. Projects is outside v1.
 

@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = { title: "회사 소개" };
+export const metadata: Metadata = {
+  title: "회사 소개",
+  description: `${site.founded}년 설립된 제조업체 ${site.name}의 회사 소개, 금형 설계 및 우레탄 성형·발포 사업과 기본 정보를 안내합니다.`,
+};
 
 export default function AboutPage() {
   return (

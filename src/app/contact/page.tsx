@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = { title: "연락처" };
+export const metadata: Metadata = {
+  title: "연락처",
+  description: `${site.name} 연락처: 전화 ${site.phone}, 이메일 ${site.email}, 주소 ${site.address}.`,
+};
 
 export default function ContactPage() {
   return (

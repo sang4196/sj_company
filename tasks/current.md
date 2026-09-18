@@ -1,4 +1,44 @@
-# TASK-006: Representative Product Page
+# TASK-012: Page Metadata & Not-found Experience
+
+## Current Status
+
+Complete
+
+## Current Context and Scope
+
+Audit rendered metadata for all five active routes; fill missing page-specific descriptions and Home title; provide a native App Router not-found screen and keyboard recovery links. Next.js package range is ^16.3.4; lockfile and installed version are 16.3.4.
+
+TASK-011 mobile Home spacing is now approved by the user. This approval does not cover the whole website or deployment. Existing TASK-008–010 changes are preserved.
+
+## Current Out of Scope
+
+Page bodies, header/navigation/focus investigation, spacing, branding, dependencies, domain/canonical/metadataBase/sitemap/robots policy, deployment and Git writes.
+
+## Current Acceptance Criteria
+
+- [x] Production titles and descriptions distinguish the five pages and contain only confirmed facts.
+- [x] A missing route shows clear guidance and real Home/Contact recovery links with one shared shell.
+- [x] Keyboard skip-link and recovery, mobile layout, and current-navigation state work on the 404 screen.
+- [x] HTTP status and robots output are observed, not assumed.
+- [x] Existing regressions and final npm run verify pass; Desktop/Mobile screenshots reviewed.
+
+## Current Validation and Follow-up
+
+- Follow-up: production `/task-012-does-not-exist` was directly inspected in Chromium: title `페이지를 찾을 수 없습니다 | (주)승종`, description `입력한 주소를 확인하거나 홈으로 이동해 주세요.`, HTTP 404. Added exact-value and single-tag assertions to the existing not-found E2E; focused Desktop/Mobile tests passed (4 tests). Full `npm run verify` rerun passed lint, typecheck, 8 unit/component tests, fresh production build, and all 20 E2E tests including the new assertions. Existing non-failing jsdom navigation and NO_COLOR/FORCE_COLOR warnings remained.
+- Installed Next.js 16.3.4 source confirms `start-server.js` calls `ensureAgentRulesForDev` only for development when `agentRules !== false`; agent detection and a missing/outdated managed block trigger `generate-agent-files.js`. It preserves text outside managed markers and appends/updates its block. AGENTS.md currently has no managed block; this follow-up neither adds nor removes it. Keeping the block or separately opting out via configuration is a human decision; no configuration change is made.
+- No listener existed on port 3000 at the start of this follow-up. Only the production server launched for this inspection was stopped before rebuilding; no user development server was stopped. Server separation remains a separate environment decision.
+- `npm run verify` passed: lint, typecheck, 8 unit/component tests, production build, and all 20 Desktop/Mobile Chromium E2E tests.
+- Production `/task-012-does-not-exist` returned HTTP 404 and native Next.js `noindex` robots metadata. Its expected document 404 console message is allowed only for this missing route; unexpected console/page errors still fail.
+- All five production page titles/descriptions, single title/description tags, and `html lang="ko"` were verified in both browser projects.
+- Keyboard Tab to skip link, Enter to main, Tab to Home recovery link, Enter to Home, and Contact recovery were verified; no active normal-page navigation item or duplicate shell landmarks appeared on the missing route.
+- Reviewed full-page screenshots: `test-results/metadata-not-found-missing-ea831-ecovery-in-the-shared-shell-Desktop-Chromium/not-found.png` (1280 x 720 viewport) and `test-results/metadata-not-found-missing-ea831-ecovery-in-the-shared-shell-Mobile-Chromium/not-found.png` (412 x 839 viewport). No overlap, clipping, or horizontal overflow observed.
+- Non-failing output: Vitest `Not implemented: navigation to another Document`; Playwright/Next `The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.` No warning suppression or configuration changes made.
+- Existing page bodies, CSS, header/navigation, Home spacing, and skip-link implementation were not changed by TASK-012.
+- Domain, hosting/public release, indexing/robots policy, canonical URLs, sitemap and share assets require later decisions. New not-found visual approval: unconfirmed.
+
+---
+
+# Previous Record — TASK-011: Mobile Home Introduction Spacing
 
 ## Status
 
@@ -6,37 +46,35 @@ Complete
 
 ## Context
 
-Replace the Products skeleton with a minimal factual introduction to the representative puzzle-style floor noise mat and verified contact paths.
+User review approved reducing excessive vertical whitespace around the Home introduction on mobile. Preserve the completed mobile header and TASK-010 skip-link behavior.
 
 ## Scope
 
-- Present the representative product name and implementation copy based on confirmed facts
-- Present the confirmed puzzle form, product category, and urethane molding/foaming production method
-- Link to Business without duplicating its manufacturing explanation
-- Provide primary phone and secondary email contact paths
-- Update only product documentation readiness affected by this implementation
-- Add focused page and Desktop/Mobile E2E coverage
+- Measure the current production layout at the requested viewports.
+- Reduce only the mobile Home introduction's excessive top and bottom space.
+- Preserve typography, content order, boundaries, responsive menu flow, and desktop layout.
+- Diagnose the reported apparent double navigation highlight without changing its styling.
+- Capture and compare production screenshots and measurements before and after the change.
 
 ## Out of Scope
 
-- Product images, image placeholders, specifications, dimensions, thickness, colors, or material composition
-- Performance, safety, environmental, installation, cleaning, certification, patent, first-development, or sales claims
-- Price, MOQ, lead time, stock, ordering, purchasing, product-specific OEM terms, or ODM
-- Product detail routes, catalog expansion, form, backend, database, or new dependencies
-- Detailed UI changes to Home, About, Business, Contact, or Careers
+- Header/menu design or behavior, Footer, inner-page spacing, content, typography, branding, imagery, dependencies, or breakpoint changes
+- Navigation highlight restyling unless a separate reproducible state defect is reported
+- Git staging, commit, push, merge, rebase, reset, or clean
 
 ## Acceptance Criteria
 
-- [x] Products has a clear page heading and representative product name.
-- [x] The confirmed product introduction and production method are visible.
-- [x] Puzzle form and floor-noise-mat category are presented without performance claims.
-- [x] Business responsibilities are not duplicated; the Business link uses `/business`.
-- [x] Phone and email links use the verified destinations.
-- [x] No fake image, form, purchase function, or unconfirmed product claim is introduced.
-- [x] Desktop and mobile information order, links, and overflow behavior are verified.
-- [x] Existing Business OEM content and regression tests remain valid.
-- [x] Relevant tests and existing regression tests pass.
+- [x] The actual sources of excessive spacing are identified from computed layout data.
+- [x] Mobile Home introduction top and bottom spacing are reduced with a Home-specific selector.
+- [x] Company content and typography remain unchanged and unclipped.
+- [x] Header/menu design and in-flow expansion remain unchanged.
+- [x] TASK-010 skip-link focus and next-Tab behavior remain correct.
+- [x] 320px and 390px have no overlap or horizontal overflow.
+- [x] 768px and desktop Home remain unchanged.
+- [x] Other page body layouts remain unchanged.
+- [x] Navigation highlight behavior is diagnosed and reported separately.
 - [x] `npm run verify` passes.
+- [x] Requested before/after screenshots and measurements are captured and reviewed.
 
 ## Validation
 
@@ -45,10 +83,11 @@ Replace the Products skeleton with a minimal factual introduction to the represe
 - [x] `npm run test:run`
 - [x] `npm run build`
 - [x] `npm run test:e2e`
+- [x] `npm run verify`
+- [x] Production screenshot and measurement review
 
 ## Notes
 
-- Keep Products as a Server Component.
-- Reuse contact values from `src/lib/site.ts`.
-- Treat the product introduction as implementation copy based on confirmed facts, not final marketing-copy approval.
-- Production screenshots were reviewed at desktop and mobile sizes.
+- User approved this mobile Home spacing change before TASK-012; approval excludes whole-site design and public deployment.
+- The first full verification run had one intermittent pre-existing responsive-focus assertion failure; the focused rerun passed, and the subsequent complete `npm run verify` passed all 16 E2E tests.
+- Navigation diagnosis found exactly one `aria-current="page"` link. A second gray row appears only while that link is hovered and clears when the pointer leaves.

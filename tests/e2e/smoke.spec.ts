@@ -1,4 +1,4 @@
-import { expect, type Page, test } from "@playwright/test";
+import { expect, type Locator, type Page, test } from "@playwright/test";
 
 async function expectNoHorizontalOverflow(page: Page) {
   const hasHorizontalOverflow = await page.evaluate(
@@ -7,6 +7,61 @@ async function expectNoHorizontalOverflow(page: Page) {
 
   expect(hasHorizontalOverflow).toBe(false);
 }
+
+async function getVisiblePrimaryNavigation(page: Page): Promise<Locator> {
+  const toggle = page.getByRole("button", { name: /메뉴 (열기|닫기)/ });
+
+  if (await toggle.isVisible()) {
+    if ((await toggle.getAttribute("aria-expanded")) === "false") await toggle.click();
+    return page.getByRole("navigation", { name: "모바일 주요 메뉴" });
+  }
+
+  return page.getByRole("navigation", { name: "주요 메뉴" });
+}
+
+test("skip link moves keyboard focus into main content on every active route", async ({
+  page,
+}) => {
+  const routes = ["/", "/about", "/business", "/products", "/contact"];
+
+  for (const route of routes) {
+    await page.goto(route);
+
+    const skipLink = page.getByRole("link", { name: "본문으로 건너뛰기" });
+    const main = page.getByRole("main");
+    const firstMainControl = main.locator("a[href], button:not([disabled])").first();
+
+    await page.keyboard.press("Tab");
+    await expect(skipLink).toBeFocused();
+    await expect(skipLink).toBeVisible();
+    await expect(main).toHaveAttribute("tabindex", "-1");
+
+    await page.keyboard.press("Enter");
+    await expect(main).toBeFocused();
+
+    await page.keyboard.press("Tab");
+    await expect(firstMainControl).toBeFocused();
+    await expect(page.getByRole("banner").locator(":focus")).toHaveCount(0);
+  }
+
+  await page.goto("/");
+  const navigation = await getVisiblePrimaryNavigation(page);
+  await navigation.getByRole("link", { name: "About" }).click();
+  await expect(page).toHaveURL("/about");
+
+  const skipLink = page.getByRole("link", { name: "본문으로 건너뛰기" });
+  for (let step = 0; step < 8; step += 1) {
+    if (await skipLink.evaluate((element) => element === document.activeElement)) break;
+    await page.keyboard.press("Shift+Tab");
+  }
+
+  await expect(skipLink).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page.getByRole("main")).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(page.getByRole("main").locator("a[href], button:not([disabled])").first())
+    .toBeFocused();
+});
 
 test("application shell navigation reaches every active route", async ({ page }) => {
   const consoleErrors: string[] = [];
@@ -25,7 +80,7 @@ test("application shell navigation reaches every active route", async ({ page })
   await expect(page.getByRole("contentinfo")).toBeVisible();
   await expect(page.getByRole("link", { name: "(주)승종 홈" })).toBeVisible();
 
-  const navigation = page.getByRole("navigation", { name: "주요 메뉴" });
+  let navigation = await getVisiblePrimaryNavigation(page);
   await expect(navigation.getByRole("link", { name: "Careers" })).toHaveCount(0);
   await expect(navigation.getByRole("link", { name: "Projects" })).toHaveCount(0);
 
@@ -41,14 +96,163 @@ test("application shell navigation reaches every active route", async ({ page })
   ];
 
   for (const route of routes) {
+    navigation = await getVisiblePrimaryNavigation(page);
     await navigation.getByRole("link", { name: route.label }).click();
     await expect(page).toHaveURL(route.path);
     await expect(page.getByRole("heading", { level: 1, name: route.heading })).toBeVisible();
+    const mobileToggle = page.getByRole("button", { name: "메뉴 열기" });
+    if (await mobileToggle.isVisible()) {
+      await expect(mobileToggle).toHaveAttribute("aria-expanded", "false");
+      await expect(page.getByRole("navigation", { name: "모바일 주요 메뉴" })).toHaveCount(0);
+    }
     await expect(
-      navigation.getByRole("link", { name: route.label }),
+      (await getVisiblePrimaryNavigation(page)).getByRole("link", { name: route.label }),
     ).toHaveAttribute("aria-current", "page");
     await expectNoHorizontalOverflow(page);
   }
+
+  expect(consoleErrors).toEqual([]);
+  expect(pageErrors).toEqual([]);
+});
+
+test("mobile navigation supports disclosure, keyboard dismissal, and responsive transitions", async ({
+  page,
+}) => {
+  const consoleErrors: string[] = [];
+  const pageErrors: string[] = [];
+
+  page.on("console", (message) => {
+    if (message.type() === "error") consoleErrors.push(message.text());
+  });
+  page.on("pageerror", (error) => pageErrors.push(error.message));
+
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto("/business");
+
+  const header = page.getByRole("banner");
+  const toggle = header.getByRole("button", { name: /메뉴 (열기|닫기)/ });
+  await expect(header.getByRole("link", { name: "(주)승종 홈" })).toBeVisible();
+  await expect(header.getByRole("link", { name: "전화 문의 031-674-3640" })).toHaveAttribute(
+    "href",
+    "tel:031-674-3640",
+  );
+  await expect(toggle).toHaveAttribute("aria-expanded", "false");
+  await expect(toggle).toHaveAttribute("aria-controls", "mobile-primary-navigation");
+  await expect(page.getByRole("navigation", { name: "모바일 주요 메뉴" })).toHaveCount(0);
+
+  const mobileControlStyles = await header.evaluate((element) => {
+    const phone = element.querySelector<HTMLElement>(".phone-link");
+    const button = element.querySelector<HTMLElement>(".navigation-toggle");
+    const icon = element.querySelector<HTMLElement>(".navigation-toggle__icon");
+    if (!phone || !button || !icon) throw new Error("Header controls are missing");
+
+    const phoneStyle = getComputedStyle(phone);
+    const buttonStyle = getComputedStyle(button);
+    const phoneRect = phone.getBoundingClientRect();
+    const buttonRect = button.getBoundingClientRect();
+    const iconRect = icon.getBoundingClientRect();
+
+    return {
+      buttonBackground: buttonStyle.backgroundColor,
+      buttonBorder: buttonStyle.borderTopWidth,
+      buttonHeight: buttonRect.height,
+      buttonShadow: buttonStyle.boxShadow,
+      buttonWidth: buttonRect.width,
+      iconHeight: iconRect.height,
+      iconWidth: iconRect.width,
+      phoneBackground: phoneStyle.backgroundColor,
+      phoneBorder: phoneStyle.borderTopWidth,
+      phoneFontSize: phoneStyle.fontSize,
+      phoneFontWeight: phoneStyle.fontWeight,
+      phoneHeight: phoneRect.height,
+      phoneShadow: phoneStyle.boxShadow,
+      phoneWidth: phoneRect.width,
+    };
+  });
+
+  expect(mobileControlStyles).toMatchObject({
+    buttonBackground: "rgba(0, 0, 0, 0)",
+    buttonBorder: "0px",
+    buttonShadow: "none",
+    iconHeight: 18,
+    iconWidth: 18,
+    phoneBackground: "rgba(0, 0, 0, 0)",
+    phoneBorder: "0px",
+    phoneFontSize: "14px",
+    phoneFontWeight: "500",
+    phoneShadow: "none",
+  });
+  expect(mobileControlStyles.buttonHeight).toBeGreaterThanOrEqual(44);
+  expect(mobileControlStyles.buttonWidth).toBeGreaterThanOrEqual(44);
+  expect(mobileControlStyles.phoneHeight).toBeGreaterThanOrEqual(44);
+  expect(mobileControlStyles.phoneWidth).toBeGreaterThanOrEqual(44);
+
+  await toggle.focus();
+  expect(await toggle.evaluate((element) => getComputedStyle(element).outlineStyle)).toBe("solid");
+
+  await toggle.click();
+  const mobileNavigation = page.getByRole("navigation", { name: "모바일 주요 메뉴" });
+  await expect(mobileNavigation.getByRole("link")).toHaveCount(5);
+  await expect(mobileNavigation.getByRole("link", { name: "Business" })).toHaveAttribute(
+    "aria-current",
+    "page",
+  );
+  await expect(toggle.locator(".navigation-toggle__icon")).toHaveAttribute("data-open", "true");
+
+  await toggle.focus();
+  await page.keyboard.press("Tab");
+  await expect(mobileNavigation.getByRole("link", { name: "Home" })).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(page.getByRole("button", { name: "메뉴 열기" })).toBeFocused();
+  await expect(mobileNavigation).toHaveCount(0);
+
+  await page.getByRole("button", { name: "메뉴 열기" }).click();
+  await page.getByRole("navigation", { name: "모바일 주요 메뉴" })
+    .getByRole("link", { name: "Business" })
+    .click();
+  await expect(page).toHaveURL("/business");
+  await expect(page.getByRole("navigation", { name: "모바일 주요 메뉴" })).toHaveCount(0);
+  await expect(page.getByRole("button", { name: "메뉴 열기" })).toBeFocused();
+
+  await page.getByRole("button", { name: "메뉴 열기" }).click();
+  await page.getByRole("navigation", { name: "모바일 주요 메뉴" })
+    .getByRole("link", { name: "About" })
+    .click();
+  await expect(page).toHaveURL("/about");
+  await expect(page.getByRole("navigation", { name: "모바일 주요 메뉴" })).toHaveCount(0);
+
+  await page.setViewportSize({ width: 800, height: 844 });
+  await expect(page.getByRole("button", { name: /메뉴/ })).toBeHidden();
+  const desktopNavigation = page.getByRole("navigation", { name: "주요 메뉴" });
+  await expect(desktopNavigation.getByRole("link")).toHaveCount(5);
+  await expect(desktopNavigation).toBeVisible();
+  await expect(header.getByRole("link", { name: "전화 문의 031-674-3640" })).toHaveCSS(
+    "font-weight",
+    "700",
+  );
+
+  await desktopNavigation.getByRole("link", { name: "About" }).focus();
+  await page.setViewportSize({ width: 767, height: 844 });
+  await expect(page.getByRole("button", { name: "메뉴 열기" })).toBeFocused();
+  await expect(page.getByRole("navigation", { name: "모바일 주요 메뉴" })).toHaveCount(0);
+
+  await page.getByRole("button", { name: "메뉴 열기" }).focus();
+  await page.setViewportSize({ width: 768, height: 844 });
+  await expect(desktopNavigation).toBeVisible();
+  await expect(page.getByRole("button", { name: /메뉴/ })).toBeHidden();
+  expect(
+    await page.evaluate(() => {
+      const activeElement = document.activeElement;
+      return activeElement?.matches(".navigation-toggle, .mobile-navigation a") ?? false;
+    }),
+  ).toBe(false);
+
+  await page.setViewportSize({ width: 320, height: 800 });
+  await expect(page.getByRole("button", { name: "메뉴 열기" })).toBeVisible();
+  await expectNoHorizontalOverflow(page);
+
+  const skipLink = page.getByRole("link", { name: "본문으로 건너뛰기" });
+  await expect(skipLink).toHaveAttribute("href", "#main-content");
 
   expect(consoleErrors).toEqual([]);
   expect(pageErrors).toEqual([]);
@@ -169,7 +373,7 @@ test("Business presents confirmed design and manufacturing capabilities", async 
   expect(response?.ok()).toBe(true);
   await expect(page.getByRole("heading", { level: 1, name: "사업 분야" })).toBeVisible();
   await expect(
-    page.getByRole("navigation", { name: "주요 메뉴" }).getByRole("link", { name: "Business" }),
+    (await getVisiblePrimaryNavigation(page)).getByRole("link", { name: "Business" }),
   ).toHaveAttribute("aria-current", "page");
 
   const main = page.getByRole("main");
@@ -217,7 +421,7 @@ test("Products presents the confirmed representative product and contact paths",
   expect(response?.ok()).toBe(true);
   await expect(page.getByRole("heading", { level: 1, name: "제품" })).toBeVisible();
   await expect(
-    page.getByRole("navigation", { name: "주요 메뉴" }).getByRole("link", { name: "Products" }),
+    (await getVisiblePrimaryNavigation(page)).getByRole("link", { name: "Products" }),
   ).toHaveAttribute("aria-current", "page");
 
   const main = page.getByRole("main");
