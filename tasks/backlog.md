@@ -1,6 +1,6 @@
 # Backlog
 
-- Logo Header integration: preserve Korean identity, existing mobile navigation and focus behavior; review Desktop/Mobile previews; run full verification and record separate user visual approval.
+- TASK-015 Logo Header: implemented with Korean identity and existing navigation; user Desktop/Mobile visual approval remains 미확인. See tasks/current.md for verification and screenshots.
 - IP About section: review factual wording based on docs/brand-ip-evidence.md; obtain missing holder evidence for excluded records before company attribution.
 - Products visuals: confirm width, length, thickness and all size variants, then prepare an authorized original example or supplied product photo and dimension presentation.
 - Home exterior Hero: wait for an actual company exterior photograph.

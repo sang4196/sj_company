@@ -291,7 +291,7 @@ Careers belongs to the v1 product page list but its content readiness is `BLOCKE
 
 ## TBD Decisions
 
-- Official logo Header composition and visual approval (asset received)
+- Official logo Header visual approval (TASK-015 composition implemented; 미확인)
 - Brand primary color
 - Brand secondary color
 - Font family
@@ -308,4 +308,4 @@ Careers belongs to the v1 product page list but its content readiness is `BLOCKE
 
 ## Brand asset intake — TASK-014
 
-Official logo PNG: `public/brand/seung-jong.png`, converted from the preserved JPG without visual changes. No global brand palette is inferred from the logo. Header layout and Desktop/Mobile preview approval remain a separate task; preserve the Korean company identity and existing menu behavior. Certificate findings and publication limits are in [Brand and IP evidence](brand-ip-evidence.md).
+Official logo PNG: `public/brand/seung-jong.png`, converted from the preserved JPG without visual changes. No global brand palette is inferred from the logo. TASK-015 places the unchanged PNG at 36px wide (automatic height, 171:167 ratio) beside the Korean company name inside the existing Home link. Empty image alt avoids repeating that identity; the link retains `(주)승종 홈`. At 768–1023px only navigation gaps and horizontal link padding are reduced to keep all links on one row; typography and the visible desktop phone number remain unchanged. Desktop/Mobile user visual approval: **미확인**. Certificate findings and publication limits are in [Brand and IP evidence](brand-ip-evidence.md).

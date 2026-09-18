@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { PrimaryNavigation } from "./primary-navigation";
@@ -7,7 +8,15 @@ export function SiteHeader() {
     <header className="site-header">
       <div className="site-header__inner">
         <Link className="site-identity" href="/" aria-label={`${site.name} 홈`}>
-          {site.name}
+          <Image
+            alt=""
+            className="site-identity__logo"
+            src="/brand/seung-jong.png"
+            width={171}
+            height={167}
+            unoptimized
+          />
+          <span>{site.name}</span>
         </Link>
         <a
           aria-label={`전화 문의 ${site.phone}`}

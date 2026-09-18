@@ -1,3 +1,67 @@
+# TASK-015: Official Logo Header Integration
+
+## Status
+
+Implementation and local validation complete. 사용자 화면 승인 상태: **미확인**.
+
+## Scope and Plan
+
+Preserve the existing project and TASK-014 assets/evidence. Initial Git status is clean; TASK-014 is already recorded in HEAD `e2a42f4`, with no uncommitted intake changes. Capture the current production Header, add the official PNG beside `(주)승종` inside the existing Home link, verify responsive layout and keyboard behavior, then review before/after screenshots and run the complete verification pipeline.
+
+Use the unchanged 171 × 167 PNG with proportional CSS sizing, no enlargement beyond native size, recoloring, cropping, background removal, or regeneration. Empty image alt avoids duplicating the adjacent company name; retain the Home link accessible name. Keep the Header as a Server Component and retain the existing navigation client boundary and dependencies.
+
+## Out of Scope
+
+Public IP UI, product images/specifications, Home exterior Hero, body copy, Footer, broad color/type changes, domain/SEO/deployment, Git staging/commit/push/rebase/reset/clean, and stopping or restarting user-owned servers. Do not start TASK-016.
+
+## Acceptance Criteria
+
+- [x] Official PNG loads correctly beside the visible company name; identity still navigates Home.
+- [x] 320px and 390px keep identity/phone/menu on one row without overlap or horizontal overflow.
+- [x] 768px and 1280px show usable horizontal English navigation with current-page indication.
+- [x] Logo colors, background, shape, and 171:167 ratio remain intact at an appropriate Header size.
+- [x] Phone link, touch targets, focus-visible, menu toggle/Escape/focus return/route dismissal, document-flow expansion, and skip-link/next Tab have no regression.
+- [x] Approved mobile Home introduction CSS spacing remains unchanged.
+- [x] Full `npm run verify` passes without deleted or skipped tests.
+- [x] Desktop/Mobile before/after screenshots are directly reviewed and paths recorded.
+- [x] User visual approval is explicitly recorded as 미확인.
+
+## Validation
+
+- Full `npm run verify` passed: lint, strict typecheck, 8 unit/component tests, production build, and 28 Desktop/Mobile Chromium E2E tests (20 existing + 8 Header viewport cases). No tests deleted, skipped, or weakened. Existing no-image assertions are scoped to page bodies and remain valid unchanged.
+- First verification stopped at typecheck because the new Playwright test used an unsupported `getByRole` option. Replaced it with an `aria-current` selector; standalone typecheck passed, then the entire verification pipeline passed. Existing non-failing jsdom navigation and NO_COLOR/FORCE_COLOR warnings remain.
+- PNG successfully decoded as 171 × 167 in the browser; rendered width 36px, proportional height approximately 35.16px. Next Image uses `unoptimized` to serve the exact approved PNG without format/color transformation. Both asset SHA-256 values still match TASK-014 evidence. Empty alt prevents repetition beside the visible name; existing `(주)승종 홈` link name and keyboard Home navigation passed.
+- 320/390: identity, phone, and toggle share a centered row without overlap/overflow. Existing tests confirm 44px minimum phone/toggle targets. Focus-visible on both controls, menu document-flow expansion, Escape/focus return, toggle and route dismissal all pass.
+- 768/1280: all five English navigation links occupy one horizontal row, with correct current-page indication and visible phone number. At 768–1023 only navigation gaps/link padding change; font sizes remain unchanged.
+- Existing skip-link → main focus → next main control tests pass on all routes, including 404 recovery. Header remains a Server Component; navigation client boundary and dependencies are unchanged.
+- Directly reviewed all four before/after viewport screenshots and both mobile menu-open pairs. No clipping, overlap, or distortion observed. Pixel comparison of the closed-menu screenshots below the Header is identical at all four widths (viewport height 844px). Mobile Header remains 69px high; desktop Header remains 77px high. Approved Home spacing CSS is unchanged.
+- E2E used only Playwright-managed `http://127.0.0.1:3100`, with server reuse disabled; Playwright cleaned up that server. Both ports were free initially; no user-owned server was stopped or restarted.
+- Review server: agent-started production preview (`npm run start -- --hostname 127.0.0.1 --port 3000`) remains running at `http://127.0.0.1:3000/`. This serves the verified build, without development hot reload.
+- User Desktop/Mobile visual approval: **미확인**. Technical review does not constitute user approval. TASK-016 has not been started.
+
+## Screenshot Review
+
+Files are outside the repository so later Playwright runs do not remove the review evidence. All paths below are absolute. Before/after closed-menu screenshots use the same viewport and Desktop Chromium context; the automated viewport cases also pass in Mobile Chromium. After menu-open screenshots show the keyboard focus outline (before used pointer activation).
+
+| Viewport | Before | After |
+| --- | --- | --- |
+| 320 × 844 | `/home/shlee/Workspace/ai/01.codex/task-015-review/before-320.png` | `/home/shlee/Workspace/ai/01.codex/task-015-review/after-320.png` |
+| 390 × 844 | `/home/shlee/Workspace/ai/01.codex/task-015-review/before-390.png` | `/home/shlee/Workspace/ai/01.codex/task-015-review/after-390.png` |
+| 768 × 844 | `/home/shlee/Workspace/ai/01.codex/task-015-review/before-768.png` | `/home/shlee/Workspace/ai/01.codex/task-015-review/after-768.png` |
+| 1280 × 844 | `/home/shlee/Workspace/ai/01.codex/task-015-review/before-1280.png` | `/home/shlee/Workspace/ai/01.codex/task-015-review/after-1280.png` |
+| 320 menu open | `/home/shlee/Workspace/ai/01.codex/task-015-review/before-320-menu.png` | `/home/shlee/Workspace/ai/01.codex/task-015-review/after-320-menu.png` |
+| 390 menu open | `/home/shlee/Workspace/ai/01.codex/task-015-review/before-390-menu.png` | `/home/shlee/Workspace/ai/01.codex/task-015-review/after-390-menu.png` |
+
+## Git and Review Handoff
+
+Initial working tree was clean: TASK-014 was already committed in `e2a42f4`. Its original JPG, PNG, and evidence record remain unchanged. TASK-015 modifies Header/CSS, product/design/content and task documentation, and adds `tests/e2e/header-brand.spec.ts`; no other app content or navigation logic changes. `git diff --check` passes. No staging, commit, push, rebase, reset, or clean performed.
+
+Suggested commit message: `feat: integrate official logo into site header`.
+
+User review: check logo size and company-name balance, desktop navigation/current-page indication, the mobile identity/phone/menu row, menu expansion, and keyboard focus. Approval remains 미확인.
+
+---
+
 # TASK-014: Brand and IP Evidence Intake
 
 ## Status

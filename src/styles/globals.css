@@ -76,10 +76,19 @@ a:focus-visible {
 }
 
 .site-identity {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 1.25rem;
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
+}
+
+.site-identity__logo {
+  width: 2.25rem;
+  height: auto;
+  flex-shrink: 0;
 }
 
 .phone-link {
@@ -910,6 +919,16 @@ h3 {
   .contact-actions,
   .contact-primary__action {
     align-self: end;
+  }
+}
+
+@media (min-width: 48rem) and (max-width: 63.999rem) {
+  .primary-navigation {
+    gap: 0.125rem;
+  }
+
+  .navigation-link {
+    padding-inline: 0.375rem;
   }
 }
 

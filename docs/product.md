@@ -183,7 +183,7 @@ The earlier supplied title `상호 결속구조가 보강된 연결형 매트` r
 
 ### Supplied assets and product illustration decision — 2026-09-18
 
-The official logo original is preserved at `assets/brand/seung-jong-original.jpg`; its unchanged PNG conversion is `public/brand/seung-jong.png`. Header integration and Desktop/Mobile approval are a separate task. Broader brand colors remain undecided.
+The official logo original is preserved at `assets/brand/seung-jong-original.jpg`; its unchanged PNG conversion is `public/brand/seung-jong.png`. TASK-015 integrates the PNG beside `(주)승종` in the Header Home link. Desktop/Mobile user visual approval is **미확인**. Broader brand colors remain undecided.
 
 A separately created puzzle-mat example illustration/render is allowed if identified as `제품 형태 예시 이미지`, without competitor copying or unsupported structural/performance claims. Confirm actual width, length, thickness, and size variants before dimension UI. Actual product photos and company exterior photos remain unavailable; keep the text-based Home Hero until a real exterior photo is supplied.
 

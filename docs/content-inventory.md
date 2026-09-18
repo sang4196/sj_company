@@ -112,7 +112,7 @@ The official logo JPG has been supplied and preserved; a matching PNG is ready. 
 
 | Asset | Status | Filename / Location | Usage | Approval Status | Alt Text Status | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| Company Logo | `PROVIDED` | `assets/brand/seung-jong-original.jpg`; `public/brand/seung-jong.png` | Branded site identification | Original asset authorized; Header layout approval pending | `(주)승종 로고` when informative | 171 × 167px; exact decoded-pixel match; background preserved. |
+| Company Logo | `PROVIDED` | `assets/brand/seung-jong-original.jpg`; `public/brand/seung-jong.png` | Branded site identification | Original asset authorized; TASK-015 Header applied, user visual approval 미확인 | Header: empty alt beside visible company name; Home link named `(주)승종 홈` | 171 × 167px; exact decoded-pixel match; background preserved. |
 | Representative Product Main Image | `TBD` | — | Product-led areas on Home and Products | Not provided | `TBD` | Image-dependent product presentation remains blocked; do not use stock product imagery. |
 
 ### Recommended
