@@ -78,7 +78,7 @@ test("application shell navigation reaches every active route", async ({ page })
   await expect(page.getByRole("banner")).toBeVisible();
   await expect(page.getByRole("main")).toBeVisible();
   await expect(page.getByRole("contentinfo")).toBeVisible();
-  await expect(page.getByRole("link", { name: "(주)승종 홈" })).toBeVisible();
+  await expect(page.getByRole("banner").getByRole("link", { name: "(주)승종 홈" })).toBeVisible();
 
   let navigation = await getVisiblePrimaryNavigation(page);
   await expect(navigation.getByRole("link", { name: "Careers" })).toHaveCount(0);
@@ -289,7 +289,10 @@ test("Home presents the confirmed information flow", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "퍼즐형 층간소음매트" })).toBeVisible();
 
   const contactSection = page.locator('[data-home-section="contact"]');
-  await expect(contactSection.getByRole("link", { name: "전화 문의" })).toHaveAttribute(
+  const homePhoneLink = contactSection.getByRole("link", { name: "전화 문의 031-674-3640", exact: true });
+  await expect(homePhoneLink).toHaveText("031-674-3640");
+  await expect(homePhoneLink).toHaveAccessibleName("전화 문의 031-674-3640");
+  await expect(homePhoneLink).toHaveAttribute(
     "href",
     "tel:031-674-3640",
   );

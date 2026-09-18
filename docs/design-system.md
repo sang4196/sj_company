@@ -319,3 +319,9 @@ Careers belongs to the v1 product page list but its content readiness is `BLOCKE
 ## Brand asset intake — TASK-014
 
 Official logo PNG: `public/brand/seung-jong.png`, converted from the preserved JPG without visual changes. No global brand palette is inferred from the logo. TASK-015 places the unchanged PNG at 36px wide (automatic height, 171:167 ratio) beside the Korean company name inside the existing Home link. Empty image alt avoids repeating that identity; the link retains `(주)승종 홈`. At 768–1023px only navigation gaps and horizontal link padding are reduced to keep all links on one row; typography and the visible desktop phone number remain unchanged. Desktop/Mobile user visual approval: **미확인**. Certificate findings and publication limits are in [Brand and IP evidence](brand-ip-evidence.md).
+
+## TASK-018 Home and Footer — 2026-09-19
+
+Home uses natural content height: mobile section padding32px and Hero36px, desktop48–64px, with a24px compact contact band. Business numbers/titles share a row; 대표 제품 is a small label above the actual product h2. Footer uses the unchanged32px-wide logo with automatic aspect ratio and empty alt, desktop three columns/mobile stacked content and44px minimum link targets. Header retains its normal mobile row/desktop navigation; enlarged text can wrap to additional rows. At200% text, sections grow without clipping. 390px Hero measures401px; user visual approval remains 미확인. Final user visual approval: **미확인**.
+
+Visible telephone numbers must remain part of their accessible names. The Home inquiry link uses `전화 문의 031-674-3640` so screen-reader and voice-control users receive the displayed destination number.

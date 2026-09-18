@@ -67,9 +67,9 @@ a:focus-visible {
 }
 
 .site-header__inner {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
   min-height: 4.25rem;
-  grid-template-columns: minmax(0, 1fr) auto auto;
   align-items: center;
   gap: 0.5rem;
   padding-block: 0.75rem;
@@ -77,6 +77,7 @@ a:focus-visible {
 
 .site-identity {
   display: inline-flex;
+  margin-right: auto;
   align-items: center;
   gap: 0.5rem;
   font-size: 1.25rem;
@@ -178,6 +179,7 @@ a:focus-visible {
 .mobile-navigation {
   grid-column: 1 / -1;
   border-top: 1px solid #d7d7d2;
+  flex-basis: 100%;
 }
 
 .mobile-navigation__list {
@@ -324,7 +326,7 @@ h3 {
 }
 
 .home-section {
-  padding-block: clamp(3rem, 8vw, 6rem);
+  padding-block: clamp(2rem, 4.5vw, 4rem);
   border-top: 1px solid #d7d7d2;
 }
 
@@ -648,16 +650,10 @@ h3 {
 
 .home-statement {
   display: grid;
-  gap: 3rem;
-  padding: clamp(2rem, 5vw, 4.5rem);
+  gap: 1rem;
+  padding: clamp(3rem, 5vw, 4rem);
   background: #142c45;
   color: #fff;
-}
-
-.home-statement .eyebrow {
-  color: #bdcddc;
-  font-size: 0.6875rem;
-  letter-spacing: 0.16em;
 }
 
 .home-statement h1 {
@@ -666,7 +662,7 @@ h3 {
 }
 
 .home-statement__message {
-  margin: 1.5rem 0 0;
+  margin: 1rem 0 0;
   font-size: clamp(1.875rem, 4.2vw, 3.5rem);
   font-weight: 700;
   line-height: 1.3;
@@ -680,7 +676,7 @@ h3 {
 
 .home-statement__description {
   max-width: 30rem;
-  margin: 1.5rem 0 2rem;
+  margin: 1rem 0;
   color: #c5d0da;
   font-size: 1rem;
   word-break: keep-all;
@@ -691,43 +687,18 @@ h3 {
 }
 
 .home-statement__scope {
-  align-self: end;
   border-top: 1px solid #617285;
-  padding-top: 1.25rem;
-}
-
-.home-statement__scope-label {
-  margin: 0;
-  color: #b9c9d9;
-  font-size: 0.6875rem;
-  letter-spacing: 0.12em;
+  padding-top: 0.75rem;
 }
 
 .home-statement__scope ul {
-  list-style: none;
-  margin: 1.5rem 0;
-  padding: 0;
-}
-
-.home-statement__scope li {
   display: flex;
-  gap: 1rem;
-  align-items: baseline;
-  padding-block: 0.75rem;
-  border-bottom: 1px solid #41566c;
-  font-size: 1.125rem;
-  font-weight: 600;
-}
-
-.home-statement__scope li > span {
-  color: #b9c9d9;
-  font-size: 0.6875rem;
-  font-weight: 400;
-}
-
-.home-statement__scope-note {
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
   margin: 0;
-  color: #b9c9d9;
+  padding: 0;
+  list-style: none;
+  color: #c5d0da;
   font-size: 0.875rem;
 }
 
@@ -830,7 +801,7 @@ h3 {
 
 .business-list {
   display: grid;
-  margin: 2.5rem 0 0;
+  margin: 1.25rem 0 0;
   padding: 0;
   gap: 1rem;
   list-style: none;
@@ -839,19 +810,18 @@ h3 {
 .business-list li {
   min-width: 0;
   border-top: 2px solid #233e58;
-  padding: 1.5rem clamp(1.25rem, 3vw, 2rem) 2rem;
+  padding: 1.25rem;
   background: #f0f2ef;
 }
 
 .business-list p {
-  margin: 1rem 0 0;
+  margin: 0.75rem 0 0;
   color: #52606a;
   word-break: keep-all;
 }
 
 .item-index {
   display: block;
-  margin-bottom: 2.5rem;
   color: #62625d;
   font-size: 0.8125rem;
   font-weight: 700;
@@ -859,7 +829,7 @@ h3 {
 
 .product-overview {
   display: grid;
-  gap: 2.5rem;
+  gap: 1.25rem;
   padding-inline: clamp(1.5rem, 5vw, 3.5rem);
   background: #e9eef2;
   border-top: 0;
@@ -871,13 +841,13 @@ h3 {
 }
 
 .product-overview__content p {
-  margin: 1rem 0;
+  margin: 0 0 0.75rem;
   color: #4b4b48;
 }
 
 .home-company-details {
   display: grid;
-  margin: 2.5rem 0 0;
+  margin: 1rem 0 0;
   border-top: 1px solid #d7d7d2;
 }
 
@@ -966,14 +936,11 @@ h3 {
 }
 
 .contact-list dt,
-.contact-list dd,
-.company-details dt,
-.company-details dd {
+.contact-list dd {
   margin: 0;
 }
 
-.contact-list dt,
-.company-details dt {
+.contact-list dt {
   color: #62625d;
   font-size: 0.875rem;
 }
@@ -984,25 +951,119 @@ h3 {
 }
 
 .site-footer__inner {
-  padding-block: 3rem;
+  padding-block: 1.5rem 1rem;
 }
 
-.site-footer__name {
-  margin: 0 0 1rem;
-  font-weight: 700;
-}
-
-.company-details {
+.site-footer__columns {
   display: grid;
-  margin: 0;
-  gap: 0.75rem 1.5rem;
+  gap: 0.75rem;
+  font-size: 0.875rem;
 }
 
-.company-details > div {
+.site-footer__columns > * {
   min-width: 0;
 }
 
-.company-details dd {
+.site-footer__identity {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-footer__identity img {
+  width: 2rem;
+  height: auto;
+  flex-shrink: 0;
+}
+
+.site-footer__brand p,
+.site-footer__contact p {
+  margin: 0;
+}
+
+.site-footer__brand p {
+  color: #52616e;
+}
+
+.site-footer__navigation,
+.site-footer__contact > div {
+  display: flex;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 0 1rem;
+}
+
+.site-footer__navigation a,
+.site-footer__contact a {
+  display: inline-flex;
+  min-height: 2.75rem;
+  align-items: center;
+  overflow-wrap: anywhere;
+}
+
+.site-footer__contact {
+  font-style: normal;
+  overflow-wrap: anywhere;
+}
+
+.site-footer__copyright {
+  margin: 1rem 0 0;
+  border-top: 1px solid #ccd3d4;
+  padding-top: 0.75rem;
+  color: #52616e;
+  font-size: 0.75rem;
+}
+
+.business-list__heading {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+}
+
+.home-page .section-heading-row {
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 0.5rem 1rem;
+}
+
+.home-page .eyebrow {
+  margin-bottom: 0.5rem;
+}
+
+.home-page [data-home-section="company-overview"] h2,
+.home-contact h2 {
+  font-size: 1.25rem;
+}
+
+.home-contact {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 2rem;
+  padding-block: 1.5rem;
+}
+
+.home-contact__links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  min-width: 0;
+}
+
+.home-contact .primary-action {
+  margin: 0;
+  background: #142c45;
+  color: #fff;
+}
+
+.home-contact .text-link {
   overflow-wrap: anywhere;
 }
 
@@ -1010,17 +1071,46 @@ h3 {
   .home-statement {
     grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
     gap: clamp(2rem, 5vw, 4.5rem);
-    min-height: 32rem;
+    min-height: 0;
     align-items: center;
   }
 
   .home-statement__scope {
     align-self: center;
+    border-top: 0;
+    border-left: 1px solid #617285;
+    padding: 0 0 0 1.5rem;
+  }
+
+  .home-statement__scope ul {
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 1.125rem;
+  }
+
+  .home-section:not(.home-statement):not(.home-contact) {
+    padding-block: clamp(3rem, 4.5vw, 4rem);
+  }
+
+  .site-footer__columns {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 14rem), 1fr));
+    gap: 1.5rem;
+  }
+
+  .site-footer__navigation {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 0.75rem;
   }
 
   .home-company-details {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: 2.5rem;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 0.6fr) minmax(0, 1.6fr);
+    column-gap: 1.5rem;
+  }
+
+  .home-company-details > div {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
   }
 
   .about-registration-list > li {
@@ -1029,27 +1119,24 @@ h3 {
   }
 
   .site-header__inner {
-    grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: center;
     gap: 1rem;
     padding-block: 1rem;
   }
 
   .site-identity {
-    grid-column: 1;
-    grid-row: 1;
+    order: 1;
+    margin-right: 0;
   }
 
   .desktop-navigation {
     display: block;
-    grid-column: 2;
-    grid-row: 1;
-    justify-self: end;
+    order: 2;
+    flex: 1 1 auto;
   }
 
   .phone-link {
-    grid-column: 3;
-    grid-row: 1;
+    order: 3;
     padding: 0.5rem 0.75rem;
     font-size: inherit;
     font-weight: 700;
@@ -1062,10 +1149,6 @@ h3 {
   .navigation-toggle,
   .mobile-navigation {
     display: none;
-  }
-
-  .company-details {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .business-list,
@@ -1105,9 +1188,17 @@ h3 {
   }
 
   .home-statement {
-    gap: 2.5rem;
-    padding: 2rem 1.5rem;
+    gap: 1.5rem;
+    padding: 2.25rem 1.5rem;
     margin-top: 1rem;
+  }
+
+  .home-statement__message {
+    margin-top: 1.5rem;
+  }
+
+  .home-statement__description {
+    margin-block: 1.5rem;
   }
 }
 
@@ -1116,11 +1207,6 @@ h3 {
     align-items: flex-start;
     flex-direction: column;
     gap: 1rem;
-  }
-
-  .home-company-details > div {
-    grid-template-columns: 1fr;
-    gap: 0.25rem;
   }
 
   .about-company-details > div {
@@ -1239,4 +1325,24 @@ h3 {
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
     gap: 3rem;
   }
+}
+
+/* Intrinsic wrapping also supports enlarged text without fixed-height clipping. */
+.home-page {
+  overflow-wrap: anywhere;
+}
+
+.home-statement > div,
+.product-overview > div,
+.business-list__heading h3 {
+  min-width: 0;
+}
+
+.home-contact__links a,
+.site-footer__contact a {
+  max-width: 100%;
+}
+
+.primary-navigation {
+  justify-content: flex-end;
 }

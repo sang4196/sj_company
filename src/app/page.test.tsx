@@ -18,10 +18,13 @@ describe("Home information architecture", () => {
       within(businessSection).getByRole("heading", { name: "우레탄 성형·발포" }),
     ).toBeVisible();
 
-    expect(screen.getByRole("heading", { name: "퍼즐형 층간소음매트" })).toBeVisible();
+    expect(screen.getByRole("heading", { name: "퍼즐형 층간소음매트", level: 2 })).toBeVisible();
     expect(screen.getByText("2017")).toBeVisible();
     expect(screen.getByText("경기도 안성시 서운면 사갑1길 296-49")).toBeVisible();
-    expect(screen.getByRole("link", { name: "전화 문의" })).toHaveAttribute(
+    const phoneLink = screen.getByRole("link", { name: "전화 문의 031-674-3640" });
+    expect(phoneLink).toHaveTextContent("031-674-3640");
+    expect(phoneLink).toHaveAccessibleName("전화 문의 031-674-3640");
+    expect(phoneLink).toHaveAttribute(
       "href",
       "tel:031-674-3640",
     );

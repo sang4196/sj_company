@@ -43,6 +43,17 @@ describe("application shell", () => {
       "mailto:sjbjh3613@daum.net",
     );
     expect(screen.getByText("경기도 안성시 서운면 사갑1길 296-49")).toBeInTheDocument();
+    const footer = screen.getByRole("contentinfo");
+    const shortcuts = within(footer).getByRole("navigation", { name: "하단 바로가기" });
+    for (const [name, href] of [["회사소개", "/about"], ["사업분야", "/business"], ["제품", "/products"], ["문의", "/contact"]]) {
+      expect(within(shortcuts).getByRole("link", { name })).toHaveAttribute("href", href);
+    }
+    expect(within(footer).getByText("© 2026 (주)승종. All rights reserved.")).toBeVisible();
+    expect(within(footer).queryByText("2017")).not.toBeInTheDocument();
+    const identity = within(footer).getByRole("link", { name: "(주)승종 홈" });
+    expect(identity).toHaveAttribute("href", "/");
+    expect(identity.querySelector("img")).toHaveAttribute("alt", "");
+    expect(identity.querySelector("img")).toHaveAttribute("src", "/brand/seung-jong.png");
   });
 
   it("opens and closes the mobile navigation with accessible state and focus", () => {

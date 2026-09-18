@@ -341,3 +341,7 @@ The supplied handoff authorizes an independently made puzzle-mat example clearly
 ## Design refresh copy — 2026-09-18
 
 Home adds the editorial line `제품의 시작부터, 설계와 제조를 잇다.` with the factual scope 제품 설계 / 금형 설계·제작 / 우레탄 성형·발포. Business cards summarize the already confirmed design, custom-shape, and OEM production scope. No new performance, ownership, capacity, or product claims are added. Copy and visual treatment are implemented for review; final user approval remains unconfirmed.
+
+## TASK-018 Home and Footer — 2026-09-19
+
+The Home company-facts summary keeps name, founding year2017 and address; business scope is already stated above and its duplicate row is removed. The shared Footer contains `(주)승종`, `금형 설계·제작 · 우레탄 성형·발포`, 회사소개 / 사업분야 / 제품 / 문의 shortcuts, the existing address/telephone/email and exactly `© 2026 (주)승종. All rights reserved.`. No inferred2017 copyright start, placeholder policy links or new company claims. Official logo pixels are unchanged. Final user visual approval: **미확인**.

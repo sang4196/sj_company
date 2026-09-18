@@ -1,3 +1,68 @@
+# TASK-018: Compact Home and Enriched Footer
+
+## Status and authorization
+
+Implementation and local verification complete, authorized through the design review and orchestrator handoff. Final user visual approval: **미확인**. Initial tree clean at `f3d2711` (TASK-017 committed/pushed separately). Preserve23 verified product combinations, their partial-coverage qualifications, eight registration records, official logo, confirmed company facts and existing servers. No new specification research or next task.
+
+## Plan and Acceptance Criteria
+
+- [x] Capture baseline Home/Footer at320/390/768/1280; measure each Home section height and product start position.
+- [x] Reduce Home section padding and mobile Hero density through natural content layout, without fixed/max heights or clipping. Aim48–64px desktop,28–36px mobile section padding and390px Hero400–480px.
+- [x] Put business number/title on one line with nearby description; prioritize actual product name; compact company facts and contact band while preserving inquiry routes.
+- [x] Footer: unchanged official PNG + company name, approved manufacturing description, four real internal shortcuts, current address/tel/mailto, exact ©2026 wording with no inferred2017 copyright start or unsupported company details. Desktop columns/mobile compact stack, accessible targets/focus and no duplicated image alt/name.
+- [x] Directly inspect before/after at all four widths and200% text reflow; check no overflow/clipping, heading hierarchy, keyboard navigation/skip-link/menu, contact links and Footer on every route including404.
+- [x] Preserve valid tests; update only genuinely conflicting assertions and add meaningful behavior checks; full npm run verify passes, with failed-stage rerun then full rerun if needed.
+- [x] Update documentation/task/backlog; report measured differences, screenshots/preview/status/diff and user approval 미확인. No Git writes or next-task implementation.
+
+## P2 accessibility follow-up — final
+
+P2 resolved: Home accessible name now includes the visible telephone number (`전화 문의 031-674-3640`), with exact Home unit/E2E coverage; other phone tests are unchanged. Affected unit1 and fresh-build Home E2E2 passed. First full rerun passed53/54 E2E but the existing mobile breakpoint focus-return check failed at smoke.spec.ts236. Inspected its matchMedia/document.activeElement handling; timing/order is suspected but not confirmed. Unchanged affected test then passed in both projects; final complete npm run verify passed lint, strict typecheck,9 unit/component tests, build and54 E2E. No skipped/deleted/weakened tests or navigation workaround. Failure evidence is retained in p2-failed-test-results/. Logs: p2-unit.log, p2-build.log, p2-e2e.log, p2-verify.log (failed), p2-failed-step-rerun.log and p2-verify-final.log (final pass), all under /home/shlee/Workspace/ai/01.codex/task-018-review/. This result supersedes the previous verify.log result.
+
+Corrected final preview: http://127.0.0.1:3106/ (PID233987, running). Existing3105 and other servers preserved without restart. Directly inspected p2-contact-320.png, p2-contact-390.png, p2-contact-768.png and p2-contact-1280.png under the same review directory; visible layout unchanged and phone target remains48px high. Browser evidence: p2-browser.json. Earlier full-page/200% captures remain representative because only the accessible label changed. User visual approval remains **미확인**. No Git writes or next task.
+
+## Server ownership
+
+Existing production previews:3000 PID109386,3001 PID157777,3101 PID167708,3102 PID186715,3103 PID205602. Preserve all without restart/termination.3100 is free for Playwright-managed production verification with reuse disabled; start a fresh preview on a free port if required.
+
+
+## Implementation and validation — 2026-09-19
+
+Home retains five sections and confirmed copy. Business numbers and titles share a row; the actual product name is the h2 under a small 대표 제품 label. Company facts retain the company name, 2017 founding year and address; duplicate business content is removed. Telephone and email remain in a compact inquiry band. Standard mobile section padding is32px, Hero36px; desktop content padding48–64px. The deliberately compact contact band uses24px. No fixed/max Hero height or text clipping was introduced.
+
+Footer uses the unchanged official PNG at32px with automatic height and empty alt beside the company name, approved description `금형 설계·제작 · 우레탄 성형·발포`, four real shortcuts, address, telephone, email and exact `© 2026 (주)승종. All rights reserved.`. Normal desktop uses three columns; mobile stacks compactly. Touch targets remain at least44px. The founding year remains Home/About information, not a claimed copyright start date.
+
+The initial 200% root-font review exposed long product text overflow and overlapping existing Header controls. Flexible wrapping, minimum-width handling and adaptive Footer columns resolve these while retaining the standard mobile Header row and desktop horizontal navigation. At200%, content grows naturally and can wrap across additional lines; no content is hidden to meet a height target. Final browser measurements found no element/document overflow at all four widths.
+
+`npm run verify` passed: lint, strict typecheck,9 unit/component tests, production build and54 Desktop/Mobile Chromium E2E cases. No pipeline failures or skipped/deleted tests. Existing non-failing jsdom navigation and NO_COLOR warnings remain visible. The first screenshot helper attempt used a viewport-only clip outside the viewport; corrected full-page capture succeeded. Existing Home product-heading and global identity-link assertions were scoped to the intended new hierarchy/Header because Footer now also has a Home link. New tests cover 200% reflow, Footer keyboard focus/activation and exact logo/contact/shortcut content across all five active routes plus404. Existing menu, Escape/focus restoration, page-change close, skip-link/next-Tab, current-page navigation and specification/registration tests pass.
+
+Directly inspected baseline and final screenshots at320/390/768/1280, plus final200% text captures. Logo appearance, hierarchy, company facts, contact band and Footer remain readable; normal Header controls do not overlap. Products content/23 combinations and partial-catalog qualifications, illustrative SVGs, About/eight records, official logo assets, metadata and dependencies are unchanged. Server Component boundaries remain unchanged.
+
+## Measured before → after (CSS px)
+
+| Width | Hero | Business | Product | Company | Contact | Product start Y | Footer |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 320 | 768.8 → 492.2 | 754.8 → 478.8 | 355.8 → 253.8 | 604.5 → 338.2 | 333.2 → 187.0 | 1608.6 → 1056.0 | 366.5 → 290.0 |
+| 390 | 704.2 → 401.3 | 703.6 → 427.6 | 355.8 → 253.8 | 604.5 → 338.2 | 333.2 → 135.0 | 1492.8 → 913.8 | 366.5 → 290.0 |
+| 768 | 512.0 → 347.7 | 447.5 → 315.9 | 280.0 → 203.2 | 375.4 → 253.8 | 244.5 → 97.0 | 1068.5 → 772.6 | 246.6 → 222.0 |
+| 1280 | 512.0 → 435.7 | 540.2 → 358.6 | 330.0 → 196.8 | 436.0 → 273.0 | 338.6 → 97.0 | 1161.2 → 903.2 | 246.6 → 177.2 |
+
+390px Hero is401.3px, within the400–480px target. Narrower320px naturally needs492.3px. All Footer heights decrease.
+
+## Review artifacts and ownership
+
+Current production preview: http://127.0.0.1:3105/ — running for user review. Existing3000/3001/3101/3102/3103 and preliminary3104 were preserved; use3105 for the final build. Playwright exclusively managed3100 with reuse disabled and cleaned up its own server. No port conflicts, termination or restart of existing servers.
+
+- 320px before: `/home/shlee/Workspace/ai/01.codex/task-018-review/before-320.png`; after: `/home/shlee/Workspace/ai/01.codex/task-018-review/after-320.png`; Footer: `/home/shlee/Workspace/ai/01.codex/task-018-review/footer-320.png`; 200%: `/home/shlee/Workspace/ai/01.codex/task-018-review/text200-320.png`.
+- 390px before: `/home/shlee/Workspace/ai/01.codex/task-018-review/before-390.png`; after: `/home/shlee/Workspace/ai/01.codex/task-018-review/after-390.png`; Footer: `/home/shlee/Workspace/ai/01.codex/task-018-review/footer-390.png`; 200%: `/home/shlee/Workspace/ai/01.codex/task-018-review/text200-390.png`.
+- 768px before: `/home/shlee/Workspace/ai/01.codex/task-018-review/before-768.png`; after: `/home/shlee/Workspace/ai/01.codex/task-018-review/after-768.png`; Footer: `/home/shlee/Workspace/ai/01.codex/task-018-review/footer-768.png`; 200%: `/home/shlee/Workspace/ai/01.codex/task-018-review/text200-768.png`.
+- 1280px before: `/home/shlee/Workspace/ai/01.codex/task-018-review/before-1280.png`; after: `/home/shlee/Workspace/ai/01.codex/task-018-review/after-1280.png`; Footer: `/home/shlee/Workspace/ai/01.codex/task-018-review/footer-1280.png`; 200%: `/home/shlee/Workspace/ai/01.codex/task-018-review/text200-1280.png`.
+
+Measurements: `/home/shlee/Workspace/ai/01.codex/task-018-review/before-measurements.json`, `/home/shlee/Workspace/ai/01.codex/task-018-review/after-measurements.json`. Verification log: `/home/shlee/Workspace/ai/01.codex/task-018-review/verify.log`.
+
+User visual approval: **미확인**. No staging, commit, push or next-task implementation. Suggested commit message: `style: compact home layout and enrich footer`. Handoff report: `/tmp/sj-company-task018-dev-report.txt`.
+
+---
+
 # TASK-017: Verified Product Sizes and Illustrative Diagrams
 
 ## Status

@@ -331,3 +331,7 @@ Do not create sections for certifications, customers, production volume, technic
 ## Visual refresh — 2026-09-18
 
 User requested review and improvement of the site's design. Home now summarizes confirmed product design, mold design/production, and urethane molding/foaming in its introduction, with a link to Business. New business-summary copy derives from the confirmed Business scope above. Shared typography, spacing and surface colors are updated; no new product claims or assets are introduced. Final visual approval remains unconfirmed.
+
+## TASK-018 Home and Footer — 2026-09-19
+
+Home now presents a compact five-section flow: company statement, business summary, actual product name, company facts and telephone/email inquiry band. The shared Footer adds the official identity, approved manufacturing description, four real shortcuts, current contact details and exact 2026 copyright wording. All confirmed product data and certificate limits remain unchanged. Final user visual approval: **미확인**.
