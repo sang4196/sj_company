@@ -17,7 +17,6 @@ export default function ProductsPage() {
         aria-labelledby="products-heading"
         data-products-section="introduction"
       >
-        <p className="eyebrow">Products</p>
         <h1 id="products-heading">제품</h1>
         <p className="products-intro__label">대표 제품</p>
         <h2>퍼즐형 층간소음매트</h2>
@@ -33,7 +32,6 @@ export default function ProductsPage() {
         data-products-section="confirmed-information"
       >
         <div>
-          <p className="eyebrow">Product Information</p>
           <h2 id="product-facts-heading">확인된 제품 정보</h2>
         </div>
         <dl className="product-facts__list">
@@ -60,7 +58,6 @@ export default function ProductsPage() {
         data-products-section="business-link"
       >
         <div>
-          <p className="eyebrow">Business</p>
           <h2 id="product-business-heading">설계·제조 사업</h2>
         </div>
         <div className="product-business-link__content">
@@ -77,7 +74,6 @@ export default function ProductsPage() {
         data-products-section="contact"
       >
         <div>
-          <p className="eyebrow">Contact</p>
           <h2 id="product-contact-heading">제품 문의</h2>
           <p className="contact-section__number">{site.phone}</p>
         </div>

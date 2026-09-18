@@ -339,3 +339,7 @@ Home now presents a compact five-section flow: company statement, business summa
 ## Review decision — 2026-09-19
 
 User approved the presented TASK-018 Home/Footer screen (“화면 괜찮음”). Company exterior photography is explicitly deferred until later. This approval does not resolve all historical internal-page reviews, incomplete product specifications, certificate-holder evidence, or domain/deployment decisions. TASK-019 preserves this visual treatment while investigating responsive keyboard focus.
+
+## ASML-reference visual trial — 2026-09-19
+
+User requested an implementation inspired by https://www.asml.com/en, with rollback available after review. Reference principles are a broad opening scene, large editorial typography, column rules, asymmetrical content and strong blue/white contrast. No ASML photos, videos, logos, copy, metrics or claims are reused. Home uses an original abstract metal-form background labeled AI graphic, not a photograph of company equipment/products; the previously rejected manufacturing-photo trial remains removed. Business/product/company/contact sections have distinct layouts and emphasis; internal introduction styling and shared Footer colors are harmonized. Confirmed content, official logo, phone/email, navigation, SEO and specification/registration evidence remain unchanged. Earlier typography-only Hero constraints are superseded only for this decorative abstract artwork. This is a local visual trial, not final design or publication approval. Provenance: [reference design trial](reference-design-trial.md).

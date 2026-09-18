@@ -16,7 +16,6 @@ export default function BusinessPage() {
         aria-labelledby="business-heading"
         data-business-section="introduction"
       >
-        <p className="eyebrow">Business</p>
         <h1 id="business-heading">사업 분야</h1>
         <p className="business-intro__message">
           제품 설계부터 금형 제작, 우레탄 성형·발포까지
@@ -34,14 +33,12 @@ export default function BusinessPage() {
       >
         <div className="section-heading-row">
           <div>
-            <p className="eyebrow">Capabilities</p>
             <h2 id="capabilities-heading">주요 업무</h2>
           </div>
         </div>
 
         <div className="business-capabilities">
           <article>
-            <span className="item-index" aria-hidden="true">01</span>
             <h3>제품 및 금형 설계·제작</h3>
             <p>
               인테그랄 스킨 폼, 층간소음매트 등 우레탄 폼 제품과 자동차 부품·사무용
@@ -51,7 +48,6 @@ export default function BusinessPage() {
           </article>
 
           <article>
-            <span className="item-index" aria-hidden="true">02</span>
             <h3>우레탄 성형·발포</h3>
             <p>
               스펀지, 베개, 층간소음매트, 자동차 부품 등 우레탄 제품을 성형·발포합니다.
@@ -68,7 +64,6 @@ export default function BusinessPage() {
         data-business-section="linked-process"
       >
         <div>
-          <p className="eyebrow">Connected Scope</p>
           <h2 id="process-heading">설계와 제조의 연계</h2>
           <p className="business-process__description">
             필요한 업무 범위에 따라 설계와 제조를 연계해 진행할 수 있습니다.
@@ -87,7 +82,6 @@ export default function BusinessPage() {
         data-business-section="representative-product"
       >
         <div>
-          <p className="eyebrow">Representative Product</p>
           <h2 id="business-product-heading">퍼즐형 층간소음매트</h2>
         </div>
         <div className="business-product__content">
@@ -106,7 +100,6 @@ export default function BusinessPage() {
         data-business-section="contact"
       >
         <div>
-          <p className="eyebrow">Contact</p>
           <h2 id="business-contact-heading">사업 문의</h2>
           <p className="contact-section__number">{site.phone}</p>
         </div>

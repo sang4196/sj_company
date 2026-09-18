@@ -17,6 +17,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="ko">
+      <head>
+        <link rel="preload" href="/fonts/SUIT-Variable.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+      </head>
       <body>
         <a className="skip-link" href="#main-content">
           본문으로 건너뛰기

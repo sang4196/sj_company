@@ -1,3 +1,34 @@
+# DESIGN-REFERENCE: ASML-inspired visual trial
+
+## Approval and Git handoff
+
+2026-09-19: User reviewed the softened design and explicitly requested verification, commit and push. This supersedes the earlier local-trial-only and no-push instructions for this revision. Approved scope includes the abstract Home artwork, self-hosted SUIT font and license, simplified five-page composition, shared styles and related documentation. Production deployment may follow the existing main-branch integration. Pre-commit verification exposed a mobile Footer test that inspected a lazy image before scrolling it into view. Added scrollIntoViewIfNeeded before the existing image assertions; no assertion removal, skips or timeout increases. Affected Footer suite passed10 tests; final npm run verify passed lint, strict typecheck,11 unit/component tests, production build and58 E2E. Evidence: asml-review/commit-footer-fix.log and commit-verify-final.log.
+
+
+## Softer composition follow-up
+
+User rejected the rigid, repetitive line-heavy styling. Plan: remove redundant English section labels and decorative numbering, remove introductory grid lines and ornamental dividers, use restrained ink headings, warm neutral surfaces and modest rounding, tighten internal section spacing while retaining table/record rules and focus indicators. Preserve all facts, links and previous trial assets. Acceptance: clear hierarchy without repetitive borders, responsive primary pages and 200% reflow, full npm run verify, reversible uncommitted preview. Complete for local review. Initial E2E found CSS-generated arrow text changed the404 contact link accessible name; removed the decoration and both affected tests passed. An intermediate verification run was cancelled to rebuild the final CSS. Final npm run verify passed lint, typecheck, 11 unit/component tests, build and58 E2E; no skipped tests. All five routes captured at320/390/768/1280 without overflow; desktop/mobile primary views inspected, including final Home scope row. Evidence: asml-review/soft-final-*.png, soft-fix-test.log and soft-verify-passed.log. Preview: http://127.0.0.1:3113/.
+
+## Typography follow-up
+
+User requested a font change. Plan: self-host original SUIT Variable and its license, preload with swap fallback, refine heading weight/tracking, preserve the current design trial, then inspect loaded font and responsive pages and run full verification. Acceptance: actual Korean/Latin webfont loading, readable headings/body, no overflow at 320/390/768/1280 or existing 200% reflow checks, no content changes or Git publication. Complete for local review: npm run verify passed lint/typecheck, 11 unit tests, build and 58 E2E including 200% reflow. All five routes at 320/390/768/1280 load the font without page overflow; Chromium platform-font inspection confirms custom SUIT glyph rendering. Home desktop/mobile and internal mobile views visually checked. Evidence: asml-review/font-*.png and font-verify.log outside repository. Current preview: http://127.0.0.1:3111/.
+
+## Status and acceptance criteria
+
+Implemented and locally validated; user visual review pending. User requested review of https://www.asml.com/en and implementation for reversible local review. Starting tree clean at 46a869f. Prior manufacturing-photo trial was rolled back and is not reused. Preserve all company facts, specifications, registrations, navigation, SEO and contact paths. No commit, push or deployment.
+
+- [x] Inspect reference and baseline desktop/mobile views; apply broad hero composition, editorial hierarchy, column rules and blue/white contrast without copying ASML assets, branding or claims.
+- [x] Introduce original abstract decorative artwork, not alleged company facilities/products; use responsive sizing and readable text overlays.
+- [x] Differentiate Home business/product/company/contact sections and harmonize shared typography, internal introductions and Footer. Keep semantic order and working links.
+- [x] Check 320/390/768/1280 and 200% text reflow, keyboard/menu/skip-link and all existing functional tests; run npm run verify.
+- [x] Record screenshots, provenance, validation and rollback boundary. Leave changes uncommitted for user review.
+
+Review evidence outside repository: /home/shlee/Workspace/ai/01.codex/asml-review/.
+
+Validation: npm run verify passed lint, strict typecheck, 11 unit/component tests, production build and 58 E2E tests. Existing non-failing jsdom navigation/NO_COLOR warnings remain. Captured all five routes at 320/390/768/1280 with no horizontal overflow; directly inspected desktop/mobile screenshots. Existing E2E covers 200% Home/Footer text reflow, menu/keyboard/skip-link and product specifications. Preview: http://127.0.0.1:3110/.
+
+---
+
 # TASK-021: Search Discovery Basics
 
 ## Authorization and plan

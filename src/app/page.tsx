@@ -29,6 +29,7 @@ export default function Home() {
             사업 알아보기 <span aria-hidden="true">↗</span>
           </Link>
         </div>
+        <p className="home-statement__art-credit">형태와 소재를 표현한 AI 그래픽</p>
         <div className="home-statement__scope">
           <ul aria-label="주요 업무 범위">
             <li>제품 설계</li>
@@ -45,7 +46,6 @@ export default function Home() {
       >
         <div className="section-heading-row">
           <div>
-            <p className="eyebrow">Business</p>
             <h2 id="business-overview-heading">사업 분야</h2>
           </div>
           <Link className="text-link" href="/business">
@@ -54,11 +54,11 @@ export default function Home() {
         </div>
         <ul className="business-list">
           <li>
-            <div className="business-list__heading"><span className="item-index" aria-hidden="true">01</span><h3>금형 설계</h3></div>
+            <div className="business-list__heading"><h3>금형 설계</h3></div>
             <p>제품 아이디어와 도면을 바탕으로 제품 및 금형을 설계하고 제작합니다.</p>
           </li>
           <li>
-            <div className="business-list__heading"><span className="item-index" aria-hidden="true">02</span><h3>우레탄 성형·발포</h3></div>
+            <div className="business-list__heading"><h3>우레탄 성형·발포</h3></div>
             <p>원하는 형상에 맞춘 우레탄 제품의 주문 생산과 OEM 생산을 진행합니다.</p>
           </li>
         </ul>
@@ -88,7 +88,6 @@ export default function Home() {
       >
         <div className="section-heading-row">
           <div>
-            <p className="eyebrow">Company</p>
             <h2 id="company-overview-heading">회사 기본 정보</h2>
           </div>
           <Link className="text-link" href="/about">

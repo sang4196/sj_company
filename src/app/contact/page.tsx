@@ -15,7 +15,6 @@ export default function ContactPage() {
         aria-labelledby="contact-heading"
         data-contact-section="introduction"
       >
-        <p className="eyebrow">Contact</p>
         <h1 id="contact-heading">연락처</h1>
         <p className="contact-page__company">{site.name}</p>
       </section>
@@ -26,7 +25,6 @@ export default function ContactPage() {
         data-contact-section="phone"
       >
         <div>
-          <p className="eyebrow">Primary Contact</p>
           <h2 id="phone-contact-heading">전화 문의</h2>
           <p className="contact-primary__number">{site.phone}</p>
         </div>
@@ -45,7 +43,6 @@ export default function ContactPage() {
         data-contact-section="email"
       >
         <div>
-          <p className="eyebrow">Secondary Contact</p>
           <h2 id="email-contact-heading">이메일</h2>
         </div>
         <a
@@ -63,7 +60,6 @@ export default function ContactPage() {
         data-contact-section="address"
       >
         <div>
-          <p className="eyebrow">Address</p>
           <h2 id="address-heading">회사 주소</h2>
         </div>
         <address>{site.address}</address>

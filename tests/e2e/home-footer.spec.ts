@@ -47,6 +47,8 @@ test("Footer identity, contact and shortcuts work on every route and 404", async
     await page.goto(route);
     const footer = page.getByRole("contentinfo");
     const logo = footer.getByRole("link", { name: "(주)승종 홈", exact: true }).locator("img");
+    // Bring the lazy-loaded footer image into view before checking its decoded size.
+    await logo.scrollIntoViewIfNeeded();
     await expect.poll(() => logo.evaluate((image: HTMLImageElement) => image.complete && image.naturalWidth === 171 && image.naturalHeight === 167)).toBe(true);
     await expect(logo).toHaveAttribute("alt", "");
     const box = await logo.boundingBox();

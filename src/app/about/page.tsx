@@ -57,7 +57,6 @@ export default function AboutPage() {
         aria-labelledby="about-heading"
         data-about-section="introduction"
       >
-        <p className="eyebrow">About</p>
         <h1 id="about-heading">회사 소개</h1>
         <p className="about-intro__description">
           (주)승종은 금형 설계 및 우레탄 성형·발포를 수행하는 제조업체입니다.
@@ -70,7 +69,6 @@ export default function AboutPage() {
         data-about-section="company-overview"
       >
         <div>
-          <p className="eyebrow">Overview</p>
           <h2 id="about-overview-heading">회사 개요</h2>
         </div>
         <dl className="overview-facts">
@@ -96,7 +94,6 @@ export default function AboutPage() {
       >
         <div className="section-heading-row">
           <div>
-            <p className="eyebrow">Business</p>
             <h2 id="about-business-heading">사업 영역</h2>
           </div>
           <Link className="text-link" href="/business">
@@ -114,7 +111,6 @@ export default function AboutPage() {
         aria-labelledby="company-information-heading"
         data-about-section="company-information"
       >
-        <p className="eyebrow">Information</p>
         <h2 id="company-information-heading">회사 정보</h2>
         <dl className="about-company-details">
           <div>
@@ -145,7 +141,6 @@ export default function AboutPage() {
         aria-labelledby="about-registrations-heading"
         data-about-section="registrations"
       >
-        <p className="eyebrow">Registrations</p>
         <h2 id="about-registrations-heading">특허·디자인 등록</h2>
         <p className="about-registrations__description">
           제공된 등록증에 주식회사 승종이 권리자로 기재된 특허·디자인의 등록 정보입니다.
@@ -191,7 +186,6 @@ export default function AboutPage() {
         data-about-section="contact"
       >
         <div>
-          <p className="eyebrow">Contact</p>
           <h2 id="about-contact-heading">전화 문의</h2>
           <p className="contact-section__number">{site.phone}</p>
         </div>
