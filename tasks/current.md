@@ -1,3 +1,39 @@
+# TASK-014: Brand and IP Evidence Intake
+
+## Status
+
+Complete
+
+## Scope and Plan
+
+Preserve the supplied logo JPG, convert it losslessly to PNG without redesign, inspect all five supplied PDFs page by page, and synchronize asset/evidence and user approval records. No Header or public IP UI changes. Source PDFs remain outside public assets.
+
+## Acceptance Criteria
+
+- [x] Original logo preserved; PNG has matching dimensions, decoded pixels, colors, and background.
+- [x] Each PDF page mapped to exact registration title, number, date, and recorded holder where visible; duplicates and related/basic designs distinguished.
+- [x] Missing ownership evidence and publication wording remain explicitly unresolved.
+- [x] Product, inventory, design, and approval records reflect the supplied handoff without invented specifications or claims.
+- [x] npm run verify passes; Git status and diff reported.
+
+
+## Validation and Findings
+
+- `npm run verify` passed: ESLint, strict typecheck, 8 unit/component tests, production build, and 20 Desktop/Mobile Chromium E2E tests. Existing non-failing jsdom navigation and NO_COLOR/FORCE_COLOR warnings remain.
+- Original JPG copy is byte-identical to the supplied file. PNG is 171 × 167 RGB with no alpha and identical decoded pixels; both assets visually inspected.
+- All 19 source PDF pages visually inspected: 3 distinct patents, 10 distinct designs, 4 repeated certificates, 2 blank pages. Exact fields, source hashes, and page mapping: `docs/brand-ip-evidence.md`.
+- Two patent and six design certificates explicitly name 주식회사 승종. One patent and four designs refer to missing registration-details pages; ownership remains unresolved. Current registry validity was not checked.
+- Source PDFs remain outside the repository/public assets. No private certificate scans are published. No new dependencies, app code, CSS, or tests changed.
+- UI screenshots/approval are not applicable to this asset-and-document task: Header integration is pending, and there is no rendered page change. Existing 404 approval is synchronized from the user handoff, not newly inferred.
+- Playwright's 3100 server was cleaned up; no listener on 3000 or 3100 after verification. No user server was stopped.
+- `git diff --check` passed. Five existing Markdown files modified; one evidence Markdown file and two image assets added. No staging, commit, or push.
+
+## Next Task
+
+Prepare the logo Header integration and Desktop/Mobile previews as a separate task. Product dimensions and real exterior photo remain pending; do not advance to their UI without the required input.
+
+---
+
 # WSL migration — 2026-09-18
 
 Complete: user-authorized environment migration to WSL Ubuntu. Git history and working files preserved; missing cross-platform optional dependencies added to the lockfile without changing existing package versions. `npm run verify` passed (lint, typecheck, 8 unit/component tests, build, 20 E2E tests). See `docs/wsl-migration.md` for the new path and run instructions. No product code changes, commit, or push.
@@ -76,7 +112,7 @@ Page bodies, header/navigation/focus investigation, spacing, branding, dependenc
 - Reviewed full-page screenshots: `test-results/metadata-not-found-missing-ea831-ecovery-in-the-shared-shell-Desktop-Chromium/not-found.png` (1280 x 720 viewport) and `test-results/metadata-not-found-missing-ea831-ecovery-in-the-shared-shell-Mobile-Chromium/not-found.png` (412 x 839 viewport). No overlap, clipping, or horizontal overflow observed.
 - Non-failing output: Vitest `Not implemented: navigation to another Document`; Playwright/Next `The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.` No warning suppression or configuration changes made.
 - Existing page bodies, CSS, header/navigation, Home spacing, and skip-link implementation were not changed by TASK-012.
-- Domain, hosting/public release, indexing/robots policy, canonical URLs, sitemap and share assets require later decisions. New not-found visual approval: unconfirmed.
+- Domain, hosting/public release, indexing/robots policy, canonical URLs, sitemap and share assets require later decisions. 404 screen visual approval: confirmed by the user-provided 2026-09-18 handoff; approval excludes whole-site design and deployment.
 
 ---
 

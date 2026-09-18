@@ -177,14 +177,15 @@ The following wording was provided by a human but is not approved for immediate 
 
 Verification and approved public wording are required because it contains a “first developed” claim and a large-volume OEM sales claim. In particular, `최초` and `대량` must not be published without supporting evidence. This unverified historical sales claim is separate from the confirmed fact that the company currently performs OEM production.
 
-The following patent-related names were provided but remain unverified:
+The five supplied PDFs were visually inspected during TASK-014. See [Brand and IP evidence](brand-ip-evidence.md) for exact titles, numbers, dates, holder fields, and page references. Two patent certificates and six design certificates explicitly name 주식회사 승종. One patent and four designs require missing registration-details pages to establish the holder. Current registry status and public wording remain pending; no IP UI is published by intake.
 
-- 상호 결속구조가 보강된 연결형 매트
-- 워셔블 베게 특허
-- 기능성 바닥마감재를 구비한 퍼즐형 쿠션매트
-- 디자인특허증
+The earlier supplied title `상호 결속구조가 보강된 연결형 매트` remains unmatched. The certificate spelling is `워셔블 베개`. Registration evidence must not be expanded into performance, safety, exclusivity, or product-linkage claims.
 
-Do not state that a patent is registered or valid based on this list alone. Exact official titles, patent or application numbers, registration/application status, ownership, supporting documents, and approved public wording are required. Do not modify the supplied names or invent missing identifiers.
+### Supplied assets and product illustration decision — 2026-09-18
+
+The official logo original is preserved at `assets/brand/seung-jong-original.jpg`; its unchanged PNG conversion is `public/brand/seung-jong.png`. Header integration and Desktop/Mobile approval are a separate task. Broader brand colors remain undecided.
+
+A separately created puzzle-mat example illustration/render is allowed if identified as `제품 형태 예시 이미지`, without competitor copying or unsupported structural/performance claims. Confirm actual width, length, thickness, and size variants before dimension UI. Actual product photos and company exterior photos remain unavailable; keep the text-based Home Hero until a real exterior photo is supplied.
 
 ## Core User Flows
 
@@ -311,7 +312,7 @@ Do not create sections for certifications, customers, production volume, technic
 - Final company introduction beyond the approved one-line description
 - Detailed company history
 - Vision, mission, and core values
-- Company logo and brand colors
+- Logo Header composition approval and broader brand colors
 - Publishable manufacturing facility, process, capacity, and technology information
 - Detailed urethane material description
 - Other products and broader business areas
@@ -322,6 +323,6 @@ Do not create sections for certifications, customers, production volume, technic
 - Price, purchase method, delivery method, and minimum order quantity
 - Product-specific OEM terms and ODM availability
 - Verified evidence and approved wording for the first-development and large-volume OEM sales claims
-- Official patent titles, numbers, status, ownership, evidence, and approved public wording
+- Missing holder details for one patent/four designs, unmatched earlier patent name, current registry status, product linkage, and approved public IP wording (certificate titles/numbers/dates are recorded in brand-ip-evidence.md)
 - Actual recruitment content for Careers
 - Detailed accessibility target and supported browser range
