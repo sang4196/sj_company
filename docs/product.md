@@ -138,7 +138,7 @@ Product information requiring verified material:
 
 - Separate official product name: TBD
 - Detailed material composition: TBD
-- Dimensions and thickness: TBD
+- Dimensions and thickness: TASK-017 confirms 23 distinct combinations from user-authorized official catalogs; see [specification evidence](product-spec-evidence.md). Coverage remains partial where official stores or measurement bases are unavailable.
 - Colors: TBD
 - Detailed structure: TBD
 - Product features: TBD
@@ -186,7 +186,7 @@ The earlier supplied title `상호 결속구조가 보강된 연결형 매트` r
 
 The official logo original is preserved at `assets/brand/seung-jong-original.jpg`; its unchanged PNG conversion is `public/brand/seung-jong.png`. TASK-015 integrates the PNG beside `(주)승종` in the Header Home link. Desktop/Mobile user visual approval is **미확인**. Broader brand colors remain undecided.
 
-A separately created puzzle-mat example illustration/render is allowed if identified as `제품 형태 예시 이미지`, without competitor copying or unsupported structural/performance claims. Confirm actual width, length, thickness, and size variants before dimension UI. Actual product photos and company exterior photos remain unavailable; keep the text-based Home Hero until a real exterior photo is supplied.
+A separately created puzzle-mat example illustration/render is allowed if identified as `제품 형태 예시 이미지`, without competitor copying or unsupported structural/performance claims. TASK-017 applies verified width/length/thickness combinations per [specification evidence](product-spec-evidence.md), using independently drawn SVG outlines and explicit nominal/effective-size qualifications. Actual product photos and company exterior photos remain unavailable; keep the text-based Home Hero until a real exterior photo is supplied.
 
 ## Core User Flows
 

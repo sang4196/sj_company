@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { ProductSpecifications } from "./product-specifications";
 
 export const metadata: Metadata = {
   title: "제품",
@@ -49,6 +50,8 @@ export default function ProductsPage() {
           </div>
         </dl>
       </section>
+
+      <ProductSpecifications />
 
       <section
         className="products-section product-business-link"

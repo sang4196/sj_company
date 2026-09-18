@@ -69,7 +69,7 @@ All ten certificates show examined registration (심사등록), class 06. “No 
 
 ## Remaining product assets and approval records
 
-- Product width, length, thickness, and available size variants are unknown. Ask before implementing dimension UI. Never use the previous example values 500 × 500 mm, 1,000 × 1,000 mm, or 20 mm as specifications.
+- TASK-017 supersedes the earlier missing-specification decision: the user confirms applicability of the three named catalogs. Verified numeric combinations and remaining gaps are recorded in [product-spec-evidence.md](product-spec-evidence.md). Use that evidence, not earlier illustrative values; 20mm remains unverified.
 - Original puzzle-mat illustration/render is authorized as a clearly identified `제품 형태 예시 이미지`, without copying competitor imagery or implying exact appearance/performance. No image is generated in this task.
 - Real product and company exterior photos remain unavailable. Keep the text Home Hero until the actual company exterior photo is supplied.
 - The supplied handoff confirms the existing mobile Header, mobile Home spacing, and 404 screen were user-approved. This is not approval of a future logo layout, IP section, entire site, or deployment.

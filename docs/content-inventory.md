@@ -80,8 +80,8 @@ User visual approval: **미확인**. This is not approval of current ownership/v
 | Product Summary | `CONFIRMED` | 회사의 대표 제품인 퍼즐형 층간소음매트 | Limited factual description only; not marketing copy. |
 | Production Method | `CONFIRMED` | 우레탄 성형·발포 공정 | Human-confirmed for this representative product; do not infer formula, equipment, conditions, performance, or detailed material composition. |
 | Material | `TBD` | — | The company's urethane work does not establish this product's detailed composition. |
-| Dimensions | `TBD` | — | No specification provided. |
-| Thickness | `TBD` | — | No specification provided. |
+| Dimensions | `CONFIRMED / PARTIAL COVERAGE` | 23 verified size/thickness combinations | TASK-017: user applicability authorization + official numeric evidence in [product-spec-evidence.md](product-spec-evidence.md). Unresolved rug/part measurements remain omitted. |
+| Thickness | `CONFIRMED / PARTIAL COVERAGE` | 21, 22, 23, 24, 25, 26mm in their verified combinations only | Not every thickness applies to every size; no Cartesian product. |
 | Colors | `TBD` | — | No colors confirmed. |
 | Structure | `CONFIRMED` | 퍼즐 형태 | Detailed construction remains TBD. |
 | Product Features | `TBD` | — | Do not create feature cards. |
@@ -336,7 +336,7 @@ Items added later must be omitted until confirmed; they must not appear as empty
 
 ## Product illustration permission — 2026-09-18
 
-The supplied handoff authorizes an independently made puzzle-mat example clearly labeled `제품 형태 예시 이미지`; it must not copy competitor assets or claim exact product appearance or performance. Confirm actual width, length, thickness, and size variants before dimension UI. Real company exterior photography is still required for the planned Home Hero.
+The supplied handoff authorizes an independently made puzzle-mat example clearly labeled `제품 형태 예시 이미지`; it must not copy competitor assets or claim exact product appearance or performance. TASK-017 verifies and applies 23 combinations in four tables with independent SVG examples; see [specification evidence](product-spec-evidence.md) for unresolved fields. Real company exterior photography is still required for the planned Home Hero.
 
 ## Design refresh copy — 2026-09-18
 

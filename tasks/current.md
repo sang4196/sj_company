@@ -1,3 +1,63 @@
+# TASK-017: Verified Product Sizes and Illustrative Diagrams
+
+## Status
+
+Verified portions implemented and local validation passed. Catalog coverage remains partial because linked official stores return HTTP429 and some measurement bases are unspecified. User visual approval: **미확인**.
+
+## Authorization and Scope
+
+User confirmed: “띠아모매트, 바오밥매트, 이편한매트에 있는 모든 규격이 해당돼. 확인해서 적용하도록해”. This authorizes applying dimensions actually verified from the three official catalogs to Seung Jong without requesting repeat numeric approval. It does not establish material, color, performance, business relationships or OEM deliveries. Initial tree is clean at `dd385d5`; preserve DESIGN-REFRESH.
+
+## Plan and Acceptance Criteria
+
+- [x] Trace each official catalog, detail and option source, including separate mat forms and center/side/corner/edge variants; record inaccessible options as unresolved; distinguish original units, nominal/effective sizes, and actual size/thickness combinations.
+- [x] Record exact URLs, date, extraction method, original and normalized dimensions, duplicates, exclusions and unresolved fields in `docs/product-spec-evidence.md`. Never claim partial coverage is complete.
+- [x] Apply all verified combinations to Products; no invented cross-products of widths/thicknesses. No competitor branding, photos or copy in the public UI.
+- [x] Provide simple independent code/SVG diagrams labeled 제품 형태 예시 where useful, without suggesting real product photography or unknown construction.
+- [x] Keep the current visual design, shared shell, Home and contact information unchanged. No new dependencies or unnecessary Client Components.
+- [x] Preserve valid tests; check 320/390/768/1280px, overflow, keyboard and inquiry paths; directly review screenshots.
+- [x] Run complete `npm run verify`; document any failure and successful reruns.
+- [x] Record user visual approval 미확인; hand off without commit/push or starting another task.
+
+## Server Ownership
+
+At start: 3000 PID 109386 (older TASK-015 production preview), 3001 PID 157777 (TASK-016 preview), 3101 PID 167708 (DESIGN-REFRESH preview) are running. Preserve all without stopping/restarting. Port 3100 is free and remains reserved for Playwright-owned production verification; no server reuse or port-based termination.
+
+## Implementation and Coverage
+
+- 23 unique verified dimension/thickness combinations in19 public rows across four tables: square11, side/corner/corridor5, hex1, rug unit+sets6. Four original SVG shape examples include adjacent dimensions. No source product imagery/branding or competitor copy is published.
+- [Source inventory and numeric mapping](../docs/product-spec-evidence.md) records original units, exact URLs/images, official option checks, duplicates, conflicts, exclusions and unavailable sources. Applicability was explicitly authorized by the user; no repeat numeric approval requested.
+- **Not a complete catalog claim:** 바오밥 rug4P/6P complete dimensions/thickness remain unresolved after official desktop/mobile store and browser429, official English-site and linked official-blog exploration. 띠아모 store parts/12-pack effective size, certain500/600/650 part dimensions, connector inclusion/effective footprint, and hex measurement axes remain unresolved. Unverified combinations are omitted, not fabricated.
+- Preserve Home/Header/Footer/current design; only Products markup/data and new `.product-*` CSS selectors change. Server rendering and dependencies unchanged.
+
+## Validation and Visual Review — 2026-09-19
+
+- Final `npm run verify`: **passed** lint, strict typecheck,9 unit/component tests, production build,44 Desktop/Mobile Chromium E2E cases. Log: `/home/shlee/Workspace/ai/01.codex/task-017-review/verify.log`.
+- Initial unit failure exposed concatenated accessible row text between type and size; inserted a real space and unit tests passed. First full verification caught unsupported RTL `exact` options; removed them (string name matching is already exact), standalone typecheck passed and full verification reran. Next run caught a new E2E locator using the wrong skip-link wording. Corrected it to the existing “본문으로 건너뛰기”; all8 affected tests passed before the final full44-case run. Historical failure logs retained; no hidden failures.
+- All pre-existing valid tests preserved without deletion/skip. Removed only this agent's temporary `task-017-before.spec.ts` capture helper after retaining its screenshots; it was never a committed regression test. Existing body-no-img assertions remain valid because examples use SVG.
+- Directly reviewed before/after and detailed specification captures at320/390/768/1280 CSSpx. All19 data rows and four figures render; no document/table/caption clipping or horizontal overflow. Mobile stacks diagrams/tables;768+ uses two columns. Caption units, actual thickness choices, side/corner differences and hex qualification remain legible.
+- Skip-link → main → next main link, inquiry link focus outline, next Tab to email and actual telephone/email destinations pass. Existing shared navigation, menu, logo, Home, About, metadata and404 regressions also pass.
+- Before/after matching full-page images use Pixel7 Chromium at each CSS viewport (device scale2.625), because the final baseline capture came from the Mobile project. Additional `review-*` images use Desktop Chromium at scale1. The first1500 device-pixel rows of each before/after pair are byte-identical, confirming unchanged Header and upper Products content. Isolated screenshots use document-origin full-page clips; the first clip-only attempt failed outside the viewport, then corrected captures succeeded.
+- Current TASK-017 production preview: `http://127.0.0.1:3103/products`. Agent-owned server kept running; Playwright exclusively managed3100 with reuse disabled and cleaned it up. Existing3000/3001/3101 preserved. Earlier revalidation preview3102 is also preserved, but is not the TASK-017 review URL.
+- User visual approval: **미확인**. No staging/commit/push or next-task implementation. TASK-018 remains outside this work.
+
+## Screenshots and Handoff
+
+All absolute paths are outside the repository and retained after Playwright cleanup:
+
+| CSS width | Before | After |
+| --- | --- | --- |
+|320|`/home/shlee/Workspace/ai/01.codex/task-017-review/before-320.png`|`/home/shlee/Workspace/ai/01.codex/task-017-review/after-320.png`|
+|390|`/home/shlee/Workspace/ai/01.codex/task-017-review/before-390.png`|`/home/shlee/Workspace/ai/01.codex/task-017-review/after-390.png`|
+|768|`/home/shlee/Workspace/ai/01.codex/task-017-review/before-768.png`|`/home/shlee/Workspace/ai/01.codex/task-017-review/after-768.png`|
+|1280|`/home/shlee/Workspace/ai/01.codex/task-017-review/before-1280.png`|`/home/shlee/Workspace/ai/01.codex/task-017-review/after-1280.png`|
+
+Desktop scale1 full-page: `/home/shlee/Workspace/ai/01.codex/task-017-review/review-{320,390,768,1280}.png`. Readable section captures: `/home/shlee/Workspace/ai/01.codex/task-017-review/spec-{320,390,768,1280}-{0,1,2,3}.png` (square/parts/hex/rug). Browser measurements: `layout-check.json` in that directory.
+
+Full handoff report: `/tmp/sj-company-task017-dev-report.txt`. Suggested commit message: `feat: add verified product specifications and shape diagrams`.
+
+---
+
 # DESIGN-REFRESH: Company Website Visual Review
 
 ## Status

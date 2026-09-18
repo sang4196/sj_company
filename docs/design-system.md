@@ -148,7 +148,7 @@ The puzzle-style floor noise mat is a major visual element, but its presentation
 - Do not alter product imagery in a way that misrepresents its shape, color, structure, or use.
 - Product UI must not depend on an image while no approved product image is available.
 - Until an approved image is supplied, use a restrained typography-based presentation of the confirmed product name, category, and relationship to the company.
-- Do not present stock or generated imagery as the actual product. The 2026-09-18 handoff authorizes an independent puzzle-mat illustration/render labeled `제품 형태 예시 이미지`, without copying competitors or implying unverified performance. Confirm real specifications before dimension UI.
+- Do not present stock or generated imagery as the actual product. The 2026-09-18 handoff authorizes an independent puzzle-mat illustration/render labeled `제품 형태 예시 이미지`, without copying competitors or implying unverified performance. TASK-017 supplies four semantic mm specification tables with independent, decorative SVG outlines and adjacent textual dimensions. Stack each figure/table at mobile widths; use two columns from48rem. Qualify nominal, part, hex-axis and set measurements per `docs/product-spec-evidence.md`; no competitor imagery or inferred connector construction.
 
 ## Business Presentation
 
