@@ -37,13 +37,13 @@ for (const width of [320, 390, 768, 1280]) {
   });
 }
 
-test("Footer identity, contact and shortcuts work on every route and 404", async ({ page }) => {
-  const routes = ["/", "/about", "/business", "/products", "/contact", "/missing-footer-review"];
-  const shortcuts = [
-    { name: "회사소개", href: "/about" }, { name: "사업분야", href: "/business" },
-    { name: "제품", href: "/products" }, { name: "문의", href: "/contact" },
-  ];
-  for (const route of routes) {
+const shortcuts = [
+  { name: "회사소개", href: "/about" }, { name: "사업분야", href: "/business" },
+  { name: "제품", href: "/products" }, { name: "문의", href: "/contact" },
+];
+
+for (const route of ["/", "/about", "/business", "/products", "/contact", "/missing-footer-review"]) {
+  test(`Footer identity, contact and shortcuts are available on ${route}`, async ({ page }) => {
     await page.goto(route);
     const footer = page.getByRole("contentinfo");
     const logo = footer.getByRole("link", { name: "(주)승종 홈", exact: true }).locator("img");
@@ -66,7 +66,11 @@ test("Footer identity, contact and shortcuts work on every route and 404", async
       const target = await link.boundingBox();
       expect(target?.height).toBeGreaterThanOrEqual(44);
     }
-  }
+  });
+}
+
+test("Footer shortcuts and company identity navigate to their destinations", async ({ page }) => {
+  await page.goto("/missing-footer-review");
   for (const { name, href } of shortcuts) {
     await page.getByRole("contentinfo").getByRole("link", { name, exact: true }).click();
     await expect(page).toHaveURL(href);

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
+import { ProductStudy } from "@/components/product-study";
 import { ProductSpecifications } from "./product-specifications";
 
 export const metadata: Metadata = {
@@ -13,21 +14,25 @@ export default function ProductsPage() {
   return (
     <div className="products-page">
       <section
-        className="products-section products-intro"
+        className="products-section products-intro reveal"
         aria-labelledby="products-heading"
         data-products-section="introduction"
       >
-        <h1 id="products-heading">제품</h1>
-        <p className="products-intro__label">대표 제품</p>
-        <h2>퍼즐형 층간소음매트</h2>
-        <p className="products-intro__description">
-          퍼즐형 층간소음매트는 {site.name}의 대표 제품으로, 우레탄 성형·발포 공정으로
-          생산합니다.
-        </p>
+        <div className="products-intro__copy">
+          <p className="eyebrow">형태와 규격</p>
+          <h1 id="products-heading">제품</h1>
+          <p className="products-intro__label">대표 제품</p>
+          <h2>퍼즐형 층간소음매트</h2>
+          <p className="products-intro__description">
+            퍼즐형 층간소음매트는 {site.name}의 대표 제품으로, 우레탄 성형·발포 공정으로
+            생산합니다.
+          </p>
+        </div>
+        <ProductStudy />
       </section>
 
       <section
-        className="products-section product-facts"
+        className="products-section product-facts reveal"
         aria-labelledby="product-facts-heading"
         data-products-section="confirmed-information"
       >
@@ -53,7 +58,7 @@ export default function ProductsPage() {
       <ProductSpecifications />
 
       <section
-        className="products-section product-business-link"
+        className="products-section product-business-link reveal"
         aria-labelledby="product-business-heading"
         data-products-section="business-link"
       >
@@ -69,7 +74,7 @@ export default function ProductsPage() {
       </section>
 
       <section
-        className="products-section contact-section"
+        className="products-section contact-section reveal"
         aria-labelledby="product-contact-heading"
         data-products-section="contact"
       >

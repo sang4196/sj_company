@@ -53,10 +53,11 @@ export default function AboutPage() {
   return (
     <div className="about-page">
       <section
-        className="about-section about-intro"
+        className="about-section about-intro reveal"
         aria-labelledby="about-heading"
         data-about-section="introduction"
       >
+        <p className="eyebrow">Since 2017</p>
         <h1 id="about-heading">회사 소개</h1>
         <p className="about-intro__description">
           (주)승종은 금형 설계 및 우레탄 성형·발포를 수행하는 제조업체입니다.
@@ -64,7 +65,7 @@ export default function AboutPage() {
       </section>
 
       <section
-        className="about-section about-overview"
+        className="about-section about-overview reveal"
         aria-labelledby="about-overview-heading"
         data-about-section="company-overview"
       >
@@ -88,7 +89,7 @@ export default function AboutPage() {
       </section>
 
       <section
-        className="about-section"
+        className="about-section reveal"
         aria-labelledby="about-business-heading"
         data-about-section="business-areas"
       >
@@ -107,7 +108,7 @@ export default function AboutPage() {
       </section>
 
       <section
-        className="about-section"
+        className="about-section reveal"
         aria-labelledby="company-information-heading"
         data-about-section="company-information"
       >
@@ -137,7 +138,7 @@ export default function AboutPage() {
       </section>
 
       <section
-        className="about-section about-registrations"
+        className="about-section about-registrations reveal"
         aria-labelledby="about-registrations-heading"
         data-about-section="registrations"
       >
@@ -181,7 +182,7 @@ export default function AboutPage() {
       </section>
 
       <section
-        className="about-section contact-section"
+        className="about-section contact-section reveal"
         aria-labelledby="about-contact-heading"
         data-about-section="contact"
       >

@@ -11,16 +11,17 @@ export default function ContactPage() {
   return (
     <div className="contact-page">
       <section
-        className="contact-page__section contact-page__intro"
+        className="contact-page__section contact-page__intro reveal"
         aria-labelledby="contact-heading"
         data-contact-section="introduction"
       >
+        <p className="eyebrow">함께 이야기해 보세요</p>
         <h1 id="contact-heading">연락처</h1>
         <p className="contact-page__company">{site.name}</p>
       </section>
 
       <section
-        className="contact-page__section contact-primary"
+        className="contact-page__section contact-primary reveal"
         aria-labelledby="phone-contact-heading"
         data-contact-section="phone"
       >
@@ -38,7 +39,7 @@ export default function ContactPage() {
       </section>
 
       <section
-        className="contact-page__section contact-secondary"
+        className="contact-page__section contact-secondary reveal"
         aria-labelledby="email-contact-heading"
         data-contact-section="email"
       >
@@ -55,7 +56,7 @@ export default function ContactPage() {
       </section>
 
       <section
-        className="contact-page__section contact-address"
+        className="contact-page__section contact-address reveal"
         aria-labelledby="address-heading"
         data-contact-section="address"
       >

@@ -1,3 +1,48 @@
+# DESIGN-DODAM: Full site redesign
+
+## Current approval and Git review — 2026-09-30
+
+The user explicitly requested review of the entire uncommitted redesign and commit/push if sound. This supersedes the earlier local-only and approval-pending records below. Approved scope is the complete change from e2c66b2: five pages, white/blue/navy palette, matching Header/Footer, typography/assets, motion, tests and documentation. Git review found no blocking code issue; no additional design changes were made. Final verification and publication results are recorded in the Git handoff report. Main push may trigger the existing Vercel production integration. The following implementation entries are historical checkpoints, not current publication restrictions.
+
+
+Git review validation (2026-09-30): a fresh `npm run verify` exited0 with lint, strict typecheck,18 unit/component tests, production build and80 E2E passing. Log: `/home/shlee/Workspace/ai/01.codex/dodam-review/git-review-verify.log`. Reviewed the complete diff and asset provenance; no blocking findings or further visual/code changes. Publication handoff: `/tmp/sj-company-dodam-git-report.txt` records the resulting commit, remote and deployment observations.
+
+## Header surface follow-up — 2026-09-30
+
+User requested the Header match the Footer color. Acceptance: opaque `#f7f9fc` Header on every page, at the opening, while scrolling and with the mobile menu expanded; navy readable controls, existing layout and navigation retained. Plan: share the Header/Footer surface token, remove conflicting Home/scroll/menu color overrides, update the two existing color assertions, inspect desktop/mobile states and run `npm run verify`. Preserve all prior uncommitted changes; no commit/push. Status: implemented and verified.
+
+Full `npm run verify` passed lint, strict typecheck,18 unit/component tests, production build and80 E2E (`dodam-review/header-match-verify.log`). Browser inspection across five pages at390/1440 confirmed25 top/scrolled/expanded states with matching opaque Header/Footer color, navy Header text and no overflow (`header-match-layout.json`). Desktop opening and mobile expanded-menu screenshots were visually inspected. Preview: http://127.0.0.1:3114/?preview=header. Existing12 modified/8 new files remain uncommitted. Suggested commit: `style: match header and footer colors`.
+
+## White and blue follow-up
+
+User requested a white/blue palette to distinguish this design from the reference. Preserve layout, fonts, motion, content and earlier uncommitted redesign. Plan: replace cream/brown/gold with white, pale blue, cobalt actions and navy sections; neutralize warm photo presentation using CSS and recolor code-native diagrams; update the existing header-transition color expectations; inspect desktop/mobile and run `npm run verify`. No new assets/dependencies or Git publication. Pre-color copies of the seven touched files are stored outside the repository in `dodam-review/before-blue/`, allowing this color adjustment to be reversed independently. Acceptance: consistent cool palette across all five pages/Footer/contact strip, readable text/controls, unchanged behavior and passing full verification. Status: implemented and verified; user visual review pending.
+
+`npm run verify` passed lint, strict typecheck,18 unit/component tests, production build and80 E2E, including200% reflow and the updated header colors. Log: `dodam-review/blue-verify.log`. All five pages at390/1440 were captured and visually checked without overflow or browser errors (`blue-layout-report.json`, `blue-*.png`). Light-surface body/accent text contrasts5.47:1 or higher; light button text on cobalt5.72:1, contact supporting text on navy9.73:1 (`blue-contrast.json`). Preview: http://127.0.0.1:3114/?preview=blue. Git remains uncommitted (12 modified/8 new files including the earlier redesign); this follow-up changes seven existing files only. Suggested commit: `style: refine redesign with a white and blue palette`.
+
+## Scope and acceptance
+
+2026-09-29: User requested copying the visual design and animation approach of https://dodamcare.com/ across the current project, including Footer, then presenting the result for approval. This supersedes the broad manufacturer-reference review. Start: clean commit e2c66b2. Local implementation only; no commit/push/deployment. Rollback boundary is this task's changes from e2c66b2, preserving unrelated later edits.
+
+- [x] Inspect actual desktop/mobile reference, header/scroll/reveal/button interactions and Footer.
+- [x] Rebuild shared styles around reference cream/sand/brown palette, photographic opening, asymmetrical editorial blocks, square buttons and typography; remove accumulated earlier trial overrides.
+- [x] Apply to all five pages, preserve verified copy,23 specification combinations,8 registrations,SEO/navigation/contact behavior. Reference business claims/forms/third-party contact details are not project content.
+- [x] Recompose Footer into company/Sitemap/Contact columns and bottom copyright; add real contact shortcuts.
+- [x] Add reduced-motion-aware progressive reveal, scroll header state and image/hover effects, without a new animation dependency.
+- [x] Inspect desktop/mobile and200% reflow, test animation behavior and all existing critical behavior; run npm run verify.
+- [x] Document images, sources and rollback; open local preview for user visual approval.
+
+Reference evidence and validation logs: /home/shlee/Workspace/ai/01.codex/dodam-review/.
+
+## Validation and handoff
+
+Implementation and local verification complete; user visual approval pending. Final `npm run verify` exited0: lint, strict typecheck,18 unit/component tests, production build and80 E2E passed. No skips, assertion removals, timeout increases or new dependencies. Existing non-failing jsdom navigation/NO_COLOR warnings remain. Logs: `footer-isolated.log` (22 passing Footer cases) and `verify-passed.log` (complete pipeline). Earlier failures/interrupted execution and their corrections are recorded in [Dodam preview](../docs/dodam-design-preview.md).
+
+Captured all five routes at320/390/768/1440:20 views, no horizontal overflow, no page errors, heading font loaded. Desktop/mobile primary views, final Footer and200% Home were visually inspected. Report: `final-layout-report.json`; images: `final-*.png`. Animation E2E includes header color, reveal, pointer/keyboard navigation, inquiry strip, back-to-top, reduced motion and JavaScript-disabled content.
+
+Review URL: http://127.0.0.1:3114/. Only this task's preview/verification processes were managed; other servers were preserved. Git remains on `main` at `e2c66b2`, with12 modified and8 new files, all within this redesign. No staging, commit, push or deployment. Suggested commit after approval: `feat: redesign site and footer with Dodam-inspired styling`.
+
+---
+
 # DESIGN-REFERENCE: ASML-inspired visual trial
 
 ## Approval and Git handoff

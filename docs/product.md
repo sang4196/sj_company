@@ -343,3 +343,11 @@ User approved the presented TASK-018 Home/Footer screen (“화면 괜찮음”)
 ## ASML-reference visual trial — 2026-09-19
 
 User requested an implementation inspired by https://www.asml.com/en, with rollback available after review. Reference principles are a broad opening scene, large editorial typography, column rules, asymmetrical content and strong blue/white contrast. No ASML photos, videos, logos, copy, metrics or claims are reused. Home uses an original abstract metal-form background labeled AI graphic, not a photograph of company equipment/products; the previously rejected manufacturing-photo trial remains removed. Business/product/company/contact sections have distinct layouts and emphasis; internal introduction styling and shared Footer colors are harmonized. Confirmed content, official logo, phone/email, navigation, SEO and specification/registration evidence remain unchanged. Earlier typography-only Hero constraints are superseded only for this decorative abstract artwork. This is a local visual trial, not final design or publication approval. Provenance: [reference design trial](reference-design-trial.md).
+
+## Dodam reference preview — 2026-09-29
+
+User requested a full design and Footer rebuild based on dodamcare.com. The existing five public pages, company facts, product specifications, registrations and SEO remain. The reference supplies visual structure and motion only; no reference-specific performance/price/installation/customer claims or contact channels are added. Details: [preview record](dodam-design-preview.md). No commit/push/deployment before review.
+
+Following review, the user requested white/blue colors to distinguish the site from the reference. Preserve its composition and behavior while replacing the cream/brown theme with white, pale blue, cobalt and navy. The existing material photograph is presented with CSS color treatment; no new product or facility photography claims are added.
+
+2026-09-30 publication approval: the user explicitly authorized review, commit and push of the complete white/blue redesign including the matching Header/Footer. Earlier local-preview restrictions are superseded for this revision; confirmed facts and existing SEO remain unchanged.

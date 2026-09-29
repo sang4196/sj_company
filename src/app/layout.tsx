@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import { SiteMotion } from "@/components/site-motion";
+import Link from "next/link";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/lib/site";
@@ -20,7 +22,8 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
       <head>
         <link rel="preload" href="/fonts/SUIT-Variable.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </head>
-      <body>
+      <body id="page-top">
+        <SiteMotion />
         <a className="skip-link" href="#main-content">
           본문으로 건너뛰기
         </a>
@@ -30,6 +33,11 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
             {children}
           </main>
           <SiteFooter />
+          <aside className="site-actions" aria-label="빠른 문의">
+            <a href={site.phoneHref} aria-label="전화 바로 연결">전화 문의</a>
+            <a href={site.emailHref} aria-label="이메일 작성">이메일 문의</a>
+            <Link href="/contact" aria-label="문의 페이지 열기">문의 안내 <span aria-hidden="true">↗</span></Link>
+          </aside>
         </div>
       </body>
     </html>

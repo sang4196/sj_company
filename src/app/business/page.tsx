@@ -12,10 +12,11 @@ export default function BusinessPage() {
   return (
     <div className="business-page">
       <section
-        className="business-section business-intro"
+        className="business-section business-intro reveal"
         aria-labelledby="business-heading"
         data-business-section="introduction"
       >
+        <p className="eyebrow">Design &amp; Manufacturing</p>
         <h1 id="business-heading">사업 분야</h1>
         <p className="business-intro__message">
           제품 설계부터 금형 제작, 우레탄 성형·발포까지
@@ -27,7 +28,7 @@ export default function BusinessPage() {
       </section>
 
       <section
-        className="business-section"
+        className="business-section reveal"
         aria-labelledby="capabilities-heading"
         data-business-section="capabilities"
       >
@@ -59,7 +60,7 @@ export default function BusinessPage() {
       </section>
 
       <section
-        className="business-section business-process"
+        className="business-section business-process reveal"
         aria-labelledby="process-heading"
         data-business-section="linked-process"
       >
@@ -77,7 +78,7 @@ export default function BusinessPage() {
       </section>
 
       <section
-        className="business-section business-product"
+        className="business-section business-product reveal"
         aria-labelledby="business-product-heading"
         data-business-section="representative-product"
       >
@@ -95,7 +96,7 @@ export default function BusinessPage() {
       </section>
 
       <section
-        className="business-section contact-section"
+        className="business-section contact-section reveal"
         aria-labelledby="business-contact-heading"
         data-business-section="contact"
       >

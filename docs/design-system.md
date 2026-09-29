@@ -341,3 +341,15 @@ Use self-hosted SUIT Variable for Korean and Latin text; the previous Pretendard
 ## Softer composition follow-up
 
 User found the reference trial too rigid. Remove redundant English section eyebrows and decorative numbering; replace ornamental introductory grids, section rules and fact-list rules with spacing and warm surfaces. Retain meaningful specification-table/registration dividers and keyboard focus rings. Use restrained ink headings and contact colors, a warm product surface and modest corner radii. Preserve SUIT, original artwork and verified content. This supersedes the earlier blue-heading/grid-rule trial direction and remains uncommitted for review.
+
+## Dodam reference redesign — 2026-09-29
+
+The user requested the design of https://dodamcare.com/ across the entire project and Footer, superseding the earlier ASML/softening trial. Current proposed system uses cream/sand/warm-black/bronze, IBM Plex Sans KR600 headings with SUIT body text, a photo-led opening with inset detail, square actions, editorial columns and a three-column Footer. Progressive scroll reveals, header transition, hover fills and inquiry shortcuts respect reduced motion and keyboard access. See [Dodam preview](dodam-design-preview.md) for actual reference observations, generated-image/font provenance, content boundaries and rollback. This remains a local preview pending user review.
+
+### White and blue refinement
+
+The user requested a distinct white/blue palette after reviewing the composition. This supersedes the cream/brown colors above. Use white `#ffffff`, pale-blue surfaces `#f1f6fc`, navy ink `#162d4b`, muted blue-gray `#53657d`, cobalt actions `#245fc7`, deep navy `#102b4e` and Footer `#f7f9fc`. Keep the current layout, typography and motion. Photos use CSS grayscale/navy overlays or luminosity blending; their original files remain intact. Diagrams use silver-blue fills. Dark sections use light blue text, not the body accent/muted colors. Body muted and accent text contrast exceeds5.4:1 against the two principal light surfaces. Existing focus indicators remain visible.
+
+2026-09-30: Header and Footer share the opaque `--shell-surface: #f7f9fc` color at the user's request. Home, scrolled and expanded mobile Header states all keep navy text on this surface. Scrolling adds only the separator shadow; the former transparent navy/white Header backgrounds are superseded.
+
+2026-09-30 publication approval: the user explicitly authorized review, commit and push of the complete white/blue redesign including the matching Header/Footer. Earlier local-preview restrictions are superseded for this revision; confirmed facts and existing SEO remain unchanged.
