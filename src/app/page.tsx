@@ -106,9 +106,6 @@ export default function Home() {
         aria-labelledby="product-overview-heading"
         data-home-section="representative-product"
       >
-        <div className="product-overview__visual reveal">
-          <ProductStudy />
-        </div>
         <div className="product-overview__content reveal">
           <p className="eyebrow">대표 제품</p>
           <h2 id="product-overview-heading">
@@ -121,6 +118,9 @@ export default function Home() {
           <Link className="primary-action" href="/products">
             제품 보기 <span aria-hidden="true">↗</span>
           </Link>
+        </div>
+        <div className="product-overview__visual reveal">
+          <ProductStudy />
         </div>
       </section>
 

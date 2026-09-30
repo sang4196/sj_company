@@ -12,7 +12,7 @@ describe("Products information architecture", () => {
       screen.getByText(/퍼즐형 층간소음매트는 \(주\)승종의 대표 제품으로/),
     ).toBeVisible();
 
-    const information = screen.getByRole("region", { name: "확인된 제품 정보" });
+    const information = screen.getByRole("region", { name: "제품 정보" });
     expect(within(information).getByText("퍼즐 형태")).toBeVisible();
     expect(within(information).getByText("층간소음매트")).toBeVisible();
     expect(within(information).getByText("우레탄 성형·발포")).toBeVisible();

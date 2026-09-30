@@ -15,6 +15,7 @@ describe("About information architecture", () => {
 
     const overview = screen.getByRole("region", { name: "회사 개요" });
     expect(within(overview).getByText("(주)승종")).toBeVisible();
+    expect(within(overview).getByText("배진현")).toBeVisible();
     expect(within(overview).getByText("2017")).toBeVisible();
     expect(within(overview).getByText("제조업")).toBeVisible();
 
@@ -73,7 +74,15 @@ describe("About information architecture", () => {
     for (const excludedNumber of ["10-2919672", "30-1294832", "30-1294833", "30-1294844", "30-1294845"]) {
       expect(registrations).not.toHaveTextContent(excludedNumber);
     }
-    expect(container.querySelector('a[href$=".pdf"], iframe, embed, object')).not.toBeInTheDocument();
+    expect(container.querySelector('a[href$=".pdf"], embed, object')).not.toBeInTheDocument();
+    expect(registrations.querySelector("iframe")).not.toBeInTheDocument();
+    expect(container.querySelectorAll("iframe")).toHaveLength(1);
+    const map = screen.getByTitle("(주)승종 위치 지도");
+    expect(map).toHaveAttribute("loading", "lazy");
+    expect(map).toHaveAttribute("src", expect.stringContaining("https://www.google.com/maps/embed?pb="));
+    const mapLink = screen.getByRole("link", { name: "지도 크게 보기" });
+    expect(mapLink).toHaveAttribute("href", `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent("경기도 안성시 서운면 사갑1길 296-49")}`);
+    expect(mapLink).toHaveAttribute("rel", "noopener noreferrer");
 
     expect(container.querySelector("img")).not.toBeInTheDocument();
     expect(screen.queryByText(/비전|미션|최초개발|대량 OEM|현재 보유|독점|안전성|소음 감소/)).not.toBeInTheDocument();

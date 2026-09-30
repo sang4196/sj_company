@@ -14,7 +14,7 @@ export function SiteFooter() {
             </Link>
             <div className="site-footer__meta">
               <p>금형 설계·제작 · 우레탄 성형·발포</p>
-              <p>{site.founded}년 설립</p>
+              <p>대표자 {site.representative}</p>
               <p>{site.address}</p>
             </div>
           </div>

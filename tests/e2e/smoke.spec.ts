@@ -38,6 +38,8 @@ test("skip link moves keyboard focus into main content on every active route", a
 
     await page.keyboard.press("Enter");
     await expect(main).toBeFocused();
+    await expect(main).toHaveCSS("outline-style", "solid");
+    await expect(main).toHaveCSS("outline-width", "3px");
 
     await page.keyboard.press("Tab");
     await expect(firstMainControl).toBeFocused();
@@ -332,8 +334,8 @@ test("About presents confirmed company information and contact paths", async ({ 
     "introduction",
     "company-overview",
     "business-areas",
-    "company-information",
     "registrations",
+    "company-information",
     "contact",
   ]);
 
@@ -434,7 +436,7 @@ test("Products presents the confirmed representative product and contact paths",
     main.getByText(/퍼즐형 층간소음매트는 \(주\)승종의 대표 제품으로/),
   ).toBeVisible();
 
-  const information = main.getByRole("region", { name: "확인된 제품 정보" });
+  const information = main.getByRole("region", { name: "제품 정보" });
   await expect(information.getByText("퍼즐 형태")).toBeVisible();
   await expect(information.getByText("층간소음매트")).toBeVisible();
   await expect(information.getByText("우레탄 성형·발포")).toBeVisible();

@@ -50,3 +50,7 @@ Vercel serves the connected domain; HTTP upgrades to HTTPS and apex redirects to
 ## Search metadata — TASK-021
 
 Root metadataBase uses the fixed production origin; canonical alternates belong only to the five page modules, preventing Home canonical inheritance by404. Typed App Router robots/sitemap routes produce public discovery files; Vercel preview robots disallows crawling without modifying provider noindex headers. No client boundary or dependency changes. Policy, validation and account follow-up: [search discovery](search-discovery.md).
+
+## About location map — 2026-10-01
+
+About places company information after the registration list and before the phone CTA. Its map uses the public Google Maps Share → Embed map URL obtained for the confirmed road address, stored in `site.mapEmbedUrl`; it is not the API-key-based Maps Embed API v1. The titled, lazy iframe reserves responsive space and keeps Google's attribution and controls intact. The page remains a Server Component, with no SDK, API key, geolocation request or runtime geocoding. A normal Maps search URL derived from `site.address`, address text and phone/email links remain usable when the embed or site JavaScript is unavailable. Address changes require regenerating the share embed as well as updating `site.address`. Official references: [Google Maps sharing](https://support.google.com/maps/answer/7101463?hl=en), [Maps URLs](https://developers.google.com/maps/documentation/urls/get-started). Automated map-specific tests stub the provider; live desktop/mobile rendering is validated separately.

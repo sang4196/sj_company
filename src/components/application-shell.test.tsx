@@ -49,7 +49,8 @@ describe("application shell", () => {
       expect(within(shortcuts).getByRole("link", { name })).toHaveAttribute("href", href);
     }
     expect(within(footer).getByText("© 2026 (주)승종. All rights reserved.")).toBeVisible();
-    expect(within(footer).queryByText("2017")).not.toBeInTheDocument();
+    expect(within(footer).getByText("대표자 배진현")).toBeVisible();
+    expect(footer).not.toHaveTextContent("2017");
     const identity = within(footer).getByRole("link", { name: "(주)승종 홈" });
     expect(identity).toHaveAttribute("href", "/");
     expect(identity.querySelector("img")).toHaveAttribute("alt", "");

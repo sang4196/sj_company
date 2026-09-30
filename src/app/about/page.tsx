@@ -78,6 +78,10 @@ export default function AboutPage() {
             <dd>{site.name}</dd>
           </div>
           <div>
+            <dt>대표자</dt>
+            <dd>{site.representative}</dd>
+          </div>
+          <div>
             <dt>설립연도</dt>
             <dd>{site.founded}</dd>
           </div>
@@ -105,36 +109,6 @@ export default function AboutPage() {
           <li>금형 설계</li>
           <li>우레탄 성형·발포</li>
         </ul>
-      </section>
-
-      <section
-        className="about-section reveal"
-        aria-labelledby="company-information-heading"
-        data-about-section="company-information"
-      >
-        <h2 id="company-information-heading">회사 정보</h2>
-        <dl className="about-company-details">
-          <div>
-            <dt>주소</dt>
-            <dd>{site.address}</dd>
-          </div>
-          <div>
-            <dt>전화</dt>
-            <dd>
-              <a href={site.phoneHref} aria-label={`전화 문의 ${site.phone}`}>
-                {site.phone}
-              </a>
-            </dd>
-          </div>
-          <div>
-            <dt>이메일</dt>
-            <dd>
-              <a href={site.emailHref} aria-label={`이메일 문의 ${site.email}`}>
-                {site.email}
-              </a>
-            </dd>
-          </div>
-        </dl>
       </section>
 
       <section
@@ -179,6 +153,57 @@ export default function AboutPage() {
             </ul>
           </div>
         ))}
+      </section>
+
+      <section
+        className="about-section reveal"
+        aria-labelledby="company-information-heading"
+        data-about-section="company-information"
+      >
+        <h2 id="company-information-heading">회사 정보</h2>
+        <dl className="about-company-details">
+          <div>
+            <dt>주소</dt>
+            <dd>{site.address}</dd>
+          </div>
+          <div>
+            <dt>전화</dt>
+            <dd>
+              <a href={site.phoneHref} aria-label={`전화 문의 ${site.phone}`}>
+                {site.phone}
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt>이메일</dt>
+            <dd>
+              <a href={site.emailHref} aria-label={`이메일 문의 ${site.email}`}>
+                {site.email}
+              </a>
+            </dd>
+          </div>
+        </dl>
+        <div className="about-location">
+          <div className="section-heading-row">
+            <h3>오시는 길</h3>
+            <a
+              className="text-link"
+              href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.address)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              지도 크게 보기 <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+          <iframe
+            className="about-location__map"
+            title={`${site.name} 위치 지도`}
+            src={site.mapEmbedUrl}
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        </div>
       </section>
 
       <section

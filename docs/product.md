@@ -6,6 +6,7 @@ This document records confirmed information, provisional product decisions, and 
 
 - Official company name: `(주)승종`
 - Website display name: `(주)승종`
+- Representative: `배진현` (explicitly supplied by the user on 2026-10-01; shown in About and Footer)
 - Founded: `2017`
 - Company type: Manufacturing
 - Public business areas:

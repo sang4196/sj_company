@@ -37,7 +37,7 @@ export default function ProductsPage() {
         data-products-section="confirmed-information"
       >
         <div>
-          <h2 id="product-facts-heading">확인된 제품 정보</h2>
+          <h2 id="product-facts-heading">제품 정보</h2>
         </div>
         <dl className="product-facts__list">
           <div>

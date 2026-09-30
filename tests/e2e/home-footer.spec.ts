@@ -8,6 +8,21 @@ for (const width of [320, 390, 768, 1280]) {
     const normalHeight = (await hero.boundingBox())?.height;
     if (!normalHeight) throw new Error("Missing Home introduction");
     await expect(page.getByRole("main").getByRole("heading", { name: "퍼즐형 층간소음매트", level: 2 })).toBeVisible();
+    const columns = await page.locator(".site-footer__columns").evaluate((element) =>
+      Array.from(element.children, (child) => {
+        const { x, y, right, bottom } = child.getBoundingClientRect();
+        return { x, y, right, bottom };
+      }),
+    );
+    const [brand, navigation, contact] = columns;
+    expect(Math.abs(navigation.y - contact.y)).toBeLessThanOrEqual(1);
+    expect(navigation.right).toBeLessThan(contact.x);
+    if (width >= 768) {
+      expect(Math.abs(brand.y - navigation.y)).toBeLessThanOrEqual(1);
+      expect(brand.right).toBeLessThan(navigation.x);
+    } else {
+      expect(brand.bottom).toBeLessThan(navigation.y);
+    }
     // User font-size preference: increase rem-based text to 200%, without a fixed-height shortcut.
     await page.evaluate(() => { document.documentElement.style.fontSize = "200%"; });
     const expandedHeight = (await hero.boundingBox())?.height;
@@ -56,6 +71,8 @@ for (const route of ["/", "/about", "/business", "/products", "/contact", "/miss
     expect(box.width / box.height).toBeCloseTo(171 / 167, 2);
     await expect(footer.getByText("© 2026 (주)승종. All rights reserved.")).toBeVisible();
     await expect(footer.getByText("금형 설계·제작 · 우레탄 성형·발포")).toBeVisible();
+    await expect(footer.getByText("대표자 배진현")).toBeVisible();
+    await expect(footer).not.toContainText("2017");
     await expect(footer.getByText("경기도 안성시 서운면 사갑1길 296-49")).toBeVisible();
     await expect(footer.getByRole("link", { name: "031-674-3640" })).toHaveAttribute("href", "tel:031-674-3640");
     await expect(footer.getByRole("link", { name: "sjbjh3613@daum.net" })).toHaveAttribute("href", "mailto:sjbjh3613@daum.net");

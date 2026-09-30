@@ -1,3 +1,46 @@
+# ABOUT-MAP: Company information and location — 2026-10-01
+
+## Current Git authorization and validation
+
+The user authorized review, commit and local main merge of the complete cumulative follow-up from 4b3972d. Earlier local-only checkpoints below are superseded for commit/merge only. Remote push remains prohibited for this handoff. Review covers all 18 changed/new files, including the verified Next.js-managed block. No additional visual or runtime code changes were needed. Git reviewer reran `npm run verify`: exit 0, lint/strict typecheck/18 unit-component tests/production build/86 E2E passed (`about-map-review/git-review-verify.log`). Final validation and Git results are recorded in `/home/shlee/Workspace/ai/01.codex/about-map-review/git-review-report.txt`.
+
+Latest user request: move About's 회사 정보 below 특허·디자인 등록, show an external map for the confirmed address, verify the combined changes, then instruct 깃노예 to review and commit/merge if sound. This supersedes the earlier local-only handoff restriction for the cumulative follow-up. Preserve all existing uncommitted focus/Footer/copy/product changes from `4b3972d`.
+
+Plan: move the existing section without altering registration data, embed the address result obtained through Google Maps' official Share → Embed map UI, retain a normal address-based external map link, reserve responsive iframe space and use lazy loading. Preserve Server Components and existing dependencies. Update section-order/map expectations, inspect live desktop/mobile map rendering and unavailable-provider recovery, run `npm run verify`, then hand off the complete diff and validation to 깃노예.
+
+Acceptance:
+- [x] 회사 정보 follows 특허·디자인 등록 and precedes 전화 문의.
+- [x] The map displays 경기도 안성시 서운면 사갑1길 296-49 with readable desktop/mobile layout; address, phone, email and external map link remain usable without the embedded provider.
+- [x] Prior changes, eight registration records and keyboard/touch behavior remain intact; full verification passes.
+- [x] Preview and validation are recorded for the user-authorized Git review/commit/merge handoff.
+
+Status: implementation and verification complete; Git review/commit/merge requested by the user, reviewer's result pending. Fresh final `npm run verify` exited 0 with lint, strict typecheck, 18 unit/component tests, production build and 86 E2E passing (`verify-final.log`). Map-only recheck passed all four desktop/mobile cases (`map-recheck-final.log`). Initial failures came from the new test fixture's missing UTF-8 declaration and measuring sections before scroll-reveal transforms settled; both were corrected without removing checks or increasing timeouts (`verify.log`, `map-recheck.log`).
+
+Live Google embeds returned HTTP 200 at 390/1440. Visually checked the address/marker, responsive map and company details, with no horizontal overflow; the provider's location is 36.9218454,127.2398754. Evidence: `/home/shlee/Workspace/ai/01.codex/about-map-review/` (`live-map-report.json`, `company-information-390.png`, `company-information-1440.png`, and the official Share/Embed URL extraction). Earlier ad-hoc inspection incorrectly required mobile address-card text and a desktop-specific link; the provider changes those controls by viewport, so final inspection records the actual controls, location and rendered map instead.
+
+Preview: http://127.0.0.1:3115/about#company-information-heading. All cumulative changes remain uncommitted on `main` from `4b3972d`: 16 modified tracked files and two new E2E files. No unrelated source changes, dependency additions, API keys, root-agent Git commits/merges/pushes or server restarts. The previously verified Next.js-managed AGENTS.md block remains intact. Suggested commit: `fix: refine company layout and add the About location map`.
+
+---
+
+# DESIGN-FOLLOWUP: Focus, Footer and product placement — 2026-10-01
+
+User requested implementation after the pointer-focus investigation. Starting tree clean at `4b3972d`. Scope: fix the main-content outline on clicks/taps; align Footer company/Sitemap/Contact horizontally, add confirmed representative 배진현 and remove Footer founding year; rename Products heading to 제품 정보; place the Home mat diagram after the representative-product title/content. No commit, push or deployment authorized for this follow-up.
+
+Plan: limit main outline to focus-visible while preserving skip-link focus; adjust existing Footer grid/alignment (desktop three columns, mobile company row plus Sitemap/Contact side by side, reflow for enlarged text); share representative data with About; reorder existing Home content/diagram and update the product label. Add pointer/touch regression checks and retain keyboard/route coverage, inspect desktop/mobile and run `npm run verify`.
+
+Acceptance criteria:
+- [x] All five pages have no main outline after pointer click/tap; keyboard skip-link outline and subsequent Tab navigation remain.
+- [x] Footer columns align on desktop; mobile Sitemap/Contact remain side by side at normal text size, with readable 200% text reflow and working links.
+- [x] About and Footer show 대표자 배진현; Footer omits founding year while Home/About retain it.
+- [x] Products shows 제품 정보; Home diagram follows representative-product copy and stays within that section.
+- [x] Desktop/mobile views inspected, full verification passes, documentation and Git status reported.
+
+Status: implemented and verified; user visual review pending. Final `npm run verify` exited 0: lint, strict typecheck, 18 unit/component tests, production build and 82 E2E passed, including mouse/touch outline regression, skip-link focus and Footer 200% reflow. No skipped tests or weakened assertions. The initial verification session lost its process handle/log during an environment change; it is not counted as a completed pass. The fresh final run and ten desktop/mobile page captures are retained in `/home/shlee/Workspace/ai/01.codex/layout-followup-review/` (`verify.log`, `layout-report.json`, PNG files). No horizontal overflow, clipped text or page errors were found; Home product placement and Footer were visually checked at 390/1440, with responsive checks at 320/390/768/1280 in E2E.
+
+Local preview: http://127.0.0.1:3115/?preview=layout-followup. Only this task's preview server was started; existing user servers were preserved. `next dev` restored its managed AGENTS.md block; verified its text against `node_modules/next/dist/server/lib/generate-agent-files.js` and preserved it with the user contract outside its markers. Changes remain uncommitted (15 modified files and one new focus regression test), with no push/deployment. Suggested commit: `fix: refine focus indicators and company content layout`.
+
+---
+
 # DESIGN-DODAM: Full site redesign
 
 ## Current approval and Git review — 2026-09-30
