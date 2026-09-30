@@ -116,3 +116,37 @@ test("robots and sitemap expose only the approved production discovery URLs", as
     await expect(page.locator('link[rel="canonical"]')).toHaveCount(0);
   }
 });
+
+
+test("Home ownership tags appear once in the server head without site JavaScript", async ({ browser, request }) => {
+  const response = await request.get("/");
+  expect(response.status()).toBe(200);
+  expect(response.headers()["content-type"]).toContain("text/html");
+  const html = await response.text();
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  try {
+    const page = await context.newPage();
+    await page.goto(response.url());
+    const tokens = {
+      "google-site-verification": "S8yu772XYDACYU5LqC2FIEfCNCAH0vZvzd8T9U3E398",
+      "naver-site-verification": "ebdacd70e565bef921b3b6e0aa2bd246ba9fc28e",
+    };
+    for (const [name, value] of Object.entries(tokens)) {
+      const selector = `meta[name="${name}"]`;
+      await expect(page.locator(selector)).toHaveCount(1);
+      await expect(page.locator(`head ${selector}`)).toHaveAttribute("content", value);
+      // Parse the HTTP response as inert HTML, independently of the rendered DOM.
+      const rawTags = await page.evaluate(({ html, selector }) => {
+        const document = new DOMParser().parseFromString(html, "text/html");
+        return [...document.querySelectorAll(selector)].map((tag) => ({
+          parent: tag.parentElement?.tagName,
+          content: tag.getAttribute("content"),
+        }));
+      }, { html, selector });
+      expect(rawTags).toEqual([{ parent: "HEAD", content: value }]);
+    }
+    await expect(page.locator('head link[rel="canonical"]')).toHaveAttribute("href", "https://www.seungjong.co.kr");
+  } finally {
+    await context.close();
+  }
+});

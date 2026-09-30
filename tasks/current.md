@@ -1,3 +1,29 @@
+# TASK-022: Naver and Google Ownership Verification Tags — 2026-10-01
+
+## Baseline and authorization
+
+User approved development → verification → Git reviewer commit/push → live confirmation. This development task performs no Git/provider/account writes. Initial tree clean; HEAD, origin/main and read-only git ls-remote all equal `61b564e4fcf2bacf8e206168bb0a9f15b33e04fc`. Preserve the latest About map, representative, layout and all approved content. TASK-021 commit46a869f is an ancestor of this confirmed remote main; its prior Git-wait checkpoint is historical. Earlier no-push records below are task-time records, not a restriction on the separate newly authorized Git handoff. Remote commit presence alone does not prove a deployment or successful search-account verification.
+
+## Plan and Acceptance Criteria
+
+- [x] Read installed Next metadata verification guide and implementation plus official reference; preserve the managed AGENTS block.
+- [x] Add only root metadata verification.google and verification.other[naver-site-verification] with the user's exact public tokens.
+- [x] Verify a 200 HTML Home response includes each exact tag once in server-rendered head without site JavaScript; retain canonical/robots/sitemap/404/preview tests.
+- [x] Run affected metadata checks and complete npm run verify. No UI change or unnecessary visual redesign/check expansion.
+- [x] Update current Git facts and pending account steps in task/backlog/search docs; record logs/status/report and stop for Git review without commit/push/deploy/account confirmation.
+
+## Status
+
+Implementation and local verification complete. Affected production build and metadata E2E passed (8 tests). Full `npm run verify` exited 0: lint, strict typecheck, 18 unit/component tests, production build and 88 E2E tests passed. No tests were removed or skipped. Only non-failing NO_COLOR/FORCE_COLOR environment warnings were emitted.
+
+Evidence: `/home/shlee/Workspace/ai/01.codex/task-022-review/` contains `affected-build.log`, `affected-e2e.log`, `verify.log`, `server-head.html` and `baseline.txt`. The HTTP response and JavaScript-disabled browser checks verify each exact ownership tag once in the Home head. Root JSX and styles are unchanged, so no new visual screenshots were required. Existing responsive/navigation/keyboard regressions passed in the full suite.
+
+Five existing files changed: root layout metadata, metadata E2E, current task, backlog and search-discovery documentation. No dependencies, verification files or Git writes. Playwright's production server at 127.0.0.1:3100 stopped after verification; no preview server was started and no user-owned server was stopped/restarted. Git handoff report: `/tmp/sj-company-task022-dev-report.txt`. Suggested commit: `feat: add Naver and Google ownership verification tags`.
+
+Git review/commit/push and live tag confirmation remain follow-up steps. Account confirmation clicks and sitemap submission remain pending until the tags are verified on the live site. No account verification or deployment success is claimed.
+
+---
+
 # ABOUT-MAP: Company information and location — 2026-10-01
 
 ## Current Git authorization and validation
@@ -131,7 +157,7 @@ User explicitly approved making the site discoverable through Naver/Google with 
 
 ## Status
 
-Implementation and local validation complete; awaiting Git handoff. Five public routes and existing404 policy preserved; no production deployment performed by this task.
+Historical TASK-021 implementation checkpoint: local verification complete. Git completion subsequently confirmed on2026-10-01: commit46a869f is included in remote main61b564e. This does not by itself attest to deployment or account verification. Five public routes and existing404 policy remain preserved.
 
 
 ## Implementation and validation

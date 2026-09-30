@@ -9,6 +9,12 @@ import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
+  verification: {
+    google: "S8yu772XYDACYU5LqC2FIEfCNCAH0vZvzd8T9U3E398",
+    other: {
+      "naver-site-verification": "ebdacd70e565bef921b3b6e0aa2bd246ba9fc28e",
+    },
+  },
   title: {
     default: "(주)승종",
     template: "%s | (주)승종",
