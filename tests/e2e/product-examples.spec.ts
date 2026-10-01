@@ -1,16 +1,17 @@
 import { expect, test } from "@playwright/test";
 
 for (const width of [320, 390, 768, 1280]) {
-  test(`product specification tables remain readable at ${width}px`, async ({ page }, testInfo) => {
+  test(`product examples remain readable at ${width}px`, async ({ page }, testInfo) => {
     await page.setViewportSize({ width, height: 844 });
     await page.goto("/products");
     const main = page.getByRole("main");
-    const specs = page.getByRole("region", { name: "제품 규격", exact: true });
-    await expect(specs.getByRole("table")).toHaveCount(4);
-    await expect(specs.getByRole("row")).toHaveCount(23);
-    await expect(specs.getByText(/제품 형태 예시 이미지/)).toHaveCount(4);
+    const specs = page.getByRole("region", { name: "제품 형태 예시", exact: true });
+    await expect(specs.getByRole("figure")).toHaveCount(3);
+    await expect(specs.getByText("모든 치수 양산 가능", { exact: true })).toBeVisible();
+    await expect(main.getByRole("table")).toHaveCount(0);
+    await expect(specs.getByText(/제품 형태 예시 이미지/)).toHaveCount(3);
     const layout = await specs.evaluate((element) => {
-      const cells = [...element.querySelectorAll("th, td, figcaption")];
+      const cells = [...element.querySelectorAll("figure, figcaption, h3, .product-examples__availability")];
       return {
         overflow: document.documentElement.scrollWidth > innerWidth,
         clipped: cells.filter((cell) => {

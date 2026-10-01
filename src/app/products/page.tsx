@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
 import { ProductStudy } from "@/components/product-study";
-import { ProductSpecifications } from "./product-specifications";
+import { ProductExamples } from "./product-examples";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/products" },
@@ -19,7 +19,7 @@ export default function ProductsPage() {
         data-products-section="introduction"
       >
         <div className="products-intro__copy">
-          <p className="eyebrow">형태와 규격</p>
+          <p className="eyebrow">제품 소개</p>
           <h1 id="products-heading">제품</h1>
           <p className="products-intro__label">대표 제품</p>
           <h2>퍼즐형 층간소음매트</h2>
@@ -55,7 +55,7 @@ export default function ProductsPage() {
         </dl>
       </section>
 
-      <ProductSpecifications />
+      <ProductExamples />
 
       <section
         className="products-section product-business-link reveal"

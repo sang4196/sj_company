@@ -1,3 +1,19 @@
+# PRODUCT-EXAMPLES — 2026-10-01
+
+Current request: remove dimensions/specifications from Products, keep example illustrations and show exactly `모든 치수 양산 가능`. Baseline: clean `93fda87`. Latest follow-up explicitly authorizes 깃노예 to review the cumulative changes, then commit and push if sound. This supersedes the prior local-only state and repository no-push default for this handoff.
+
+Plan / acceptance criteria:
+- Replace numeric tables and captions with three labeled SVG shape examples (사각형 매트, 육각 매트, 러그형 세트); merge the former square and side/corner/corridor categories; retain representative-product illustration, facts and contact links.
+- Display the user-approved production sentence; remove stale dimension teaser on Home.
+- Preserve responsive layout and keyboard access; check desktop/mobile and run `npm run verify`.
+- Update existing coverage and product/design guidance. Preserve historical catalog evidence.
+
+Status: final follow-up validated locally. `npm run verify` exited 0: lint, strict typecheck, 18 unit/component tests, production build and 88 E2E tests passed. Desktop 1280 and mobile 390 screenshots visually checked; responsive E2E covers 320/390/768/1280. Evidence: `/home/shlee/Workspace/ai/01.codex/product-examples-final-review/verify.log`, `verify.exit`, `viewport-390.png`, `viewport-1280.png`. Only existing non-failing jsdom navigation and terminal-color warnings observed.
+
+Preview: agent-owned production server `http://127.0.0.1:3116/products`. Complete diff includes the preceding dimension-table removal, three shape examples with merged 사각형 매트, exact approved manufacturing sentence, Home teaser, styles, updated tests and docs. `git diff --check` passes. No unrelated changes or Git mutations by implementation agent. Handoff to 깃노예 for review and conditional commit/push is authorized by the latest user request; do not force push, amend or rebase. Suggested commit: `feat: simplify product examples and production messaging`.
+
+---
+
 # TASK-022: Naver and Google Ownership Verification Tags — 2026-10-01
 
 ## Baseline and authorization

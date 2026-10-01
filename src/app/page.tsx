@@ -114,7 +114,7 @@ export default function Home() {
             층간소음매트
           </h2>
           <p>퍼즐 형태의 층간소음매트로, (주)승종의 대표 제품입니다.</p>
-          <p className="product-overview__note">형태별 크기와 두께를 확인해 보세요.</p>
+          <p className="product-overview__note">다양한 제품 형태를 확인해 보세요.</p>
           <Link className="primary-action" href="/products">
             제품 보기 <span aria-hidden="true">↗</span>
           </Link>

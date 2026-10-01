@@ -352,3 +352,8 @@ User requested a full design and Footer rebuild based on dodamcare.com. The exis
 Following review, the user requested white/blue colors to distinguish the site from the reference. Preserve its composition and behavior while replacing the cream/brown theme with white, pale blue, cobalt and navy. The existing material photograph is presented with CSS color treatment; no new product or facility photography claims are added.
 
 2026-09-30 publication approval: the user explicitly authorized review, commit and push of the complete white/blue redesign including the matching Header/Footer. Earlier local-preview restrictions are superseded for this revision; confirmed facts and existing SEO remain unchanged.
+
+
+## Product examples update — 2026-10-01
+
+The user supersedes TASK-017's public dimension-table presentation: remove numeric dimensions, thicknesses, specifications and quantity captions from Products. Retain three independently drawn, labeled shape examples (사각형 매트, 육각 매트, 러그형 세트); the user combined 정사각 매트 and 사이드·코너·복도형 into 사각형 매트 and display the exact approved sentence `모든 치수 양산 가능`. The gallery uses three columns on desktop and one on mobile. The examples remain illustrative, not actual product photographs or connector details. Home's link teaser now describes product forms. Historical catalog evidence remains in `docs/product-spec-evidence.md`; it is not rendered publicly. No other performance or manufacturing claims are added.
