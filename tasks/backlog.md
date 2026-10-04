@@ -1,6 +1,8 @@
 # Backlog
 
-- TASK-022 Ownership tags: implemented and locally verified; exact user-issued Naver/Google public verification metadata, raw HTTP head and JavaScript-disabled checks passed. Full verify: unit18/E2E88. Await Git review/push and live tag confirmation; account confirmation and sitemap submission remain pending.
+- TASK-023 Open Graph copy: locally complete (unit18/E2E90, full verify passed); awaiting authorized Git review/push and live confirmation; five page-specific titles/descriptions, server head/no-JavaScript and404 isolation checks. No UI/copy expansion.
+
+- TASK-022 Ownership tags: implemented and locally verified; exact user-issued Naver/Google public verification metadata, raw HTTP head and JavaScript-disabled checks passed. Full verify: unit18/E2E88. Committed as93fda87. User reports Naver/Google verification and sitemap submission complete; Google Home indexing evidence is the supplied screenshot per handoff, Naver indexing is user-reported (2026-10-04). No all-page indexing or ranking claim.
 
 - TASK-021 Search discovery basics: implemented/local verify passed (unit11/E2E58); fixed www HTTPS self-canonical, robots and five-URL sitemap; preview guard and404 noindex retained. Git complete:46a869f is included in confirmed remote main61b564e (2026-10-01). Live deployment and account ownership/submission are separate evidence; TASK-022 handles supplied tags.
 

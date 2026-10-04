@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
 import { site } from "@/lib/site";
 
+const pageTitle = "연락처";
+const pageDescription = `${site.name} 연락처: 전화 ${site.phone}, 이메일 ${site.email}, 주소 ${site.address}.`;
+
 export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
-  title: "연락처",
-  description: `${site.name} 연락처: 전화 ${site.phone}, 이메일 ${site.email}, 주소 ${site.address}.`,
+  title: pageTitle,
+  description: pageDescription,
+  openGraph: {
+    title: `${pageTitle} | (주)승종`,
+    description: pageDescription,
+  },
 };
 
 export default function ContactPage() {

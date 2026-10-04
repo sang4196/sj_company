@@ -4,10 +4,17 @@ import { site } from "@/lib/site";
 import { ProductStudy } from "@/components/product-study";
 import { ProductExamples } from "./product-examples";
 
+const pageTitle = "제품";
+const pageDescription = "(주)승종의 대표 제품인 퍼즐형 층간소음매트를 소개합니다.";
+
 export const metadata: Metadata = {
   alternates: { canonical: "/products" },
-  title: "제품",
-  description: "(주)승종의 대표 제품인 퍼즐형 층간소음매트를 소개합니다.",
+  title: pageTitle,
+  description: pageDescription,
+  openGraph: {
+    title: `${pageTitle} | (주)승종`,
+    description: pageDescription,
+  },
 };
 
 export default function ProductsPage() {

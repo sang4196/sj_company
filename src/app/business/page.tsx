@@ -2,10 +2,17 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
+const pageTitle = "사업 분야";
+const pageDescription = "(주)승종의 제품 및 금형 설계·제작과 우레탄 성형·발포 업무를 안내합니다.";
+
 export const metadata: Metadata = {
   alternates: { canonical: "/business" },
-  title: "사업 분야",
-  description: "(주)승종의 제품 및 금형 설계·제작과 우레탄 성형·발포 업무를 안내합니다.",
+  title: pageTitle,
+  description: pageDescription,
+  openGraph: {
+    title: `${pageTitle} | (주)승종`,
+    description: pageDescription,
+  },
 };
 
 export default function BusinessPage() {

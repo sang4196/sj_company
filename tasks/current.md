@@ -1,3 +1,25 @@
+# TASK-023: Page Open Graph titles and descriptions — 2026-10-04
+
+Baseline: clean `9904388` (PRODUCT-EXAMPLES). Preserve three shape examples, exact `모든 치수 양산 가능`, Home teaser, About map/representative/eight registrations and existing design/ownership metadata. User authorized development → Git review/commit/push → live confirmation; developer performs no Git/provider/account writes.
+
+Plan / Acceptance Criteria:
+- [x] Reuse the five public pages' existing resolved titles and descriptions in page-local openGraph metadata; no root Home OG inheritance or copy expansion.
+- [x] Verify exact single og:title/og:description in raw HTTP head and JavaScript-disabled pages; preserve 404/Careers noindex and no canonical/Home OG.
+- [x] Preserve existing ownership/canonical/robots/sitemap/Preview policy, JSX/CSS and dependencies; no images/favicon/explicit Twitter metadata/structured data.
+- [x] Run affected metadata E2E and full npm run verify, record evidence and final Git status, then stop for Git review.
+- [x] Update TASK-022 account status with attributed evidence: user reports Naver/Google verification and sitemap submission complete; Google Home indexing is based on the supplied screenshot as relayed in the handoff, Naver indexing on user report. No claim of rankings or all-page indexing.
+
+Status: implementation and local verification complete. Installed Next metadata openGraph and shallow-merging guidance read before coding. Root remains without openGraph; each public page supplies both fields.
+
+
+Validation: affected production build and metadata E2E10 passed (25.1s). Full `npm run verify` exited0: lint, strict typecheck,18 unit/component tests, production build and90 E2E passed (2.6m). No failures, removed/skipped tests or relaxed assertions. Non-failing NO_COLOR/FORCE_COLOR environment warnings remain. `git diff --check` passed.
+
+Evidence: `/home/shlee/Workspace/ai/01.codex/task-023-review/` contains `affected-build.log`, `affected-e2e.log`, `verify.log`, `source-invariance.json` and `built-head-tags.json`. All five page bodies after metadata are byte-identical to baseline; root layout, styles,404, robots/sitemap, product-example SVGs and managed AGENTS block remain unchanged. No new visual captures required. Next16.3.4 automatically emits Twitter card/title/description from OG; no Twitter configuration or image is added. Installed `resolve-metadata.js` confirms that behavior.
+
+Nine existing files modified: five page modules, one metadata E2E and three task/search documents. No Git mutations, account/provider writes, deployment or user-server changes. Playwright managed127.0.0.1:3100 only; no preview server added. Report: `/tmp/sj-company-task023-dev-report.txt`. Suggested commit: `feat: add page-specific Open Graph titles and descriptions`. Remaining: Git reviewer review/commit/push and live raw-head verification; local success does not prove rollout. No further task automatically started.
+
+---
+
 # PRODUCT-EXAMPLES — 2026-10-01
 
 Current request: remove dimensions/specifications from Products, keep example illustrations and show exactly `모든 치수 양산 가능`. Baseline: clean `93fda87`. Latest follow-up explicitly authorizes 깃노예 to review the cumulative changes, then commit and push if sound. This supersedes the prior local-only state and repository no-push default for this handoff.
@@ -36,7 +58,7 @@ Evidence: `/home/shlee/Workspace/ai/01.codex/task-022-review/` contains `affecte
 
 Five existing files changed: root layout metadata, metadata E2E, current task, backlog and search-discovery documentation. No dependencies, verification files or Git writes. Playwright's production server at 127.0.0.1:3100 stopped after verification; no preview server was started and no user-owned server was stopped/restarted. Git handoff report: `/tmp/sj-company-task022-dev-report.txt`. Suggested commit: `feat: add Naver and Google ownership verification tags`.
 
-Git review/commit/push and live tag confirmation remain follow-up steps. Account confirmation clicks and sitemap submission remain pending until the tags are verified on the live site. No account verification or deployment success is claimed.
+Historical TASK-022 checkpoint superseded by commit93fda87 and the following account update. 2026-10-04 update: the user reports Naver/Google ownership verification and sitemap submission complete. Google Home indexing is supported by the supplied screenshot according to the orchestration handoff; Naver indexing is user-reported. This development task did not access the accounts or independently inspect that screenshot. Neither evidence establishes search ranking or indexing of every public page.
 
 ---
 

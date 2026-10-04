@@ -150,3 +150,46 @@ test("Home ownership tags appear once in the server head without site JavaScript
     await context.close();
   }
 });
+
+test("page-specific Open Graph copy is present once in server head without JavaScript", async ({ browser, request }) => {
+  const context = await browser.newContext({ javaScriptEnabled: false });
+  try {
+    const page = await context.newPage();
+    for (const entry of pages) {
+      const response = await request.get(entry.path);
+      expect(response.status()).toBe(200);
+      expect(response.headers()["content-type"]).toContain("text/html");
+      const html = await response.text();
+      await page.goto(response.url());
+      for (const [property, content] of [["og:title", entry.title], ["og:description", entry.description]]) {
+        const selector = `meta[property="${property}"]`;
+        await expect(page.locator(selector)).toHaveCount(1);
+        await expect(page.locator(`head ${selector}`)).toHaveAttribute("content", content);
+        const tags = await page.evaluate(({ html, selector }) => {
+          const document = new DOMParser().parseFromString(html, "text/html");
+          return [...document.querySelectorAll(selector)].map((tag) => ({
+            parent: tag.parentElement?.tagName,
+            content: tag.getAttribute("content"),
+          }));
+        }, { html, selector });
+        expect(tags).toEqual([{ parent: "HEAD", content }]);
+      }
+    }
+    for (const path of ["/careers", "/not-published"]) {
+      const response = await request.get(path);
+      expect(response.status()).toBe(404);
+      const html = await response.text();
+      const tags = await page.evaluate((html) => {
+        const document = new DOMParser().parseFromString(html, "text/html");
+        return {
+          openGraph: document.querySelectorAll('meta[property^="og:"]').length,
+          canonical: document.querySelectorAll('link[rel="canonical"]').length,
+          noindex: document.querySelectorAll('head meta[name="robots"][content*="noindex"]').length,
+        };
+      }, html);
+      expect(tags).toEqual({ openGraph: 0, canonical: 0, noindex: 1 });
+    }
+  } finally {
+    await context.close();
+  }
+});
