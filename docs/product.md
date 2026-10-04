@@ -4,7 +4,7 @@ This document records confirmed information, provisional product decisions, and 
 
 ## Confirmed Company Information
 
-- Official company name: `(주)승종`
+- Official company name: `주식회사 승종` (formal spelling approved for company introduction in TASK-024; display abbreviation remains `(주)승종`)
 - Website display name: `(주)승종`
 - Representative: `배진현` (explicitly supplied by the user on 2026-10-01; shown in About and Footer)
 - Founded: `2017`
@@ -357,3 +357,7 @@ Following review, the user requested white/blue colors to distinguish the site f
 ## Product examples update — 2026-10-01
 
 The user supersedes TASK-017's public dimension-table presentation: remove numeric dimensions, thicknesses, specifications and quantity captions from Products. Retain three independently drawn, labeled shape examples (사각형 매트, 육각 매트, 러그형 세트); the user combined 정사각 매트 and 사이드·코너·복도형 into 사각형 매트 and display the exact approved sentence `모든 치수 양산 가능`. The gallery uses three columns on desktop and one on mobile. The examples remain illustrative, not actual product photographs or connector details. Home's link teaser now describes product forms. Historical catalog evidence remains in `docs/product-spec-evidence.md`; it is not rendered publicly. No other performance or manufacturing claims are added.
+
+## Formal name and location — TASK-024, 2026-10-04
+
+User approved Home title `주식회사 승종 | 금형 설계·제작 및 우레탄 성형·발포` and introduction `주식회사 승종은 경기도 안성시에 위치한 금형 설계·제작 및 우레탄 성형·발포 제조업체입니다.` This supersedes the earlier introduction sentence only in the visible Home/About introduction and Home meta/OG description. Home metadata retains the representative-product follow-up sentence. Header/Footer display abbreviation and other page metadata remain unchanged. No new marketing claim, section, keyword repetition or search-ranking guarantee is authorized.

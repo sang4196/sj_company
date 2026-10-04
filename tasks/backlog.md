@@ -1,6 +1,8 @@
 # Backlog
 
-- TASK-023 Open Graph copy: locally complete (unit18/E2E90, full verify passed); awaiting authorized Git review/push and live confirmation; five page-specific titles/descriptions, server head/no-JavaScript and404 isolation checks. No UI/copy expansion.
+- TASK-024 Formal name/location: locally complete; full verify unit18/E2E90, six desktop/mobile views inspected; awaiting Git review/push/live confirmation; approved Home metadata plus visible Home/About introduction only. No ranking claim.
+
+- TASK-023 Open Graph copy: locally complete (unit18/E2E90, full verify passed); committed/pushed and live-confirmed at9032abf per completion handoff; five page-specific titles/descriptions, server head/no-JavaScript and404 isolation checks. No UI/copy expansion.
 
 - TASK-022 Ownership tags: implemented and locally verified; exact user-issued Naver/Google public verification metadata, raw HTTP head and JavaScript-disabled checks passed. Full verify: unit18/E2E88. Committed as93fda87. User reports Naver/Google verification and sitemap submission complete; Google Home indexing evidence is the supplied screenshot per handoff, Naver indexing is user-reported (2026-10-04). No all-page indexing or ranking claim.
 

@@ -1,3 +1,25 @@
+# TASK-024: Formal company name and location — 2026-10-04
+
+Baseline: clean `9032abf`, TASK-023 committed and live-verified according to orchestration handoff. User approved proposal1 only: clarify the formal name/location. No Smart Place/SNS/structured data/account work. Developer performs no Git/provider writes.
+
+Before-change plan / Acceptance Criteria:
+- [x] Home title/OG title: `(주)승종 | 금형 설계·제작 및 우레탄 성형·발포` → `주식회사 승종 | 금형 설계·제작 및 우레탄 성형·발포`.
+- [x] Home meta/OG description first sentence: `(주)승종은 금형 설계·제작 및 우레탄 성형·발포를 수행하는 제조업체입니다.` → `주식회사 승종은 경기도 안성시에 위치한 금형 설계·제작 및 우레탄 성형·발포 제조업체입니다.` Keep `대표 제품인 퍼즐형 층간소음매트와 회사의 사업을 소개합니다.` unchanged.
+- [x] Home `.home-statement__description` and About `.about-intro__description`: replace the previous `(주)승종은 금형 설계 및 우레탄 성형·발포를 수행하는 제조업체입니다.` with the same approved formal-name/location sentence. No new section or keyword duplication.
+- [x] Preserve Header/Footer identity, other-page titles/metadata, Products3 examples/approved production sentence, map/representative/eight registrations and discovery/ownership policies. No CSS/dependency redesign.
+- [x] Update meaningful existing text/raw head/OG checks; inspect320/390/1280 Home/About wrapping and overflow, run affected checks then full npm run verify, record evidence and stop for Git review.
+
+Status: implementation and local verification complete; Git review/push and live confirmation remain. Search visibility examples are user-reported, not independently measured rankings. This copy clarification does not guarantee exposure or rank for any query.
+
+
+Validation: affected Home/About unit2, production build and E2E58 passed. Separate Playwright-managed visual review passed (six Home/About combinations at320/390/1280); all six screenshots directly inspected, no clipping/overlap/horizontal overflow. Home lines3/2/2; About3/2/1. No CSS adjustment. Full `npm run verify` exited0: lint, strict typecheck,18 unit/component tests, production build and90 E2E passed (2.3m). No failed/skipped/removed tests or weakened assertions. Only non-failing terminal-color warnings observed. `git diff --check` passed.
+
+Evidence directory: `/home/shlee/Workspace/ai/01.codex/task-024-review/`. Logs: `affected-unit.log`, `affected-build.log`, `affected-e2e.log`, `visual.log`, `verify.log`. Images: `home-320.png`, `home-390.png`, `home-1280.png`, `about-320.png`, `about-390.png`, `about-1280.png`. `visual-layout.json`, `visual-review.txt`, `home-head.json` and `preserved-paths.json` record layout, head and unchanged scope. Captures show post-change state; user visual approval remains unconfirmed.
+
+Eleven existing files modified: Home/About runtime source, five existing test files and four product/search/task documents. No dependency, styling or other runtime source change. Playwright's127.0.0.1:3100 server stopped after checks; no persistent preview server was started or user server stopped. No commit/push/manual deployment/provider/account writes. Report: `/tmp/sj-company-task024-dev-report.txt`. Suggested commit: `fix: clarify company name and Anseong location`. Stop for authorized Git reviewer; no automatic next task.
+
+---
+
 # TASK-023: Page Open Graph titles and descriptions — 2026-10-04
 
 Baseline: clean `9904388` (PRODUCT-EXAMPLES). Preserve three shape examples, exact `모든 치수 양산 가능`, Home teaser, About map/representative/eight registrations and existing design/ownership metadata. User authorized development → Git review/commit/push → live confirmation; developer performs no Git/provider/account writes.
@@ -16,7 +38,7 @@ Validation: affected production build and metadata E2E10 passed (25.1s). Full `n
 
 Evidence: `/home/shlee/Workspace/ai/01.codex/task-023-review/` contains `affected-build.log`, `affected-e2e.log`, `verify.log`, `source-invariance.json` and `built-head-tags.json`. All five page bodies after metadata are byte-identical to baseline; root layout, styles,404, robots/sitemap, product-example SVGs and managed AGENTS block remain unchanged. No new visual captures required. Next16.3.4 automatically emits Twitter card/title/description from OG; no Twitter configuration or image is added. Installed `resolve-metadata.js` confirms that behavior.
 
-Nine existing files modified: five page modules, one metadata E2E and three task/search documents. No Git mutations, account/provider writes, deployment or user-server changes. Playwright managed127.0.0.1:3100 only; no preview server added. Report: `/tmp/sj-company-task023-dev-report.txt`. Suggested commit: `feat: add page-specific Open Graph titles and descriptions`. Remaining: Git reviewer review/commit/push and live raw-head verification; local success does not prove rollout. No further task automatically started.
+Nine existing files modified: five page modules, one metadata E2E and three task/search documents. No Git mutations, account/provider writes, deployment or user-server changes. Playwright managed127.0.0.1:3100 only; no preview server added. Report: `/tmp/sj-company-task023-dev-report.txt`. Suggested commit: `feat: add page-specific Open Graph titles and descriptions`. TASK-023 follow-up: committed/pushed and live-confirmed at9032abf per orchestration completion handoff; this supersedes the earlier Git-wait checkpoint. No further task automatically started.
 
 ---
 

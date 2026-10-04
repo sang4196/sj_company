@@ -284,7 +284,7 @@ test("Home presents the confirmed information flow", async ({ page }) => {
   ]);
 
   await expect(
-    page.getByText("(주)승종은 금형 설계 및 우레탄 성형·발포를 수행하는 제조업체입니다."),
+    page.getByText("주식회사 승종은 경기도 안성시에 위치한 금형 설계·제작 및 우레탄 성형·발포 제조업체입니다."),
   ).toBeVisible();
   await expect(page.getByRole("heading", { name: "금형 설계" })).toBeVisible();
   await expect(page.getByRole("heading", { name: "우레탄 성형·발포" })).toBeVisible();
@@ -324,7 +324,7 @@ test("About presents confirmed company information and contact paths", async ({ 
   expect(response?.ok()).toBe(true);
   await expect(page.getByRole("heading", { level: 1, name: "회사 소개" })).toBeVisible();
   await expect(
-    page.getByText("(주)승종은 금형 설계 및 우레탄 성형·발포를 수행하는 제조업체입니다."),
+    page.getByText("주식회사 승종은 경기도 안성시에 위치한 금형 설계·제작 및 우레탄 성형·발포 제조업체입니다."),
   ).toBeVisible();
 
   const sections = page.locator("[data-about-section]");

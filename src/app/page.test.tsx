@@ -8,7 +8,7 @@ describe("Home information architecture", () => {
 
     expect(
       screen.getByText(
-        "(주)승종은 금형 설계 및 우레탄 성형·발포를 수행하는 제조업체입니다.",
+        "주식회사 승종은 경기도 안성시에 위치한 금형 설계·제작 및 우레탄 성형·발포 제조업체입니다.",
       ),
     ).toBeInTheDocument();
 

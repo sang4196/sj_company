@@ -3,8 +3,8 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 import { ProductStudy } from "@/components/product-study";
 
-const pageTitle = `${site.name} | 금형 설계·제작 및 우레탄 성형·발포`;
-const pageDescription = `${site.name}은 금형 설계·제작 및 우레탄 성형·발포를 수행하는 제조업체입니다. 대표 제품인 퍼즐형 층간소음매트와 회사의 사업을 소개합니다.`;
+const pageTitle = "주식회사 승종 | 금형 설계·제작 및 우레탄 성형·발포";
+const pageDescription = "주식회사 승종은 경기도 안성시에 위치한 금형 설계·제작 및 우레탄 성형·발포 제조업체입니다. 대표 제품인 퍼즐형 층간소음매트와 회사의 사업을 소개합니다.";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -36,7 +36,7 @@ export default function Home() {
               <span>설계와 제조를 잇다.</span>
             </p>
             <p className="home-statement__description">
-              (주)승종은 금형 설계 및 우레탄 성형·발포를 수행하는 제조업체입니다.
+              주식회사 승종은 경기도 안성시에 위치한 금형 설계·제작 및 우레탄 성형·발포 제조업체입니다.
             </p>
             <div className="hero-actions">
               <Link className="primary-action primary-action--inverse" href="/business">
