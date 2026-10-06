@@ -73,3 +73,13 @@ All ten certificates show examined registration (심사등록), class 06. “No 
 - Original puzzle-mat illustration/render is authorized as a clearly identified `제품 형태 예시 이미지`, without copying competitor imagery or implying exact appearance/performance. No image is generated in this task.
 - Real product and company exterior photos remain unavailable. Keep the text Home Hero until the actual company exterior photo is supplied.
 - The supplied handoff confirms the existing mobile Header, mobile Home spacing, and 404 screen were user-approved. This is not approval of a future logo layout, IP section, entire site, or deployment.
+
+## TASK-025 favicon derivative — 2026-10-06
+
+User explicitly authorized a favicon conversion of the existing logo, including omission of the lower SEUNG JONG lettering for small-size readability. Original JPG and public PNG remain byte-identical. Installed Sharp crops `(left:0, top:0, width:171, height:126)` containing the complete upper symbol; lettering starts at row137. A white border of6px left/right and28/29px top/bottom creates a183px square without distortion. Lanczos3 downsampling produces16/32/48px opaque RGBA PNG frames (alpha255, required by the installed Next ICO decoder) packed into `src/app/favicon.ico`. No recoloring, alpha removal, AI generation, redraw or new dependency.
+
+Next's root favicon file convention supplies the icon link automatically; no duplicate manual metadata, manifest, PWA, apple icon or OG image is added. Source-to-derivative comparison and actual-size16/32/48 previews on white/navy backgrounds: `/tmp/sj-company-task025-review/comparison.png`. Direct inspection found the geometry distinguishable at16px and clearer at32px; thin diagonal details and red accent naturally reduce at16px. The retained white background keeps contrast on dark tabs. Browser/search caches may delay replacement; visibility timing is not guaranteed. User visual approval remains unconfirmed.
+
+Reproduction script: `/tmp/sj-company-task025-review/create-icon.mjs`. Installed reference: `node_modules/next/dist/docs/01-app/03-api-reference/03-file-conventions/01-metadata/app-icons.md` (root favicon.ico, automatic head link). No existing Header/Footer asset or page styling changes.
+
+Validation: ICO4578 bytes, three opaque RGBA frames at16/32/48. Initial RGB-frame build incompatibility was corrected by adding alpha255; affected build/E2E12 and full verify lint/typecheck/unit18/build/E2E92 then passed. Existing asset SHA-256 values above remain unchanged. Logs/frame metadata/hashes are retained in the evidence directory. Publication/live appearance remain follow-up work.

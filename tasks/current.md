@@ -1,3 +1,24 @@
+# TASK-025: Official-logo favicon — 2026-10-06
+
+Baseline: clean `04ce4c7`; no existing favicon or duplicate TASK-025 implementation. TASK-024 live completion is reported in the orchestration handoff. User approved existing-logo conversion only; Git review/publication belongs to the separate reviewer.
+
+Plan / Acceptance Criteria:
+- [x] Derive favicon from public/brand/seung-jong.png; preserve symbol geometry/colors/aspect and original Header/Footer files. Omit lower SEUNG JONG lettering, add white square padding, downsample with installed Sharp; no AI/redesign/dependency.
+- [x] Use Next root src/app/favicon.ico convention only, containing16/32/48 entries; no manifest/PWA/OG/UI changes.
+- [x] Inspect original comparison and actual16/32 icons on light/dark backgrounds; verify single server-head icon link, HTTP200/type, ICO entries and browser decoding.
+- [x] Run affected tests/build and complete npm run verify; preserve all existing content/SEO/navigation tests. Record logs/status/report and stop without Git/provider writes.
+
+Status: local implementation and verification complete; Git review/publication/live confirmation pending. Installed Next app-icons guide confirms automatic head links for root favicon.ico. Browser/search caches may delay replacement; no immediate appearance guarantee.
+
+
+Result: `src/app/favicon.ico`,4578 bytes,16/32/48 opaque RGBA PNG frames. Automatic single head icon link, HTTP200/icon content type and browser decoding pass. Direct visual review of original vs square derivative and native16/32/48 on light/dark backgrounds complete; no existing page UI change. User visual approval unconfirmed.
+
+Validation: initial build failed because Next's ICO decoder requires RGBA PNG frames; added a fully opaque alpha channel without pixel-color/background changes. Failed build step rerun passed (`affected-build-recheck.log`), affected metadata E2E12 passed, then full `npm run verify` exited0 with lint, strict typecheck,18 unit/component tests, production build and92 E2E (1.7m). No deleted/skipped tests or relaxed checks. Terminal-color warnings only after repair.
+
+Evidence: `/tmp/sj-company-task025-review/` contains comparison.png, original-size derivative PNGs, square-master.png, reproduction script, asset hashes, ICO frame details, visual-review.txt, preserved-paths.json and build/E2E/verify logs. Original JPG and PNG hashes unchanged. No manual head links, new dependencies, JSX/CSS/PWA/manifest/OG changes. Four existing files modified plus one new ICO; no Git/provider/account writes. Playwright-managed3100 stopped after tests; no user server touched. Report: `/tmp/sj-company-task025-dev-report.txt`. Suggested commit: `feat: add official logo favicon`. Stop without starting another task.
+
+---
+
 # TASK-024: Formal company name and location — 2026-10-04
 
 Baseline: clean `9032abf`, TASK-023 committed and live-verified according to orchestration handoff. User approved proposal1 only: clarify the formal name/location. No Smart Place/SNS/structured data/account work. Developer performs no Git/provider writes.

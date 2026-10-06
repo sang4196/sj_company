@@ -204,3 +204,53 @@ test("page-specific Open Graph copy is present once in server head without JavaS
     await context.close();
   }
 });
+
+test("official favicon has one head link and decodable small ICO frames", async ({ page, request }) => {
+  for (const path of ["/", "/about", "/business", "/products", "/contact", "/careers"]) {
+    const response = await request.get(path);
+    const html = await response.text();
+    const icons = await page.evaluate((html) => {
+      const document = new DOMParser().parseFromString(html, "text/html");
+      return [...document.querySelectorAll('link[rel~="icon"]')].map((link) => ({
+        parent: link.parentElement?.tagName,
+        href: link.getAttribute("href"),
+      }));
+    }, html);
+    expect(icons).toEqual([{ parent: "HEAD", href: expect.stringMatching(/^\/favicon\.ico(?:\?|$)/) }]);
+  }
+  await page.goto("/");
+  const icon = page.locator('head link[rel~="icon"]');
+  await expect(icon).toHaveCount(1);
+  const href = await icon.getAttribute("href");
+  if (!href) throw new Error("Missing favicon URL");
+  const response = await request.get(href);
+  expect(response.status()).toBe(200);
+  expect(response.headers()["content-type"]).toMatch(/^image\/(?:x-icon|vnd\.microsoft\.icon)/);
+  const body = await response.body();
+  expect(body.readUInt16LE(0)).toBe(0);
+  expect(body.readUInt16LE(2)).toBe(1);
+  expect(body.readUInt16LE(4)).toBe(3);
+  const sizes = [];
+  for (let i = 0; i < 3; i++) {
+    const entry = 6 + i * 16;
+    const width = body[entry] || 256;
+    const height = body[entry + 1] || 256;
+    sizes.push([width, height]);
+    const length = body.readUInt32LE(entry + 8);
+    const offset = body.readUInt32LE(entry + 12);
+    expect(offset + length).toBeLessThanOrEqual(body.length);
+    const frame = body.subarray(offset, offset + length);
+    const decoded = await page.evaluate(async (base64) => {
+      const image = new Image();
+      image.src = `data:image/png;base64,${base64}`;
+      await image.decode();
+      return [image.naturalWidth, image.naturalHeight];
+    }, frame.toString("base64"));
+    expect(decoded).toEqual([width, height]);
+  }
+  expect(sizes).toEqual([[16, 16], [32, 32], [48, 48]]);
+  expect(await page.evaluate(async (href) => {
+    const image = new Image(); image.src = href; await image.decode();
+    return [image.naturalWidth, image.naturalHeight];
+  }, href)).toEqual([48, 48]);
+});
