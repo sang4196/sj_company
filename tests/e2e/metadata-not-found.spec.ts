@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 const pages = [
-  { path: "/", title: "주식회사 승종 | 금형 설계·제작 및 우레탄 성형·발포", description: "주식회사 승종은 경기도 안성시에 위치한 금형 설계·제작 및 우레탄 성형·발포 제조업체입니다. 대표 제품인 퍼즐형 층간소음매트와 회사의 사업을 소개합니다." },
+  { path: "/", title: "주식회사 승종 | 금형 설계·제작 및 우레탄 성형·발포 | TPU매트 OEM전문", description: "주식회사 승종은 경기도 안성시에 위치한 금형 설계·제작 및 우레탄 성형·발포 제조업체입니다. 대표 제품인 퍼즐형 층간소음매트와 회사의 사업을 소개합니다." },
   { path: "/about", title: "회사 소개 | (주)승종", description: "2017년 설립된 제조업체 (주)승종의 회사 소개, 금형 설계 및 우레탄 성형·발포 사업과 기본 정보를 안내합니다." },
   { path: "/business", title: "사업 분야 | (주)승종", description: "(주)승종의 제품 및 금형 설계·제작과 우레탄 성형·발포 업무를 안내합니다." },
   { path: "/products", title: "제품 | (주)승종", description: "(주)승종의 대표 제품인 퍼즐형 층간소음매트를 소개합니다." },
@@ -164,11 +164,13 @@ test("page-specific Open Graph copy is present once in server head without JavaS
       const rawMetadata = await page.evaluate((html) => {
         const document = new DOMParser().parseFromString(html, "text/html");
         return {
+          twitterTitles: [...document.querySelectorAll('meta[name="twitter:title"]')].map((tag) => tag.getAttribute("content")),
           titles: [...document.querySelectorAll("title")].map((tag) => ({ parent: tag.parentElement?.tagName, text: tag.textContent })),
           descriptions: [...document.querySelectorAll('meta[name="description"]')].map((tag) => ({ parent: tag.parentElement?.tagName, content: tag.getAttribute("content") })),
         };
       }, html);
       expect(rawMetadata).toEqual({
+        twitterTitles: [entry.title],
         titles: [{ parent: "HEAD", text: entry.title }],
         descriptions: [{ parent: "HEAD", content: entry.description }],
       });

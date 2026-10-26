@@ -101,7 +101,6 @@ html[data-scrolled="true"] .site-shell .site-header { box-shadow: 0 1px 0 var(--
 .hero-detail__image { width: 100%; height: 100%; background: url('/visuals/material-study.webp') 83% center / auto 110%; filter: grayscale(1); animation: image-settle 2.4s var(--ease) both; }
 .hero-detail p { position: absolute; bottom: .75rem; left: .75rem; right: .75rem; padding: .75rem; background: rgba(9,30,61,.85); color: var(--light); font-size: .8125rem; }
 .hero-detail p span { display: block; font-size: .5625rem; letter-spacing: .08em; margin-top: .25rem; color: #c0d8f6; }
-.home-statement__art-credit { margin-top: 2rem; color: #c0d1e8; font-size: .6875rem; }
 .scroll-cue { position: absolute; right: 0; bottom: 2.5rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
 .scroll-cue span { font-size: .5625rem; letter-spacing: .18em; writing-mode: vertical-rl; color: #c0d1e8; }
 .scroll-cue i { position: relative; width: 1px; height: 3rem; background: rgba(222,235,255,.25); overflow: hidden; }
@@ -132,6 +131,7 @@ html[data-scrolled="true"] .site-shell .site-header { box-shadow: 0 1px 0 var(--
 .home-contact p:not(.eyebrow) { margin-top: 1.5rem; color: #c8d7eb; }
 .home-contact__links { display: flex; flex-direction: column; align-items: start; justify-content: center; gap: 1.25rem; min-width: 0; }
 .home-contact__links .primary-action { font-size: 1.125rem; }
+.home-contact__phones { display: grid; grid-template-columns: minmax(0,1fr); grid-auto-rows: 1fr; gap: 1.25rem; max-width: 100%; }
 .home-contact .text-link:hover { color: #b9d6ff; }
 
 /* Internal pages share a visual language, with layouts for their content. */
@@ -214,6 +214,9 @@ html[data-scrolled="true"] .site-shell .site-header { box-shadow: 0 1px 0 var(--
 .site-footer__navigation a, .site-footer__contact a { display: flex; align-items: center; min-height: 2.75rem; color: var(--muted); font-size: .875rem; text-decoration: none; overflow-wrap: anywhere; }
 .site-footer__navigation a:hover, .site-footer__contact a:hover { color: var(--ink); text-decoration: underline; }
 .site-footer__contact { font-style: normal; }
+.site-footer__phones { display: flex; flex-wrap: wrap; align-items: center; column-gap: .4rem; }
+.site-footer__phone-next { display: inline-flex; align-items: center; gap: .4rem; max-width: 100%; color: var(--muted); }
+.site-footer__phones a { min-width: 0; max-width: 100%; }
 .site-footer__bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 2.5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .75rem; }
 .site-footer__top-link { display: inline-flex; align-items: center; min-height: 2.75rem; }
 .site-actions { position: fixed; z-index: 90; inset: auto 0 0; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); background: var(--paper); box-shadow: 0 -4px 24px rgba(22,45,75,.1); transform: translateY(100%); visibility: hidden; transition: transform .4s var(--ease), visibility .4s; }
@@ -254,11 +257,10 @@ html[data-hero-passed="true"] .site-actions, .site-actions:focus-within { transf
   .home-statement__scope ul { gap: .5rem 1rem; font-size: .75rem; }
   .home-statement__scope li { padding-right: 0; border: 0; }
   .hero-detail, .scroll-cue { display: none; }
-  .home-statement__art-credit { max-width: 26rem; font-size: .625rem; }
   .home-business, .product-overview, .home-contact { grid-template-columns: minmax(0,1fr); gap: 2.5rem; }
   .home-company-details > div:last-child { grid-column: 1/-1; }
   .home-contact { padding-inline: 1.25rem; }
-  .home-contact__links { gap: 1rem; }
+  .home-contact__links, .home-contact__phones { gap: 1rem; }
   .about-intro { padding-right: 0; }
   .about-intro::after { display: none; }
   .about-overview, .business-process, .business-product, .product-facts, .product-business-link, .products-intro, .contact-section { grid-template-columns: minmax(0,1fr); gap: 2rem; }

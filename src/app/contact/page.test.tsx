@@ -13,6 +13,9 @@ describe("Contact information architecture", () => {
       "href",
       "tel:031-674-3640",
     );
+    const mobilePhone = screen.getByRole("link", { name: "전화 문의 010-7501-3613" });
+    expect(mobilePhone).toHaveTextContent("010-7501-3613");
+    expect(mobilePhone).toHaveAttribute("href", "tel:01075013613");
     expect(
       screen.getByRole("link", { name: "이메일 문의 sjbjh3613@daum.net" }),
     ).toHaveAttribute("href", "mailto:sjbjh3613@daum.net");

@@ -361,3 +361,17 @@ The user supersedes TASK-017's public dimension-table presentation: remove numer
 ## Formal name and location — TASK-024, 2026-10-04
 
 User approved Home title `주식회사 승종 | 금형 설계·제작 및 우레탄 성형·발포` and introduction `주식회사 승종은 경기도 안성시에 위치한 금형 설계·제작 및 우레탄 성형·발포 제조업체입니다.` This supersedes the earlier introduction sentence only in the visible Home/About introduction and Home meta/OG description. Home metadata retains the representative-product follow-up sentence. Header/Footer display abbreviation and other page metadata remain unchanged. No new marketing claim, section, keyword repetition or search-ranking guarantee is authorized.
+
+## TASK-026 approved local changes — 2026-10-26
+
+User requests Contact-only additional mobile phone `010-7501-3613` linked to `tel:01075013613`, preserving the existing landline and shared Header/Footer contacts. Home title is explicitly approved as `주식회사 승종 | 금형 설계·제작 및 우레탄 성형·발포 | TPU매트 OEM전문`; reuse it in OG/automatic sharing title without expanding other-page copy or descriptions. This user-provided wording is not permission to infer further TPU specifications/performance claims. Remove the visible Home AI-art notice at the user's request while retaining the decorative image; its generated provenance remains documented and it is not reclassified as real company/product photography. User confirmation is required before any Git publication or deployment; previous automatic publication approval does not apply.
+
+TASK-026 Footer follow-up: user explicitly requests `031-674-3640 · 010-7501-3613`, confirms the existing031-674 number after clarifying a typo, and approves two separate telephone links. This supersedes the initial Footer-preservation restriction only for this phone row. Header remains unchanged; local/user-review-before-publication restriction remains.
+
+TASK-026 Header/Home contact follow-up: user now explicitly authorizes the same mobile number below the existing Header telephone link and as a matching second Home contact phone button. Keep the shared primary site.phone value and existing031-674-3640 unchanged. This supersedes earlier Header/Home restrictions only for these additions; no publication before user review.
+
+TASK-026 layout correction: user rejects the prior Header stack. A common left `전화문의` label must sit beside a right stack of both visible real numbers at every viewport. Narrow layouts may use extra Header rows without reducing text/touch targets. Home telephone buttons remain vertical with equal actual widths/heights. Prior layout records are historical, not approval.
+
+TASK-026 final Header-only reversal: user requests original1908563 Header phone and layout. Earlier Header additions are superseded. Home equal-size two-number buttons, Contact/Footer mobile number, Home title and notice removal remain. No other UI change or publication authorized.
+
+TASK-026 final publication approval (2026-10-26): the user reviewed the Header-restored final screen and explicitly authorized commit/push. This supersedes the historical local-only restrictions above for the final scope.

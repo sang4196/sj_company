@@ -1,5 +1,7 @@
 # Backlog
 
+- TASK-026: Header restored to1908563 at user request; Home equal phone buttons, Contact/Footer mobile number and Home title/notice updates retained. Relevant E2E20/unit18/build pass; full verify still fails in preserved review/. Local preview3117 ready; user review required before Git/publication.
+
 - TASK-025 Official favicon: locally complete (unit18/E2E92); awaiting Git review/push/live confirmation; existing symbol conversion,16/32/48 ICO, automatic Next head link and decoding checks.
 
 - TASK-024 Formal name/location: locally complete; full verify unit18/E2E90, six desktop/mobile views inspected; awaiting Git review/push/live confirmation; approved Home metadata plus visible Home/About introduction only. No ranking claim.

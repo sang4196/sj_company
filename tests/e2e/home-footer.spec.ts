@@ -75,6 +75,16 @@ for (const route of ["/", "/about", "/business", "/products", "/contact", "/miss
     await expect(footer).not.toContainText("2017");
     await expect(footer.getByText("경기도 안성시 서운면 사갑1길 296-49")).toBeVisible();
     await expect(footer.getByRole("link", { name: "031-674-3640" })).toHaveAttribute("href", "tel:031-674-3640");
+    await expect(footer.locator(".site-footer__phones")).toHaveText("031-674-3640 · 010-7501-3613");
+    const mobile = footer.getByRole("link", { name: "010-7501-3613", exact: true });
+    await expect(mobile).toHaveAttribute("href", "tel:01075013613");
+    for (const phone of [footer.getByRole("link", { name: "031-674-3640", exact: true }), mobile]) {
+      expect((await phone.boundingBox())?.height).toBeGreaterThanOrEqual(44);
+      await phone.focus();
+      await expect(phone).toBeFocused();
+      await expect(phone).toHaveCSS("outline-style", "solid");
+    }
+
     await expect(footer.getByRole("link", { name: "sjbjh3613@daum.net" })).toHaveAttribute("href", "mailto:sjbjh3613@daum.net");
     const navigation = footer.getByRole("navigation", { name: "하단 바로가기" });
     for (const { name, href } of shortcuts) {

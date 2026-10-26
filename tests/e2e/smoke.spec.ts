@@ -86,7 +86,7 @@ test("application shell navigation reaches every active route", async ({ page })
   await expect(navigation.getByRole("link", { name: "Careers" })).toHaveCount(0);
   await expect(navigation.getByRole("link", { name: "Projects" })).toHaveCount(0);
 
-  const phoneLink = page.getByRole("banner").getByRole("link", { name: /전화 문의/ });
+  const phoneLink = page.getByRole("banner").getByRole("link", { name: "전화 문의 031-674-3640", exact: true });
   await expect(phoneLink).toHaveAttribute("href", "tel:031-674-3640");
 
   const routes = [
@@ -291,9 +291,20 @@ test("Home presents the confirmed information flow", async ({ page }) => {
   await expect(page.getByRole("heading", { name: "퍼즐형 층간소음매트" })).toBeVisible();
 
   const contactSection = page.locator('[data-home-section="contact"]');
+  await expect(page.getByText(/소재를 표현한 AI 이미지/)).toHaveCount(0);
   const homePhoneLink = contactSection.getByRole("link", { name: "전화 문의 031-674-3640", exact: true });
   await expect(homePhoneLink).toHaveText("031-674-3640");
   await expect(homePhoneLink).toHaveAccessibleName("전화 문의 031-674-3640");
+  const homeMobile = contactSection.getByRole("link", { name: "전화 문의 010-7501-3613", exact: true });
+  await expect(homeMobile).toHaveText("010-7501-3613");
+  await expect(homeMobile).toHaveAttribute("href", "tel:01075013613");
+  const upperPhone = await homePhoneLink.boundingBox();
+  const lowerPhone = await homeMobile.boundingBox();
+  if (!upperPhone || !lowerPhone) throw new Error("Missing Home phone buttons");
+  expect(lowerPhone.y).toBeGreaterThanOrEqual(upperPhone.y + upperPhone.height);
+  expect(lowerPhone.width).toBeCloseTo(upperPhone.width, 1);
+  expect(lowerPhone.height).toBeCloseTo(upperPhone.height, 1);
+
   await expect(homePhoneLink).toHaveAttribute(
     "href",
     "tel:031-674-3640",
@@ -483,6 +494,15 @@ test("Contact prioritizes a real phone action and verified contact details", asy
 
   const main = page.getByRole("main");
   await expect(main.getByText("031-674-3640")).toBeVisible();
+  const mobilePhone = main.getByRole("link", { name: "전화 문의 010-7501-3613", exact: true });
+  await expect(mobilePhone).toHaveText("010-7501-3613");
+  await expect(mobilePhone).toHaveAttribute("href", "tel:01075013613");
+  await mobilePhone.focus();
+  await expect(mobilePhone).toBeFocused();
+  await expect(mobilePhone).toHaveCSS("outline-style", "solid");
+  const mobileBox = await mobilePhone.boundingBox();
+  expect(mobileBox?.height).toBeGreaterThanOrEqual(44);
+
   await expect(main.getByRole("link", { name: "전화 문의 031-674-3640" })).toHaveAttribute(
     "href",
     "tel:031-674-3640",

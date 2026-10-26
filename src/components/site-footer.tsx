@@ -27,7 +27,13 @@ export function SiteFooter() {
           </nav>
           <div className="site-footer__contact">
             <p className="site-footer__column-label">Contact</p>
-            <a href={site.phoneHref}>{site.phone}</a>
+            <div className="site-footer__phones">
+              <a href={site.phoneHref}>{site.phone}</a>
+              <span className="site-footer__phone-next">
+                <span aria-hidden="true"> · </span>
+                <a href="tel:01075013613">010-7501-3613</a>
+              </span>
+            </div>
             <a href={site.emailHref}>{site.email}</a>
             <Link href="/contact">연락처 안내</Link>
           </div>

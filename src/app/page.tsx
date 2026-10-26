@@ -3,7 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site";
 import { ProductStudy } from "@/components/product-study";
 
-const pageTitle = "주식회사 승종 | 금형 설계·제작 및 우레탄 성형·발포";
+const pageTitle = "주식회사 승종 | 금형 설계·제작 및 우레탄 성형·발포 | TPU매트 OEM전문";
 const pageDescription = "주식회사 승종은 경기도 안성시에 위치한 금형 설계·제작 및 우레탄 성형·발포 제조업체입니다. 대표 제품인 퍼즐형 층간소음매트와 회사의 사업을 소개합니다.";
 
 export const metadata: Metadata = {
@@ -61,9 +61,6 @@ export default function Home() {
               <span>DESIGN &amp; MANUFACTURING</span>
             </p>
           </div>
-          <p className="home-statement__art-credit">
-            소재를 표현한 AI 이미지 · 실제 제품·설비 사진이 아닙니다.
-          </p>
           <div className="scroll-cue" aria-hidden="true">
             <span>SCROLL</span>
             <i />
@@ -172,13 +169,22 @@ export default function Home() {
           <p>설계와 제작, 제품에 관한 문의를 기다립니다.</p>
         </div>
         <div className="home-contact__links reveal">
-          <a
-            className="primary-action primary-action--inverse"
-            href={site.phoneHref}
-            aria-label={`전화 문의 ${site.phone}`}
-          >
-            {site.phone}
-          </a>
+          <div className="home-contact__phones">
+            <a
+              className="primary-action primary-action--inverse"
+              href={site.phoneHref}
+              aria-label={`전화 문의 ${site.phone}`}
+            >
+              {site.phone}
+            </a>
+            <a
+              className="primary-action primary-action--inverse"
+              href="tel:01075013613"
+              aria-label="전화 문의 010-7501-3613"
+            >
+              010-7501-3613
+            </a>
+          </div>
           <a
             className="text-link"
             href={site.emailHref}

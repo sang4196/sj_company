@@ -35,6 +35,13 @@ export default function ContactPage() {
         <div>
           <h2 id="phone-contact-heading">전화 문의</h2>
           <p className="contact-primary__number">{site.phone}</p>
+          <a
+            className="contact-detail-link text-link"
+            href="tel:01075013613"
+            aria-label="전화 문의 010-7501-3613"
+          >
+            010-7501-3613
+          </a>
         </div>
         <a
           className="primary-action primary-action--inverse contact-primary__action"
