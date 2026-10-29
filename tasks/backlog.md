@@ -1,5 +1,10 @@
 # Backlog
 
+- TASK-027: PC and original-height mobile center UI approved, including disclosed foreground overlap with the image strip. New affected32/visual11-size/final isolated verify18 unit+114 E2E pass; original user review/ lint failure preserved. UI source hashes unchanged. User authorizes commit/push after tests; developer publication not performed, awaiting separate Git review. Preview3117 retained.
+
+
+
+
 - TASK-026: Header restored to1908563 at user request; Home equal phone buttons, Contact/Footer mobile number and Home title/notice updates retained. Relevant E2E20/unit18/build pass; full verify still fails in preserved review/. Local preview3117 ready; user review required before Git/publication.
 
 - TASK-025 Official favicon: locally complete (unit18/E2E92); awaiting Git review/push/live confirmation; existing symbol conversion,16/32/48 ICO, automatic Next head link and decoding checks.
@@ -21,7 +26,7 @@
 - TASK-015 Logo Header: implemented with Korean identity and existing navigation; user Desktop/Mobile visual approval remains 미확인. See tasks/current.md for verification and screenshots.
 - TASK-016 About certificate list: implemented for two patents and six designs with company-holder evidence; user visual approval 미확인. Missing-holder patent/design records remain excluded; obtain evidence before any later inclusion.
 - TASK-017 Products: 23 verified size/thickness combinations and independent SVG forms implemented for review. Coverage remains partial: official-store rug options and some part/effective measurements need additional accessible evidence. See docs/product-spec-evidence.md; user visual approval 미확인.
-- Home exterior Hero: explicitly deferred by the user on2026-09-19; add the actual company photograph later.
+- Home exterior Hero: prior2026-09-19 deferral superseded by TASK-027 supplied-image implementation; user UI approval confirmed for TASK-027; separate Git review/publication pending.
 
 Product requirements are already defined in docs/product.md; the former requirements-definition placeholder is retired. TASK-014 intake is tracked in tasks/current.md.
 

@@ -72,7 +72,7 @@ test("Footer top link returns to the opening without leaving the page", async ({
   await expect(page).toHaveURL(/\/#page-top$/);
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBeLessThanOrEqual(2);
   await expect(page.locator("html")).toHaveAttribute("data-scrolled", "false");
-  await expect(page.locator(".home-statement").getByRole("heading", { level: 1 })).toBeInViewport();
+  await expect(page.getByRole("heading", { level: 1, name: "(주)승종" })).toBeInViewport();
 });
 
 test("reduced motion leaves every reveal readable and disables decorative animations", async ({ page }) => {
@@ -86,7 +86,7 @@ test("reduced motion leaves every reveal readable and disables decorative animat
     const style = getComputedStyle(element);
     return style.opacity === "1" && style.transform === "none" && style.visibility === "visible";
   }))).toBe(true);
-  await expect(page.locator(".hero-detail__image")).toHaveCSS("animation-name", "none");
+  await expect(page.locator(".home-statement__image")).toHaveCSS("animation-name", "none");
   expect(await page.locator(".scroll-cue i").evaluate((element) =>
     getComputedStyle(element, "::after").animationName,
   )).toBe("none");

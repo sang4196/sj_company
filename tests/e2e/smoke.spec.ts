@@ -314,7 +314,9 @@ test("Home presents the confirmed information flow", async ({ page }) => {
     "mailto:sjbjh3613@daum.net",
   );
 
-  await expect(page.locator("main img")).toHaveCount(0);
+  await expect(page.locator("main img")).toHaveCount(1);
+  await expect(page.getByRole("img", { name: "승종 건물 전경과 하단 소개 항목" }))
+    .toHaveAttribute("src", "/visuals/sj-main.png");
   await expect(page.getByText(/최초개발|대량 OEM|특허/)).toHaveCount(0);
   await expectNoHorizontalOverflow(page);
   expect(consoleErrors).toEqual([]);

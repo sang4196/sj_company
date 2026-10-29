@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { site } from "@/lib/site";
 import { ProductStudy } from "@/components/product-study";
 
@@ -24,7 +25,6 @@ export default function Home() {
         aria-labelledby="home-heading"
         data-home-section="company-statement"
       >
-        <div className="home-statement__image" aria-hidden="true" />
         <div className="home-statement__inner">
           <div className="home-statement__content">
             <h1 className="eyebrow" id="home-heading">
@@ -54,8 +54,7 @@ export default function Home() {
               </ul>
             </div>
           </div>
-          <div className="hero-detail" aria-hidden="true">
-            <div className="hero-detail__image" />
+          <div className="hero-caption" aria-hidden="true">
             <p>
               소재에서 형태로
               <span>DESIGN &amp; MANUFACTURING</span>
@@ -66,6 +65,15 @@ export default function Home() {
             <i />
           </div>
         </div>
+        <Image
+          className="home-statement__image"
+          src="/visuals/sj-main.png"
+          alt="승종 건물 전경과 하단 소개 항목"
+          width={1672}
+          height={941}
+          preload
+          unoptimized
+        />
       </section>
 
       <section

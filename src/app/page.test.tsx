@@ -4,7 +4,7 @@ import Home from "./page";
 
 describe("Home information architecture", () => {
   it("presents confirmed company, business, product, and contact information", () => {
-    const { container } = render(<Home />);
+    render(<Home />);
 
     expect(
       screen.getByText(
@@ -33,7 +33,8 @@ describe("Home information architecture", () => {
       "mailto:sjbjh3613@daum.net",
     );
 
-    expect(container.querySelector("img")).not.toBeInTheDocument();
+    expect(screen.getByRole("img", { name: "승종 건물 전경과 하단 소개 항목" }))
+      .toHaveAttribute("src", "/visuals/sj-main.png");
     expect(screen.queryByText(/최초개발|대량 OEM|특허/)).not.toBeInTheDocument();
   });
 });

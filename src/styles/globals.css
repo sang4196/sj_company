@@ -59,7 +59,6 @@ p, li { word-break: keep-all; overflow-wrap: anywhere; }
 .mobile-navigation__list { padding: 0; margin: 0; list-style: none; }
 .mobile-navigation__link { display: flex; align-items: center; min-height: 3rem; padding: .5rem .75rem; border-bottom: 1px solid var(--line); color: var(--ink); text-decoration: none; }
 .mobile-navigation__link:hover, .mobile-navigation__link[aria-current="page"] { background: var(--surface); }
-.site-shell:has(.home-page) .site-header { margin-bottom: -5.5rem; }
 html[data-scrolled="true"] .site-shell .site-header { box-shadow: 0 1px 0 var(--line); }
 .site-shell .site-header:has(.navigation-toggle[aria-expanded="true"]) { margin-bottom: 0; }
 
@@ -79,34 +78,30 @@ html[data-scrolled="true"] .site-shell .site-header { box-shadow: 0 1px 0 var(--
 .section-heading-row { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 1.5rem; }
 .section-lede { margin-top: 1.5rem; font-size: clamp(1.0625rem, 1.8vw, 1.375rem); color: var(--muted); }
 
-/* Photo-led opening and inset composition echo the chosen reference. */
+/* Single Hero: unchanged fog photograph behind the original foreground copy. */
 .home-section { width: min(100% - 3rem, var(--content)); margin-inline: auto; padding-block: clamp(3rem, 7vw, 6.5rem); }
-.home-statement { position: relative; isolation: isolate; width: 100%; min-height: 88vh; padding: 0; background: var(--deep); color: var(--light); display: flex; align-items: center; }
-.home-statement__image { position: absolute; inset: 0; z-index: -2; background: url('/visuals/material-study.webp') center / cover; filter: grayscale(1); }
-.home-statement::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg,rgba(9,30,61,.84),rgba(9,30,61,.22) 72%),linear-gradient(0deg,rgba(9,30,61,.68),transparent 60%); }
-.home-statement__inner { position: relative; width: min(100% - 3rem, var(--content)); margin: auto; padding: 11rem 0 3rem; }
+.home-statement { position: relative; isolation: isolate; width: 100%; aspect-ratio: 1672 / 941; padding: 0; background: #eaf2f9; color: var(--ink); display: flex; align-items: flex-start; }
+.home-statement__image { position: absolute; top: 0; left: 0; z-index: -1; display: block; width: 100%; height: auto; pointer-events: none; }
+.home-statement__inner { position: relative; width: min(100% - 3rem, var(--content)); margin: 0 auto; padding-block: clamp(2rem, 4vw, 6rem); }
 .home-statement__content { max-width: 48rem; position: relative; z-index: 2; }
-.home-statement .eyebrow { color: #c0d8f6; }
+.home-statement .eyebrow { color: var(--ink); }
 .home-statement .eyebrow::before { background: #8dbaff; }
 .home-statement__message { font-family: "IBM Plex Sans KR", "SUIT Variable", sans-serif; font-size: clamp(2.375rem, 5.5vw, 4.75rem); font-weight: 600; line-height: 1.13; letter-spacing: -.025em; }
-.home-statement__message span { color: #a8ccff; }
-.home-statement__description { max-width: 29rem; margin-top: 2rem; color: #d6e2f2; font-size: 1.0625rem; line-height: 1.85; }
+.home-statement__message span { color: var(--accent); }
+.home-statement__description { max-width: 29rem; margin-top: 2rem; color: var(--ink); font-size: 1.0625rem; line-height: 1.85; }
 .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.75rem; margin-top: 2rem; }
-.hero-actions .text-link:hover { color: white; }
+.hero-actions .text-link:hover { color: var(--accent); }
 .home-statement__scope { margin-top: 3.5rem; }
-.home-statement__scope ul { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; padding: 0; margin: 0; list-style: none; color: #d6e2f2; font-size: .875rem; }
+.home-statement__scope ul { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; padding: 0; margin: 0; list-style: none; color: var(--ink); font-size: .875rem; }
 .home-statement__scope li { padding-right: 1.5rem; border-right: 1px solid rgba(222,235,255,.3); }
 .home-statement__scope li:last-child { border: 0; padding: 0; }
-.hero-detail { position: absolute; top: 8rem; right: 0; width: 24%; aspect-ratio: 3 / 4; overflow: hidden; box-shadow: 0 20px 50px rgba(9,30,61,.24); }
-.hero-detail__image { width: 100%; height: 100%; background: url('/visuals/material-study.webp') 83% center / auto 110%; filter: grayscale(1); animation: image-settle 2.4s var(--ease) both; }
-.hero-detail p { position: absolute; bottom: .75rem; left: .75rem; right: .75rem; padding: .75rem; background: rgba(9,30,61,.85); color: var(--light); font-size: .8125rem; }
-.hero-detail p span { display: block; font-size: .5625rem; letter-spacing: .08em; margin-top: .25rem; color: #c0d8f6; }
+.hero-caption { margin-top: 2rem; color: var(--ink); font-size: .8125rem; }
+.hero-caption span { display: block; font-size: .5625rem; letter-spacing: .08em; margin-top: .25rem; color: var(--muted); }
 .scroll-cue { position: absolute; right: 0; bottom: 2.5rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
 .scroll-cue span { font-size: .5625rem; letter-spacing: .18em; writing-mode: vertical-rl; color: #c0d1e8; }
 .scroll-cue i { position: relative; width: 1px; height: 3rem; background: rgba(222,235,255,.25); overflow: hidden; }
 .scroll-cue i::after { content: ""; position: absolute; inset: 0; background: var(--light); animation: scroll-line 2.2s ease-in-out infinite; }
 @keyframes scroll-line { 0% {transform:translateY(-100%)} 70%,100% {transform:translateY(100%)} }
-@keyframes image-settle { from {transform:scale(1.12)} to {transform:scale(1)} }
 .home-business { display: grid; grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr); gap: 4rem; }
 .home-business .section-heading-row { display: flex; flex-direction: column; align-items: start; justify-content: start; gap: 1.5rem; }
 .business-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 2rem; }
@@ -237,26 +232,29 @@ html[data-hero-passed="true"] .site-actions, .site-actions:focus-within { transf
   .navigation-toggle, .mobile-navigation { display: none; }
 }
 @media(min-width:64rem) { .phone-link__number { display: inline; } .primary-navigation { gap: 1rem; } }
-@media(max-width:63.999rem) { .hero-detail { right: 0; width: 23%; top: 9rem; } .home-statement__content { max-width: 75%; } }
+/* Below 1280px the original copy/caption loses its safe clearance above the photo strip. */
+@media(width < 1280px) {
+  .home-statement { display: block; aspect-ratio: auto; }
+  .home-statement__image { position: static; }
+}
+@media(max-width:63.999rem) { .home-statement__content { max-width: 75%; } }
 @media(max-width:47.999rem) {
   .site-main, .site-header__inner, .site-footer__inner, .home-section, .home-statement__inner { width: min(100% - 2.5rem, var(--content)); }
   .site-main:has(.home-page), .home-statement, .home-contact { width: 100%; }
   .site-header__inner { min-height: 5.25rem; padding-block: .75rem; }
-  .site-shell:has(.home-page) .site-header { margin-bottom: -5.25rem; }
   .site-shell .site-header:has(.navigation-toggle[aria-expanded="true"]) { margin-bottom: 0; }
   .site-identity { font-size: 1.125rem; }
-  .home-statement { min-height: 38rem; }
-  .home-statement__inner { padding-block: 8rem 2rem; }
+  .home-statement__image { position: absolute; top: 50%; bottom: auto; transform: translateY(-50%); }
+  /* Preserve the original content-driven Hero height while centering the photo. */
+  .home-statement__inner { padding-block: 2rem calc(100vw * 146 / 1672 + 1.5rem); }
   .home-statement__content { max-width: 100%; }
-  .home-statement__image { background-position: 61% center; }
-  .home-statement::after { background: rgba(9,30,61,.76); }
   .home-statement__message { font-size: clamp(2rem,7.8vw,3rem); }
   .home-statement__description { font-size: 1rem; margin-top: 1.5rem; }
   .hero-actions { gap: 1rem; margin-top: 1.5rem; }
   .home-statement__scope { margin-top: 2rem; }
   .home-statement__scope ul { gap: .5rem 1rem; font-size: .75rem; }
   .home-statement__scope li { padding-right: 0; border: 0; }
-  .hero-detail, .scroll-cue { display: none; }
+  .hero-caption, .scroll-cue { display: none; }
   .home-business, .product-overview, .home-contact { grid-template-columns: minmax(0,1fr); gap: 2.5rem; }
   .home-company-details > div:last-child { grid-column: 1/-1; }
   .home-contact { padding-inline: 1.25rem; }

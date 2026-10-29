@@ -67,6 +67,7 @@ for (const width of [320, 390, 768, 1280]) {
     if (width < 768) {
       const main = page.getByRole("main");
       const closedMain = await main.boundingBox();
+      const closedHeader = await header.boundingBox();
       await phone.focus();
       await expect(phone).toHaveCSS("outline-style", "solid");
       await page.keyboard.press("Tab");
@@ -77,8 +78,13 @@ for (const width of [320, 390, 768, 1280]) {
       await expect(menu).toBeVisible();
       const menuBox = await menu.boundingBox();
       const openMain = await main.boundingBox();
-      if (!closedMain || !menuBox || !openMain) throw new Error("Missing layout boxes");
-      expect(openMain.y - closedMain.y).toBeGreaterThanOrEqual(menuBox.height);
+      const openHeader = await header.boundingBox();
+      if (!closedMain || !menuBox || !openMain || !closedHeader || !openHeader)
+        throw new Error("Missing layout boxes");
+      // With Home's former Header overlap removed, main follows the actual
+      // Header expansion (the first row can redistribute its min-height space).
+      expect(openMain.y).toBeGreaterThan(closedMain.y);
+      expect(openMain.y - closedMain.y).toBeCloseTo(openHeader.height - closedHeader.height, 1);
       expect(openMain.y).toBeGreaterThanOrEqual(menuBox.y + menuBox.height);
       await page.screenshot({ path: testInfo.outputPath(`after-${width}-menu.png`) });
       await page.keyboard.press("Tab");

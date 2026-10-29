@@ -1,3 +1,29 @@
+# TASK-027: Approved factory Hero — verified, awaiting Git review
+
+2026-10-29: user explicitly approved the current PC/mobile UI and requested tests followed by commit/push if successful. Final mobile UI is the ORIGINAL content-driven Hero height with a vertically centered photo, including the disclosed partial foreground occlusion of the lower five-item strip. PC approval stands; tablet flow stays unchanged. Earlier mobile flow/bottom-alignment/taller-center alternatives are superseded. No further design changes were made during validation.
+
+## Final acceptance and implementation
+
+- [x] One original fog-containing sj_main.png,1672×941,1663715bytes, copied unchanged to public/visuals/sj-main.png. SHA25617d66dca3008b37779eb8de3ff116be47829640554d60b70fa44442ff2626e87. Both Downloads originals and820 user review/ files preserved. Unused task-created public/main-origin copy removed earlier.
+- [x] Existing single Hero/single Image, intrinsic width/height, unoptimized/preload, no source crop/scale distortion/filter/overlay/duplicate. PC>=1280 places full image behind foreground, tablet768..1279 keeps normal flow after copy. Existing fonts, wording, CTA, other sections, metadata, dependencies and Server Component boundaries preserved.
+- [x] Mobile<48rem: absolute image top50%,bottom:auto,translateY(-50%); original inner padding2rem calc(100vw *146/1672 +1.5rem) retained. No grid/negative margin/fixed-height workaround. Hero heights360=408.5,390=411.125,412=413.359375,767=480.203125px exactly match prior height baseline. Foreground can cover part of the photo strip, an explicitly approved visual tradeoff; the image itself remains complete and proportional. Do not claim every source pixel is unobscured.
+- [x] PC/tablet full-page pixels and Hero/copy/photo/Header rectangles equal accepted captures at1920/1366/2560/768 and1279/1280/1281. All11 reviewed sizes have one image request, correct ratio, reachable corners, no horizontal overflow. Mobile photo center equals Hero center; transform is translation only. Both Hero CTA paths and menu/keyboard/skiplink behaviors pass.
+- [x] Existing mobile expectations were updated to the approved center/original-height behavior instead of obsolete bottom/static/no-transform/strip-clearance assumptions. PC strip clearance remains enforced. No test deleted/skipped; no UI source changed during verification (approved-center-source-hashes.json).
+
+## Final verification
+
+Affected E2E32 passed(1.3m), visual/preservation harness covering11 sizes passed, then a NEW independent snapshot standard npm run verify exited0: lint, strict typecheck,18 unit/component tests, production build,114 E2E(3.6m). Snapshot /var/tmp/sj-task027-approved-snapshot-8bmed0kx includes all tracked final inputs plus new PNG/E2E with independent dependencies and unchanged settings. Runtime/test/config/asset inputs match final source; result-only Markdown updates follow validation. Previous114-pass results were not reused for the center UI.
+
+Original worktree npm run verify still fails at review/dodam-review/reference-scripts.js:597 no-this-alias (465 unused idx warning), before later steps. This is a recorded existing user-material limitation, NOT a full-worktree pass. No review/ edits, ignore/config changes or hidden failures. A trailing documentation blank line flagged by diff-check was removed in final documentation cleanup. Final diff-check is clean. Playwright-owned127.0.0.1:3100 used reuseExistingServer:false and stopped after validation.
+
+## Git handoff and retained evidence
+
+User UI approval: confirmed for PC and current mobile center UI, including the disclosed overlap. User authorizes commit/push after successful tests; developer performed NO staging/commit/push/deployment. Separate Git reviewer handles publication after reviewing this result. Baseline HEAD f652b8233f2159d991e14871f853687bf98ca53a. Full report /tmp/sj-company-task027-dev-report.txt; logs/manifests/captures /tmp/sj-company-task027-review/approved-center-*.
+
+Owned next dev preview http://127.0.0.1:3117/ parent PID89637 remains running for Git/production handoff; no user/other-project process touched. Preserve source originals/user review and accepted captures until handoff completes. After explicitly authorized publication plus production confirmation, clean only task-owned preview processes/snapshots/logs/captures/build outputs, checking ownership before shared paths; do not touch shared caches. No next task or circular messaging. Suggested commit: `feat: Home Hero에 공장 이미지와 승인된 반응형 배치 적용`.
+
+---
+
 # TASK-026: Contact mobile number and Home updates — 2026-10-26
 
 ## Final user approval and Git handoff — 2026-10-26
